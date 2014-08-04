@@ -22,6 +22,7 @@ import java.util.logging.Logger;
 
 import javax.measure.Quantity;
 import javax.measure.Unit;
+import javax.measure.function.BiFactory;
 import javax.measure.quantity.Dimensionless;
 import javax.measure.quantity.Information;
 import javax.measure.quantity.InformationRate;
@@ -44,20 +45,17 @@ import org.unitsofmeasurement.impl.enums.unit.*;
  *            The type of the quantity.
  * 
  * @author <a href="mailto:units@catmedia.us">Werner Keil</a>
- * @version 1.4 ($Revision: 473 $), $Date: 2014-07-01 21:26:05 +0200 (Di, 01 Jul 2014) $
+ * @version 0.5 $Date: 2014-08-04 $
  * 
  */
-public abstract class QuantityFactory<Q extends Quantity<Q>>
-	//implements BiFunction<Number, Unit<Q>, Q> // for #JavaME BiFunction reference must be disabled
-{
-
+public abstract class QuantityFactory<Q extends Quantity<Q>> implements
+		BiFactory<Number, Unit<Q>, Q> {
 
 	/**
 	 * Holds the current instances.
 	 */
 	@SuppressWarnings("rawtypes")
-	private static final Map<Class, QuantityFactory> INSTANCES = 
-		new HashMap<Class, QuantityFactory>(); // XXX could use Diamond
+	private static final Map<Class, QuantityFactory> INSTANCES = new HashMap<Class, QuantityFactory>();
 
 	private static final Logger logger = Logger.getLogger(QuantityFactory.class
 			.getName());
@@ -170,9 +168,8 @@ public abstract class QuantityFactory<Q extends Quantity<Q>>
 
 	/**
 	 * The default factory implementation. This factory uses reflection for
-	 * providing a default implementation for every 
-	 * {@link org.unitsofmeasurement.impl.enums.AbstractQuantity}
-	 * sub-types.
+	 * providing a default implementation for every
+	 * {@link org.unitsofmeasurement.impl.enums.AbstractQuantity} sub-types.
 	 * 
 	 * @param <Q>
 	 *            The type of the quantity
@@ -203,22 +200,26 @@ public abstract class QuantityFactory<Q extends Quantity<Q>>
 		}
 
 		@SuppressWarnings("rawtypes")
-		static final Map<Class, Unit> CLASS_TO_METRIC_UNIT = new HashMap<Class, Unit>(); // XXX could use Diamond
+		static final Map<Class, Unit> CLASS_TO_METRIC_UNIT = new HashMap<Class, Unit>(); // XXX
+																							// could
+																							// use
+																							// Diamond
 		static {
-			CLASS_TO_METRIC_UNIT.put(Dimensionless.class, DimensionlessUnit.ONE);
+			CLASS_TO_METRIC_UNIT
+					.put(Dimensionless.class, DimensionlessUnit.ONE);
 			CLASS_TO_METRIC_UNIT.put(Length.class, DistanceUnit.METRE);
 			CLASS_TO_METRIC_UNIT.put(Time.class, TimeUnit.SECOND);
 			CLASS_TO_METRIC_UNIT.put(Information.class, BitUnit.BIT);
-            CLASS_TO_METRIC_UNIT.put(InformationRate.class, BitRateUnit.bps);
-            CLASS_TO_METRIC_UNIT.put(Temperature.class, TemperatureUnit.KELVIN);
+			CLASS_TO_METRIC_UNIT.put(InformationRate.class, BitRateUnit.bps);
+			CLASS_TO_METRIC_UNIT.put(Temperature.class, TemperatureUnit.KELVIN);
 		}
 
 		@Override
 		public Q create(final Number value, final Unit<Q> unit) {
-//			return (Q) Proxy
-//					.newProxyInstance(type.getClassLoader(),
-//							new Class<?>[] { type }, new GenericHandler<Q>(
-//									value, unit));
+			// return (Q) Proxy
+			// .newProxyInstance(type.getClassLoader(),
+			// new Class<?>[] { type }, new GenericHandler<Q>(
+			// value, unit));
 			return null;
 		}
 
