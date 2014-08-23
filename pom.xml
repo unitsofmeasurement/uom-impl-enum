@@ -10,8 +10,7 @@
 		<url>http://code.google.com/p/unitsofmeasure/</url>
 	</organization>
 	<url>http://code.google.com/p/unitsofmeasure/</url>
-	<description>An intial (Spec Lead) draft of a Unit Standard Implementation. 
-Lightweight approach based on Java enums.</description>
+	<description>Lightweight approach based on Java enums.</description>
 	<licenses>
 		<license>
 			<name>Apache 2.0</name>
@@ -21,7 +20,7 @@ Lightweight approach based on Java enums.</description>
 	<parent>
 		<groupId>org.unitsofmeasurement</groupId>
 		<artifactId>unitsofmeasurement-parent</artifactId>
-		<version>0.7-SNAPSHOT</version>
+		<version>0.6.3</version>
 	</parent>
     <scm>
         <url>https://github.com/unitsofmeasurement/unit-impl-enum.git</url>
