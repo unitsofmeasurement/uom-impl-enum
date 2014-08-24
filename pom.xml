@@ -1,15 +1,15 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>org.unitsofmeasurement.impl</groupId>
+	<groupId>tec.uom.impl</groupId>
 	<artifactId>unit-impl-enum</artifactId>
 	<packaging>bundle</packaging>
 	<name>Units of Measurement Enum Implementation</name>
 	<organization>
 		<name>Units of Measurement project</name>
-		<url>http://code.google.com/p/unitsofmeasure/</url>
+		<url>http://unitsofmeasurement.github.io/</url>
 	</organization>
-	<url>http://code.google.com/p/unitsofmeasure/</url>
+	<url>https://github.com/unitsofmeasurement/unit-impl-enum</url>
 	<description>Lightweight approach based on Java enums.</description>
 	<licenses>
 		<license>
@@ -18,9 +18,9 @@
 		</license>
 	</licenses>
 	<parent>
-		<groupId>org.unitsofmeasurement</groupId>
-		<artifactId>unitsofmeasurement-parent</artifactId>
-		<version>0.6.3</version>
+		<groupId>tec.uom</groupId>
+		<artifactId>uom-parent</artifactId>
+		<version>0.7-SNAPSHOT</version>
 	</parent>
     <scm>
         <url>https://github.com/unitsofmeasurement/unit-impl-enum.git</url>
@@ -38,14 +38,6 @@
 		<maven.compile.targetLevel>${jdkVersion}</maven.compile.targetLevel>
 		<maven.compile.sourceLevel>${jdkVersion}</maven.compile.sourceLevel>
 	</properties>
-
-     <repositories>
-        <repository>
-            <id>unitsofmeasurement-github-repo</id>
-            <name>Local repository for Unit-API or other Units of Measurement artifacts we depend on</name>
-            <url>https://github.com/unitsofmeasurement/repository/raw/master</url>
-        </repository>
-    </repositories>
 
 	<dependencies>
 		<dependency>
@@ -92,7 +84,6 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
-				<version>3.1</version>
 				<configuration>
 					<source>${maven.compile.sourceLevel}</source>
 					<target>${maven.compile.targetLevel}</target>
@@ -106,7 +97,6 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-jar-plugin</artifactId>
-				<version>2.3.2</version>
 				<configuration>
 					<archive>
 						<manifest>
@@ -130,11 +120,10 @@
 			<plugin>
 				<groupId>org.apache.felix</groupId>
 				<artifactId>maven-bundle-plugin</artifactId>
-				<version>2.3.5</version>
 				<extensions>true</extensions>
 				<configuration>
 					<instructions>
-						<Export-Package>org.unitsofmeasurement.impl.*</Export-Package>
+						<Export-Package>tec.uom.impl.enums.*</Export-Package>
 						<Private-Package>!*</Private-Package>
 					</instructions>
 				</configuration>
