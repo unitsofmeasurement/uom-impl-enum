@@ -82,7 +82,7 @@ public abstract class AbstractConverter implements UnitConverter {
     }
 
     @Override
-    public List<? extends UnitConverter> getCompoundConverters() {
+    public List<? extends UnitConverter> getConversionSteps() {
         List<AbstractConverter> converters = new ArrayList<AbstractConverter>();
         converters.add(this);
         return converters;
@@ -178,10 +178,10 @@ public abstract class AbstractConverter implements UnitConverter {
         }
 
         @Override
-        public List<UnitConverter> getCompoundConverters() {
+        public List<UnitConverter> getConversionSteps() {
             List<UnitConverter> converters = new ArrayList<UnitConverter>();
-            List<? extends UnitConverter> leftCompound = left.getCompoundConverters();
-            List<? extends UnitConverter> rightCompound = right.getCompoundConverters();
+            List<? extends UnitConverter> leftCompound = left.getConversionSteps();
+            List<? extends UnitConverter> rightCompound = right.getConversionSteps();
             converters.addAll(leftCompound);
             converters.addAll(rightCompound);
             return converters;
