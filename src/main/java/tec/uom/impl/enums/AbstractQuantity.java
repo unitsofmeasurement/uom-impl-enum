@@ -20,7 +20,6 @@ import tec.uom.impl.enums.function.DoubleFactorSupplier;
 
 import javax.measure.Quantity;
 import javax.measure.Unit;
-import javax.measure.function.Nameable;
 
 /**
  * @author Werner Keil
@@ -79,18 +78,16 @@ public abstract class AbstractQuantity<Q extends Quantity<Q>> implements
             result = s.doubleValue();
         }
 
-        String str = getStr(Double.valueOf(result), precision);
-
+        final String str = getStr(Double.valueOf(result), precision);
+        StringBuilder sb;
         switch (show) {
             case NAME:
-                if (u instanceof Nameable) {
-                    StringBuilder sb = new StringBuilder(str);
-                    if (withSpace) sb.append(' ');
-                    return sb.append(((Nameable)u).getName()).toString();
-                }
-                return str;
+                sb = new StringBuilder(str);
+                if (withSpace) sb.append(' ');
+                return sb.append(u.getName()).toString();
+                //return str;
             default:
-                StringBuilder sb = new StringBuilder(str);
+                sb = new StringBuilder(str);
                 if (withSpace) sb.append(' ');
                 return sb.append(u.getSymbol()).toString();
         }
