@@ -59,7 +59,7 @@ public abstract class AbstractConverter implements UnitConverter {
      * @return the concatenation of this converter with that converter.
      */
     public AbstractConverter concatenate(AbstractConverter that) {
-        return (that == IDENTITY) ? this : new Compound(this, that);
+        return (that == IDENTITY) ? this : new Pair(this, that);
     }
 
     @Override
@@ -78,7 +78,7 @@ public abstract class AbstractConverter implements UnitConverter {
 
     @Override
     public UnitConverter concatenate(UnitConverter converter) {
-        return (converter == IDENTITY) ? this : new Compound(this, converter);
+        return (converter == IDENTITY) ? this : new Pair(this, converter);
     }
 
     @Override
@@ -141,9 +141,9 @@ public abstract class AbstractConverter implements UnitConverter {
 
     /**
      * This class represents converters made up of two or more separate
-     * converters (in matrix notation <code>[compound] = [left] x [right]</code>).
+     * converters (in matrix notation <code>[pair] = [left] x [right]</code>).
      */
-    private static final class Compound extends AbstractConverter {
+    private static final class Pair extends AbstractConverter {
 
         /**
          * Holds the first converter.
@@ -156,13 +156,13 @@ public abstract class AbstractConverter implements UnitConverter {
         private UnitConverter right;
 
         /**
-         * Creates a compound converter resulting from the combined
+         * Creates a converter pair from the combined
          * transformation of the specified converters.
          *
          * @param  left the left converter.
          * @param  right the right converter.
          */
-        public Compound(UnitConverter left, UnitConverter right) {
+        public Pair(UnitConverter left, UnitConverter right) {
             this.left = left;
             this.right = right;
         }
@@ -179,17 +179,17 @@ public abstract class AbstractConverter implements UnitConverter {
 
         @Override
         public List<UnitConverter> getConversionSteps() {
-            List<UnitConverter> converters = new ArrayList<UnitConverter>();
+            final List<UnitConverter> steps = new ArrayList<UnitConverter>();
             List<? extends UnitConverter> leftCompound = left.getConversionSteps();
             List<? extends UnitConverter> rightCompound = right.getConversionSteps();
-            converters.addAll(leftCompound);
-            converters.addAll(rightCompound);
-            return converters;
+            steps.addAll(leftCompound);
+            steps.addAll(rightCompound);
+            return steps;
         }
 
         @Override
-        public Compound inverse() {
-            return new Compound(right.inverse(), left.inverse());
+        public Pair inverse() {
+            return new Pair(right.inverse(), left.inverse());
         }
 
         @Override
@@ -200,8 +200,8 @@ public abstract class AbstractConverter implements UnitConverter {
         @Override
         public boolean equals(Object cvtr) {
             if (this == cvtr) return true;
-            if (!(cvtr instanceof Compound)) return false;
-            Compound that = (Compound) cvtr;
+            if (!(cvtr instanceof Pair)) return false;
+            Pair that = (Pair) cvtr;
             return (this.left.equals(that.left)) && (this.right.equals(that.right));
         }
 
