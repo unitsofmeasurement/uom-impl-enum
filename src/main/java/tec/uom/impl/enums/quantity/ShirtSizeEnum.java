@@ -7,6 +7,11 @@ import javax.measure.Unit;
 
 import tec.uom.impl.enums.DescriptiveEnum;
 
+/**
+ * International shirt sizes represented by a Java {@linkplain Enum} implementing {@link Measurement}
+ * @author Werner Keil
+ *
+ */
 public enum ShirtSizeEnum implements Measurement<ShirtSize, Enum>, DescriptiveEnum<ShirtSizeEnum> {
 	XS("X-Small"), S("Small"), M("Medium"), L("Large"), XL("X-Large"), XXL("XX-Large");
 
