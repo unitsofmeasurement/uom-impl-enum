@@ -62,27 +62,27 @@ public enum BitUnit implements Unit<Information>, DoubleFactorSupplier, Descript
         this.multFactor = multF;
     }
 
-    @Override
+    
     public String getSymbol() {
         return name();
     }
 
-    @Override
+    
     public String getDescription() {
         return description;
     }
 
-    @Override
+    
     public double getFactor() {
         return multFactor;
     }
 
-    @Override
+    
 	public Unit<Information> getSystemUnit() {
 		return BIT;
     }
 
-	@Override
+	
 	public String getName() {
 		return name();
 	}
@@ -100,7 +100,7 @@ public enum BitUnit implements Unit<Information>, DoubleFactorSupplier, Descript
         return BIT;
     }
 
-    @Override
+    
     public Map<Unit<?>, Integer> getProductUnits() {
         Map<Unit<?>, Integer> prodUnits = new HashMap<Unit<?>, Integer>();
         prodUnits.put(kb, Integer.valueOf(3));
@@ -115,18 +115,18 @@ public enum BitUnit implements Unit<Information>, DoubleFactorSupplier, Descript
         return prodUnits;
     }
 
-    @Override
+    
     public Unit<Information> shift(double offset) {
         return this;
     }
 
-    @Override
+    
     public Unit<Information> alternate(String symbol) {
         return this;
     }
 
     @SuppressWarnings("unchecked")
-	@Override
+	
     public <T extends Quantity<T>> Unit<T> asType(Class<T> type)
             throws ClassCastException {
         Unit<T> metricUnit = QuantityFactory.getInstance(type).getMetricUnit();
@@ -136,52 +136,52 @@ public enum BitUnit implements Unit<Information>, DoubleFactorSupplier, Descript
               + " is not of parameterized type " + type); //$NON-NLS-1$
     }
 
-    @Override
+    
     public Unit<Information> divide(double divisor) {
         return this;
     }
 
-    @Override
+    
     public Unit<?> divide(Unit<?> that) {
         return this;
     }
 
-    @Override
+    
     public UnitConverter getConverterTo(Unit<Information> that)
             throws UnconvertibleException {
         // currently unused
         return null;
     }
 
-    @Override
+    
     public UnitConverter getConverterToAny(Unit<?> that)
             throws IncommensurableException, UnconvertibleException {
         // currently unused
         return null;
     }
 
-    @Override
+    
     public Dimension getDimension() {
         return SimpleDimension.INSTANCE;
     }
 
-    @Override
+    
     public Unit<?> inverse() {
         return this;
     }
 
-    @Override
+    
     public boolean isCompatible(Unit<?> that) {
         if (that instanceof BitUnit) return true;
         return false;
     }
 
-    @Override
+    
     public Unit<Information> multiply(double factor) {
         return this;
     }
 
-    @Override
+    
     public Unit<?> multiply(Unit<?> that) {
     	if (!(that instanceof BitUnit)) {
     		throw new UnconvertibleException("Incompatible unit");
@@ -191,22 +191,22 @@ public enum BitUnit implements Unit<Information>, DoubleFactorSupplier, Descript
     	return this;
     }
 
-    @Override
+    
     public Unit<?> pow(int n) {
         return this;
     }
 
-    @Override
+    
     public Unit<?> root(int n) {
         return this;
     }
 
-    @Override
+    
     public Unit<Information> transform(UnitConverter operation) {
         return this;
     }
 
-    @Override
+    
     public DescriptiveEnum<BitUnit>[] iValues() {
 		return BitUnit.values();
 	}

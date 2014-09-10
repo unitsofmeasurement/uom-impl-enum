@@ -112,17 +112,17 @@ public enum TemperatureUnit implements Unit<Temperature>, DoubleFactorSupplier,
         return multFactor;
     }
     
-	@Override
+	
 	public String getName() {
 		return namedFor;
 	}
     
-    @Override
+    
 	public Unit<Temperature> getSystemUnit() {
 		return KELVIN;
     }
 
-    @Override
+    
     public Map<? extends Unit<Temperature>, Integer> getProductUnits() {
         Map<Unit<Temperature>, Integer> prodUnits = new HashMap<Unit<Temperature>, Integer>();
         prodUnits.put(KELVIN, Integer.valueOf(2));
@@ -162,7 +162,7 @@ public enum TemperatureUnit implements Unit<Temperature>, DoubleFactorSupplier,
         return model.getDimensionalTransform(thisSystemUnit.getDimension()); //.concatenate(this.getConverterToSI());
     }
 
-    @Override
+    
     public Unit<Temperature> alternate(String s) {
         return this;
     }
@@ -175,12 +175,12 @@ public enum TemperatureUnit implements Unit<Temperature>, DoubleFactorSupplier,
         return this;
     }
 
-    @Override
+    
     public Unit<Temperature> divide(double v) {
         return null;  //To change body of implemented methods use File | Settings | File TemplateBuilder.
     }
 
-    @Override
+    
     public Unit<?> divide(Unit<?> unit) {
         return null;  //To change body of implemented methods use File | Settings | File TemplateBuilder.
     }
@@ -191,7 +191,7 @@ public enum TemperatureUnit implements Unit<Temperature>, DoubleFactorSupplier,
     }
 
     @SuppressWarnings({ "unchecked" })
-	@Override
+	
     public <T extends Quantity<T>> Unit<T> asType(Class<T> tClass) {
         Unit<T> metricUnit = QuantityFactory.getInstance(tClass).getMetricUnit();
          if ((metricUnit == null) || metricUnit.isCompatible(this))
@@ -220,7 +220,7 @@ public enum TemperatureUnit implements Unit<Temperature>, DoubleFactorSupplier,
         return this;
     }
 
-    @Override
+    
     public Unit<Temperature> shift(double v) {
         return this;
     }

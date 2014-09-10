@@ -62,7 +62,6 @@ public abstract class AbstractConverter implements UnitConverter {
         return (that == IDENTITY) ? this : new Pair(this, that);
     }
 
-    @Override
     public boolean isIdentity() {
         return false;
     }
@@ -73,22 +72,18 @@ public abstract class AbstractConverter implements UnitConverter {
     @Override
     public abstract int hashCode();
 
-    @Override
     public abstract AbstractConverter inverse();
 
-    @Override
     public UnitConverter concatenate(UnitConverter converter) {
         return (converter == IDENTITY) ? this : new Pair(this, converter);
     }
 
-    @Override
     public List<? extends UnitConverter> getConversionSteps() {
         List<AbstractConverter> converters = new ArrayList<AbstractConverter>();
         converters.add(this);
         return converters;
     }
 
-    @Override
     public Number convert(Number value) {
         return convert(Double.valueOf(value.doubleValue()));
     }
@@ -131,7 +126,6 @@ public abstract class AbstractConverter implements UnitConverter {
             return 0;
         }
 
-        @Override
         public boolean isLinear() {
             return true;
         }
@@ -165,7 +159,6 @@ public abstract class AbstractConverter implements UnitConverter {
             this.right = right;
         }
 
-        @Override
         public boolean isLinear() {
             return left.isLinear() && right.isLinear();
         }

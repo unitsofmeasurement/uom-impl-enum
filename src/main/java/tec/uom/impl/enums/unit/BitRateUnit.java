@@ -54,7 +54,7 @@ public enum BitRateUnit implements Unit<InformationRate>, DoubleFactorSupplier, 
         this.multFactor = multF;
     }
 
-    @Override
+    
     public String getSymbol() {
         return symbol;
     }
@@ -63,12 +63,12 @@ public enum BitRateUnit implements Unit<InformationRate>, DoubleFactorSupplier, 
         return multFactor;
     }
 
-    @Override
+    
 	public Unit<InformationRate> getSystemUnit() {
 		return bps;
     }
 
-	@Override
+	
 	public String getName() {
 		return name();
 	}
@@ -80,7 +80,7 @@ public enum BitRateUnit implements Unit<InformationRate>, DoubleFactorSupplier, 
         return bps;
     }
 
-    @Override
+    
     public Map<Unit<?>, Integer> getProductUnits() {
         Map<Unit<?>, Integer> prodUnits = new HashMap<Unit<?>, Integer>();
         prodUnits.put(Kbps, Integer.valueOf(3));
@@ -92,12 +92,12 @@ public enum BitRateUnit implements Unit<InformationRate>, DoubleFactorSupplier, 
         return prodUnits;
     }
 
-    @Override
+    
     public Unit<InformationRate> shift(double offset) {
         return this;
     }
 
-    @Override
+    
     public Unit<InformationRate> alternate(String symbol) {
         if (Kbps.name().equals(symbol))
             return K;
@@ -130,7 +130,7 @@ public enum BitRateUnit implements Unit<InformationRate>, DoubleFactorSupplier, 
     }
 
     @SuppressWarnings("unchecked")
-	@Override
+	
     public <T extends Quantity<T>> Unit<T> asType(Class<T> type)
             throws ClassCastException {
         Unit<T> metricUnit = QuantityFactory.getInstance(type).getMetricUnit();
@@ -140,7 +140,7 @@ public enum BitRateUnit implements Unit<InformationRate>, DoubleFactorSupplier, 
               + " is not of parameterized type " + type); //$NON-NLS-1$
     }
 
-    @Override
+    
     public Unit<InformationRate> divide(double divisor) {
         return this;
     }

@@ -126,29 +126,29 @@ public final class TemperatureAmount extends AbstractQuantity<Temperature>
         return showInUnit(u, value, precision, showWith);
     }
 
-	@Override
+
 	public Number getValue() {
 		 return value;
 	}
 
-	@Override
+
 	public Unit<Temperature> getUnit() {
 		 return unit;
 	}
 
-	@Override
+
 	public Quantity<Temperature> multiply(Number that) {
 		return new TemperatureAmount(value.doubleValue() * 
                         that.doubleValue(), unit);
 	}
 	
-	@Override
+
 	public Quantity<?> multiply(Quantity<?> that) {
 		return new TemperatureAmount(value.doubleValue() * 
                 that.getValue().doubleValue(), unit);
 	}
 
-	@Override
+
 	public Quantity<Temperature> inverse() {
 		// TODO Auto-generated method stub
 		return null;
@@ -172,7 +172,7 @@ public final class TemperatureAmount extends AbstractQuantity<Temperature>
 		// }
 	}
 	
-	@Override
+
 	public Quantity<Temperature> to(Unit<Temperature> unit) {
         if (this.unit.equals(unit)) {
             return this;
@@ -190,30 +190,30 @@ public final class TemperatureAmount extends AbstractQuantity<Temperature>
         }
 	}
 
-	@Override
+
 	protected boolean eq(AbstractQuantity<Temperature> dq) {
 		 return eq((TemperatureAmount) dq);
 	}
 
-	@Override
+
 	public Quantity<?> divide(Quantity<?> that) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	@Override
+
 	public Quantity<Temperature> subtract(Quantity<Temperature> that) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	@Override
+
 	public Quantity<Temperature> add(Quantity<Temperature> that) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	@Override
+	
 	public Quantity<Temperature> divide(Number that) {
 		// TODO Auto-generated method stub
 		return null;

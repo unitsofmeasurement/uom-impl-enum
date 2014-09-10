@@ -60,17 +60,17 @@ public enum DistanceUnit implements Unit<Length>, DoubleFactorSupplier, Descript
         return multFactor;
     }
 
-    @Override
+    
 	public Unit<Length> getSystemUnit() {
 		return METRE;
     }
 
-	@Override
+	
 	public String getName() {
 		return name();
 	}
     
-    @Override
+    
     public Map<? extends Unit<Length>, Integer> getProductUnits() {
         Map<Unit<Length>, Integer> prodUnits = new HashMap<Unit<Length>, Integer>();
         prodUnits.put(KILOMETRE, Integer.valueOf(3));
@@ -96,7 +96,7 @@ public enum DistanceUnit implements Unit<Length>, DoubleFactorSupplier, Descript
         return null;
     }
 
-    @Override
+    
     public Unit<Length> alternate(String s) {
         return null;  //To change body of implemented methods use File | Settings | File TemplateBuilder.
     }
@@ -109,12 +109,12 @@ public enum DistanceUnit implements Unit<Length>, DoubleFactorSupplier, Descript
         return this;
     }
 
-    @Override
+    
     public Unit<Length> divide(double v) {
         return null;  //To change body of implemented methods use File | Settings | File TemplateBuilder.
     }
 
-    @Override
+    
     public Unit<?> divide(Unit<?> unit) {
         return null;  //To change body of implemented methods use File | Settings | File TemplateBuilder.
     }
@@ -125,7 +125,7 @@ public enum DistanceUnit implements Unit<Length>, DoubleFactorSupplier, Descript
     }
 
     @SuppressWarnings("unchecked")
-	@Override
+	
     public <T extends Quantity<T>> Unit<T> asType(Class<T> tClass) {
         Unit<T> metricUnit = QuantityFactory.getInstance(tClass).getMetricUnit();
          if ((metricUnit == null) || metricUnit.isCompatible(this))
@@ -154,17 +154,17 @@ public enum DistanceUnit implements Unit<Length>, DoubleFactorSupplier, Descript
         return this;
     }
 
-    @Override
+    
     public Unit<Length> shift(double v) {
         return this;
     }
 
-	@Override
+	
 	public String getDescription() {
 		return description;
 	}
 
-	@Override
+	
 	public DescriptiveEnum<DistanceUnit>[] iValues() {
 		return DistanceUnit.values();
 	}

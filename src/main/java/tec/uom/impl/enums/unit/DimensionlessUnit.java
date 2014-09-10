@@ -56,12 +56,12 @@ public enum DimensionlessUnit implements Unit<Dimensionless>, DoubleFactorSuppli
         return multFactor;
     }
 
-    @Override
+    
 	public Unit<Dimensionless> getSystemUnit() {
 		return ONE;
     }
 
-    @Override
+    
     public Map<? extends Unit<?>, Integer> getProductUnits() {
         Map<Unit<Dimensionless>, Integer> prodUnits = new HashMap<Unit<Dimensionless>, Integer>();
         prodUnits.put(ONE, Integer.valueOf(1));
@@ -84,12 +84,12 @@ public enum DimensionlessUnit implements Unit<Dimensionless>, DoubleFactorSuppli
         return null;
     }
 
-    @Override
+    
     public Unit<Dimensionless> alternate(String s) {
         return null;  //To change body of implemented methods use File | Settings | File TemplateBuilder.
     }
 
-	@Override
+	
 	public String getName() {
 		return name();
 	}
@@ -102,12 +102,12 @@ public enum DimensionlessUnit implements Unit<Dimensionless>, DoubleFactorSuppli
         return this;
     }
 
-    @Override
+    
     public Unit<Dimensionless> divide(double v) {
         return null;  //To change body of implemented methods use File | Settings | File TemplateBuilder.
     }
 
-    @Override
+    
     public Unit<?> divide(Unit<?> unit) {
         return null;  //To change body of implemented methods use File | Settings | File TemplateBuilder.
     }
@@ -118,7 +118,7 @@ public enum DimensionlessUnit implements Unit<Dimensionless>, DoubleFactorSuppli
     }
 
     @SuppressWarnings("unchecked")
-	@Override
+	
     public <T extends Quantity<T>> Unit<T> asType(Class<T> tClass) {
         Unit<T> metricUnit = QuantityFactory.getInstance(tClass).getMetricUnit();
          if ((metricUnit == null) || metricUnit.isCompatible(this))
@@ -147,7 +147,7 @@ public enum DimensionlessUnit implements Unit<Dimensionless>, DoubleFactorSuppli
         return this;
     }
 
-    @Override
+    
     public Unit<Dimensionless> shift(double v) {
         return this;
     }

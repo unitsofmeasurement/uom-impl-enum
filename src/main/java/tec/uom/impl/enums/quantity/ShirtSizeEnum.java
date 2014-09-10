@@ -21,22 +21,22 @@ public enum ShirtSizeEnum implements Measurement<ShirtSize, Enum>, DescriptiveEn
 		description = desc;
 	}
 	
-	@Override
+
 	public Unit<ShirtSize> getUnit() {
 		return SML;
 	}
 
-	@Override
+
 	public Measurement<ShirtSize, Enum> to(Unit<ShirtSize> arg0) {
 		return null;
 	}
 
-	@Override
+
 	public String getDescription() {
 		return description;
 	}
 
-	@Override
+	
 	public DescriptiveEnum<ShirtSizeEnum>[] iValues() {
 		return values();
 	}

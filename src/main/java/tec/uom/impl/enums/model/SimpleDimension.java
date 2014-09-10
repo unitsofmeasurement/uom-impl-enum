@@ -36,27 +36,27 @@ public final class SimpleDimension implements Dimension {
     	return INSTANCE;
     }
 
-    @Override
+   
     public Dimension multiply(Dimension dimension) {
         return this;
     }
 
-    @Override
+   
     public Dimension divide(Dimension dimension) {
         return this;
     }
 
-    @Override
+   
     public Dimension pow(int i) {
         return this;
     }
 
-    @Override
+   
     public Dimension root(int i) {
         return this;
     }
 
-    @Override
+   
     public Map<? extends Dimension, Integer> getProductDimensions() {
         Map<Dimension, Integer> products = new HashMap<Dimension, Integer>();
         products.put(this, Integer.valueOf(1));

@@ -49,17 +49,17 @@ public enum ShirtSizeUnit implements Unit<ShirtSize>, DescriptiveEnum<ShirtSizeU
         return symbol;
     }
 
-    @Override
+    
 	public Unit<ShirtSize> getSystemUnit() {
 		return null;
     }
 
-	@Override
+	
 	public String getName() {
 		return name();
 	}
     
-    @Override
+    
     public Map<? extends Unit<ShirtSize>, Integer> getProductUnits() {
         Map<Unit<ShirtSize>, Integer> prodUnits = new HashMap<Unit<ShirtSize>, Integer>();
         prodUnits.put(SML, Integer.valueOf(1));
@@ -85,7 +85,7 @@ public enum ShirtSizeUnit implements Unit<ShirtSize>, DescriptiveEnum<ShirtSizeU
         return null;
     }
 
-    @Override
+    
     public Unit<ShirtSize> alternate(String s) {
         return null;  //To change body of implemented methods use File | Settings | File TemplateBuilder.
     }
@@ -98,12 +98,12 @@ public enum ShirtSizeUnit implements Unit<ShirtSize>, DescriptiveEnum<ShirtSizeU
         return this;
     }
 
-    @Override
+    
     public Unit<ShirtSize> divide(double v) {
         return null;  //To change body of implemented methods use File | Settings | File TemplateBuilder.
     }
 
-    @Override
+    
     public Unit<?> divide(Unit<?> unit) {
         return null;  //To change body of implemented methods use File | Settings | File TemplateBuilder.
     }
@@ -114,7 +114,7 @@ public enum ShirtSizeUnit implements Unit<ShirtSize>, DescriptiveEnum<ShirtSizeU
     }
 
     @SuppressWarnings("unchecked")
-	@Override
+	
     public <T extends Quantity<T>> Unit<T> asType(Class<T> tClass) {
         Unit<T> metricUnit = QuantityFactory.getInstance(tClass).getMetricUnit();
          if ((metricUnit == null) || metricUnit.isCompatible(this))
@@ -143,17 +143,17 @@ public enum ShirtSizeUnit implements Unit<ShirtSize>, DescriptiveEnum<ShirtSizeU
         return this;
     }
 
-    @Override
+    
     public Unit<ShirtSize> shift(double v) {
         return this;
     }
 
-	@Override
+	
 	public String getDescription() {
 		return description;
 	}
 
-	@Override
+	
 	public DescriptiveEnum<ShirtSizeUnit>[] iValues() {
 		return ShirtSizeUnit.values();
 	}

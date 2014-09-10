@@ -47,7 +47,7 @@ public class TimeAmount extends AbstractQuantity<Time> implements Time {
         else scalar = NaN;        
     }
 
-    @Override
+    
     public boolean isZero() {
         return (value != null) && 0d==(value.doubleValue());
     }
@@ -96,12 +96,12 @@ public class TimeAmount extends AbstractQuantity<Time> implements Time {
         return new TimeAmount(value.doubleValue() * (this.unit.getFactor() / newUnit.getFactor()), newUnit);
     }
 
-    @Override
+    
     public Number getScalar() {
         return scalar;
     }
 
-    @Override
+    
     public String toString(boolean withUnit, boolean withSpace, int precision) {
         final StringBuilder sb = new StringBuilder();
     	sb.append(getValue());
@@ -112,27 +112,27 @@ public class TimeAmount extends AbstractQuantity<Time> implements Time {
     	return sb.toString();
     }
 
-    @Override
+    
     public String showInUnit(Unit<?> u, int precision, SimpleFormat.Show showWith) {
         return showInUnit(u, value, precision, showWith);
     }
 
-	@Override
+	
 	public Number getValue() {
 		 return value;
 	}
 
-	@Override
+	
 	public Unit<Time> getUnit() {
 		 return unit;
 	}
 
-	@Override
+	
 	public Quantity<Time> multiply(Number that) {
 		return new TimeAmount(value.doubleValue() * that.doubleValue(), unit);
 	}
 
-	@Override
+	
 	public Quantity<Time> to(Unit<Time> unit) {
 		if (unit instanceof TimeUnit) {
         	return convert((TimeUnit)unit);
@@ -141,42 +141,42 @@ public class TimeAmount extends AbstractQuantity<Time> implements Time {
         }
 	}
 
-	@Override
+	
 	public boolean eq(AbstractQuantity<Time> dq) {
 		 return eq((TimeAmount) dq);
 	}
 
-	@Override
+	
 	public Quantity<?> divide(Quantity<?> that) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	@Override
+	
 	public Quantity<Time> subtract(Quantity<Time> that) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	@Override
+	
 	public Quantity<Time> add(Quantity<Time> that) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	@Override
+	
 	public Quantity<Time> divide(Number that) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	@Override
+	
 	public Quantity<Time> inverse() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	@Override
+	
 	public Quantity<?> multiply(Quantity<?> that) {
 		return new TimeAmount(value.doubleValue() * that.getValue().doubleValue(), unit);
 	}

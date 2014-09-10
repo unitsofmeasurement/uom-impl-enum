@@ -48,12 +48,12 @@ public enum TimeUnit implements Unit<Time>, DoubleFactorSupplier {
         this.multFactor = multF;
     }
 
-    @Override
+    
     public String getSymbol() {
         return symbol;
     }
 
-	@Override
+	
 	public String getName() {
 		return name();
 	}
@@ -62,12 +62,12 @@ public enum TimeUnit implements Unit<Time>, DoubleFactorSupplier {
         return multFactor;
     }
 
-    @Override
+    
 	public Unit<Time> getSystemUnit() {
 		return SECOND;
     }
 
-    @Override
+    
     public Map<? extends Unit<?>, Integer> getProductUnits() {
         Map<Unit<Time>, Integer> prodUnits = new HashMap<Unit<Time>, Integer>();
         prodUnits.put(HOUR, Integer.valueOf(2));
@@ -96,7 +96,7 @@ public enum TimeUnit implements Unit<Time>, DoubleFactorSupplier {
         return null;
     }
 
-    @Override
+    
     public Unit<Time> alternate(String s) {
         return this;
     }
@@ -109,12 +109,12 @@ public enum TimeUnit implements Unit<Time>, DoubleFactorSupplier {
         return this;
     }
 
-    @Override
+    
     public Unit<Time> divide(double v) {
         return null;  //To change body of implemented methods use File | Settings | File TemplateBuilder.
     }
 
-    @Override
+    
     public Unit<?> divide(Unit<?> unit) {
         return null;  //To change body of implemented methods use File | Settings | File TemplateBuilder.
     }
@@ -125,7 +125,7 @@ public enum TimeUnit implements Unit<Time>, DoubleFactorSupplier {
     }
 
     @SuppressWarnings("unchecked")
-	@Override
+	
     public <T extends Quantity<T>> Unit<T> asType(Class<T> tClass) {
         Unit<T> metricUnit = QuantityFactory.getInstance(tClass).getMetricUnit();
          if ((metricUnit == null) || metricUnit.isCompatible(this))
@@ -154,7 +154,7 @@ public enum TimeUnit implements Unit<Time>, DoubleFactorSupplier {
         return this;
     }
 
-    @Override
+    
     public Unit<Time> shift(double v) {
         return this;
     }
