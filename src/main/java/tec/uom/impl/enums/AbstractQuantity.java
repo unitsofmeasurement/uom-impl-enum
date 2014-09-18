@@ -26,7 +26,7 @@ import javax.measure.Unit;
  * @version 1.10 ($Revision: 450 $), $Date: 2014-04-03 03:37:47 +0200 (Do, 03 Apr 2014) $
  */
 public abstract class AbstractQuantity<Q extends Quantity<Q>> implements 
-	Quantity<Q> {
+	Quantity<Q>, Comparable<Quantity<Q>> {
 
     protected abstract Number getScalar();
 

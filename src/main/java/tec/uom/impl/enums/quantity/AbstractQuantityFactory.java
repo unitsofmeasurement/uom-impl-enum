@@ -45,11 +45,11 @@ import tec.uom.impl.enums.unit.*;
  *            The type of the quantity.
  * 
  * @author <a href="mailto:units@catmedia.us">Werner Keil</a>
- * @version 0.5 $Date: 2014-08-04 $
+ * @version 0.6 $Date: 2014-09-18 $
  * 
  */
 public abstract class AbstractQuantityFactory<Q extends Quantity<Q>> implements
-		QuantityFactory<Number, Unit<Q>, Q> {
+		QuantityFactory<Q> {
 
 	/**
 	 * Holds the current instances.
@@ -150,13 +150,13 @@ public abstract class AbstractQuantityFactory<Q extends Quantity<Q>> implements
 	 * Returns the quantity for the specified number stated in the specified
 	 * unit.
 	 * 
-	 * @param value
-	 *            the value stated in the specified unit
+	 * @param number
+	 *            the numeric value stated in the specified unit
 	 * @param unit
 	 *            the unit
 	 * @return the corresponding quantity
 	 */
-	public abstract Q create(Number value, Unit<Q> unit);
+	 public abstract <N extends Number, U extends Unit<Q>> Q create(N number, U unit);
 
 	/**
 	 * Returns the metric unit for quantities produced by this factory or
@@ -215,7 +215,7 @@ public abstract class AbstractQuantityFactory<Q extends Quantity<Q>> implements
 		}
 
 		@Override
-		public Q create(final Number value, final Unit<Q> unit) {
+		public <N extends Number, U extends Unit<Q>> Q create(N number, U unit) {
 			// return (Q) Proxy
 			// .newProxyInstance(type.getClassLoader(),
 			// new Class<?>[] { type }, new GenericHandler<Q>(
