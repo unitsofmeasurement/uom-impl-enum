@@ -19,6 +19,7 @@ import tec.uom.impl.enums.AbstractQuantity;
 import tec.uom.impl.enums.format.SimpleFormat;
 import tec.uom.impl.enums.unit.TemperatureUnit;
 
+import javax.measure.Measurement;
 import javax.measure.Quantity;
 import javax.measure.UnconvertibleException;
 import javax.measure.Unit;
@@ -27,7 +28,7 @@ import javax.measure.quantity.Temperature;
 
 /**
  * @author Werner Keil
- * @version 0.7, $Date: 2014-08-03 $
+ * @version 0.7.1, $Date: 2014-09-18 $
  */
 public final class TemperatureAmount extends AbstractQuantity<Temperature> 
   implements Temperature {
@@ -217,5 +218,15 @@ public final class TemperatureAmount extends AbstractQuantity<Temperature>
 	public Quantity<Temperature> divide(Number that) {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	public int compareTo(Measurement<Temperature> o) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	public int compareTo(Quantity<Temperature> o) {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 }

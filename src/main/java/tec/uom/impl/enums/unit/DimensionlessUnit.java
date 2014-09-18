@@ -20,7 +20,7 @@ package tec.uom.impl.enums.unit;
 
 import tec.uom.impl.enums.function.DoubleFactorSupplier;
 import tec.uom.impl.enums.model.SimpleDimension;
-import tec.uom.impl.enums.quantity.QuantityFactory;
+import tec.uom.impl.enums.quantity.AbstractQuantityFactory;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -120,7 +120,7 @@ public enum DimensionlessUnit implements Unit<Dimensionless>, DoubleFactorSuppli
     @SuppressWarnings("unchecked")
 	
     public <T extends Quantity<T>> Unit<T> asType(Class<T> tClass) {
-        Unit<T> metricUnit = QuantityFactory.getInstance(tClass).getMetricUnit();
+        Unit<T> metricUnit = AbstractQuantityFactory.getInstance(tClass).getMetricUnit();
          if ((metricUnit == null) || metricUnit.isCompatible(this))
           return (Unit<T>) this;
            throw new ClassCastException("The unit: " + this //$NON-NLS-1$

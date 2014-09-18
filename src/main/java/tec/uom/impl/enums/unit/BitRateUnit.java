@@ -19,7 +19,7 @@ import static tec.uom.impl.enums.unit.Constants.*;
 import tec.uom.impl.enums.DescriptiveEnum;
 import tec.uom.impl.enums.function.DoubleFactorSupplier;
 import tec.uom.impl.enums.model.SimpleDimension;
-import tec.uom.impl.enums.quantity.QuantityFactory;
+import tec.uom.impl.enums.quantity.AbstractQuantityFactory;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -133,7 +133,7 @@ public enum BitRateUnit implements Unit<InformationRate>, DoubleFactorSupplier, 
 	
     public <T extends Quantity<T>> Unit<T> asType(Class<T> type)
             throws ClassCastException {
-        Unit<T> metricUnit = QuantityFactory.getInstance(type).getMetricUnit();
+        Unit<T> metricUnit = AbstractQuantityFactory.getInstance(type).getMetricUnit();
         if ((metricUnit == null) || metricUnit.isCompatible(this))
          return (Unit<T>) this;
           throw new ClassCastException("The unit: " + this //$NON-NLS-1$

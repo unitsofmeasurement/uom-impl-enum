@@ -20,13 +20,14 @@ import tec.uom.impl.enums.AbstractQuantity;
 import tec.uom.impl.enums.format.SimpleFormat;
 import tec.uom.impl.enums.unit.TimeUnit;
 
+import javax.measure.Measurement;
 import javax.measure.Quantity;
 import javax.measure.Unit;
 import javax.measure.quantity.Time;
 
 /**
  * @author Werner Keil
- * @version 0.6, $Date: 2014-08-03 $
+ * @version 0.6.1, $Date: 2014-09-18 $
  */
 public class TimeAmount extends AbstractQuantity<Time> implements Time {
    private final double scalar; // value in reference unit
@@ -34,9 +35,6 @@ public class TimeAmount extends AbstractQuantity<Time> implements Time {
    private final Double value; // value in unit (Unit unit)
 
    private final TimeUnit unit;
-
-//    TimeQuantity(){
-//    }
 
     public TimeAmount(Double val, TimeUnit un) {
         value = val;
@@ -179,5 +177,17 @@ public class TimeAmount extends AbstractQuantity<Time> implements Time {
 	
 	public Quantity<?> multiply(Quantity<?> that) {
 		return new TimeAmount(value.doubleValue() * that.getValue().doubleValue(), unit);
+	}
+
+
+	public int compareTo(Measurement<Time> o) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+
+	public int compareTo(Quantity<Time> o) {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 }

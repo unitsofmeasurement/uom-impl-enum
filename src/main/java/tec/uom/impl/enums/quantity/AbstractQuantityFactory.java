@@ -22,7 +22,7 @@ import java.util.logging.Logger;
 
 import javax.measure.Quantity;
 import javax.measure.Unit;
-import javax.measure.function.BiFactory;
+import javax.measure.function.QuantityFactory;
 import javax.measure.quantity.Dimensionless;
 import javax.measure.quantity.Information;
 import javax.measure.quantity.InformationRate;
@@ -37,8 +37,8 @@ import tec.uom.impl.enums.unit.*;
  * {@link Unit}).
  * 
  * For example:<br>
- * <code>Mass m = QuantityFactory.getInstance(Mass.class).create(23.0, KILOGRAM); // 23.0 kg<br>
- * Time m = QuantityFactory.getInstance(Time.class).create(124, MILLI(SECOND));
+ * <code>Mass m = AbstractQuantityFactory.getInstance(Mass.class).create(23.0, KILOGRAM); // 23.0 kg<br>
+ * Time m = AbstractQuantityFactory.getInstance(Time.class).create(124, MILLI(SECOND));
  * // 124 ms </code>
  * 
  * @param <Q>
@@ -48,16 +48,16 @@ import tec.uom.impl.enums.unit.*;
  * @version 0.5 $Date: 2014-08-04 $
  * 
  */
-public abstract class QuantityFactory<Q extends Quantity<Q>> implements
-		BiFactory<Number, Unit<Q>, Q> {
+public abstract class AbstractQuantityFactory<Q extends Quantity<Q>> implements
+		QuantityFactory<Number, Unit<Q>, Q> {
 
 	/**
 	 * Holds the current instances.
 	 */
 	@SuppressWarnings("rawtypes")
-	private static final Map<Class, QuantityFactory> INSTANCES = new HashMap<Class, QuantityFactory>();
+	private static final Map<Class, AbstractQuantityFactory> INSTANCES = new HashMap<Class, AbstractQuantityFactory>();
 
-	private static final Logger logger = Logger.getLogger(QuantityFactory.class
+	private static final Logger logger = Logger.getLogger(AbstractQuantityFactory.class
 			.getName());
 
 	private static final Level LOG_LEVEL = Level.FINE;
@@ -72,11 +72,11 @@ public abstract class QuantityFactory<Q extends Quantity<Q>> implements
 	 * @return the quantity factory for the specified type
 	 */
 	@SuppressWarnings("unchecked")
-	public static <Q extends Quantity<Q>> QuantityFactory<Q> getInstance(
+	public static <Q extends Quantity<Q>> AbstractQuantityFactory<Q> getInstance(
 			final Class<Q> type) {
 
 		logger.log(LOG_LEVEL, "Type: " + type + ": " + type.isInterface());
-		QuantityFactory<Q> factory;
+		AbstractQuantityFactory<Q> factory;
 		if (!type.isInterface()) {
 			if (type != null && type.getInterfaces() != null
 					& type.getInterfaces().length > 0) {
@@ -136,7 +136,7 @@ public abstract class QuantityFactory<Q extends Quantity<Q>> implements
 	 */
 	@SuppressWarnings("rawtypes")
 	protected static <Q extends Quantity> void setInstance(final Class<Q> type,
-			QuantityFactory factory) {
+			AbstractQuantityFactory factory) {
 		if (!Quantity.class.isAssignableFrom(type))
 			// This exception is not documented because it should never happen
 			// if the
@@ -175,7 +175,7 @@ public abstract class QuantityFactory<Q extends Quantity<Q>> implements
 	 *            The type of the quantity
 	 */
 	private static final class Default<Q extends Quantity<Q>> extends
-			QuantityFactory<Q> {
+			AbstractQuantityFactory<Q> {
 
 		/**
 		 * The type of the quantities created by this factory.
