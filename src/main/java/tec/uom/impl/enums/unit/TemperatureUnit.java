@@ -192,12 +192,12 @@ public enum TemperatureUnit implements Unit<Temperature>, DoubleFactorSupplier,
 
     @SuppressWarnings({ "unchecked" })
 	
-    public <T extends Quantity<T>> Unit<T> asType(Class<T> tClass) {
-        Unit<T> metricUnit = AbstractQuantityFactory.getInstance(tClass).getMetricUnit();
+    public final <T extends Quantity<T>> Unit<T> asType(Class<T> type) {
+        Unit<T> metricUnit = AbstractQuantityFactory.getInstance(type).getMetricUnit();
          if ((metricUnit == null) || metricUnit.isCompatible(this))
           return (Unit<T>) this;
            throw new ClassCastException("The unit: " + this //$NON-NLS-1$
-               + " is not of parameterized type " + tClass); //$NON-NLS-1$
+               + " is not of parameterized type " + type); //$NON-NLS-1$
     }
 
     public Unit<Temperature> multiply(double factor) {

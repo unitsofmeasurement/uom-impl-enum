@@ -5,6 +5,7 @@
 	<artifactId>uom-impl-enum</artifactId>
 	<packaging>bundle</packaging>
 	<name>Units of Measurement Enum Implementation</name>
+        <version>0.7</version>
 	<organization>
 		<name>Units of Measurement project</name>
 		<url>http://unitsofmeasurement.github.io/</url>
@@ -72,7 +73,7 @@
 			<dependency>
 				<groupId>javax.measure</groupId>
 				<artifactId>unit-api</artifactId>
-				<version>${jsr.version}</version>
+				<version>0.7</version>
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
