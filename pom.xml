@@ -3,9 +3,8 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>tec.uom.impl</groupId>
 	<artifactId>uom-impl-enum</artifactId>
-	<packaging>bundle</packaging>
+	<!--  <packaging>bundle</packaging> -->
 	<name>Units of Measurement Enum Implementation</name>
-        <version>0.7</version>
 	<organization>
 		<name>Units of Measurement project</name>
 		<url>http://unitsofmeasurement.github.io/</url>

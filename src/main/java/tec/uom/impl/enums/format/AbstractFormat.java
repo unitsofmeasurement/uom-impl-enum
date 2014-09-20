@@ -16,9 +16,6 @@
 package tec.uom.impl.enums.format;
 
 import java.io.IOException;
-import java.text.FieldPosition;
-import java.text.Format;
-import java.text.ParsePosition;
 import java.util.Locale;
 
 import javax.measure.Unit;
@@ -49,14 +46,14 @@ import javax.measure.format.UnitFormat;
  * </p>
  * 
  * @author <a href="mailto:werner.keil@gmail.com">Werner Keil</a>
- * @version 1.4 ($Revision: 447 $), $Date: 2014-03-20 02:26:16 +0100 (Do, 20 Mär 2014) $
+ * @version 0.5 $Date: 2014-09-20 $
  * @see <a href="http://unitsofmeasure.org">Unified Code of Measure (UCUM)</a>
  */
-abstract class AbstractFormat extends Format implements UnitFormat {
+abstract class AbstractFormat implements UnitFormat {
 	// TODO for #JavaME don't use java.text
 
 	/** The serialVersionUID */
-	private static final long serialVersionUID = 7765623276257908888L;
+	//private static final long serialVersionUID = 7765623276257908888L;
 
 	/**
 	 * Returns the unit format for the default locale.
@@ -114,10 +111,10 @@ abstract class AbstractFormat extends Format implements UnitFormat {
 	 *             if any problem occurs while parsing the specified character
 	 *             sequence (e.g. illegal syntax).
 	 */
-	public Unit<?> parse(CharSequence csq, ParsePosition cursor)
-			throws IllegalArgumentException {
-		throw new UnsupportedOperationException("Not supported yet.");
-	}
+//	public Unit<?> parse(CharSequence csq, ParsePosition cursor)
+//			throws IllegalArgumentException {
+//		throw new UnsupportedOperationException("Not supported yet.");
+//	}
 
 	/**
 	 * Parses the specified character sequence to produce a unit (convenience
@@ -133,15 +130,13 @@ abstract class AbstractFormat extends Format implements UnitFormat {
 	 */
 	public final Unit<?> parse(CharSequence csq)
 			throws IllegalArgumentException {
-		return parse(csq, null);
+		return parse(csq);
 	}
 
-	@Override
-	public final StringBuffer format(Object obj, final StringBuffer toAppendTo,
-			FieldPosition pos) {
+	public final StringBuffer format(Object obj, final StringBuffer toAppendTo) {
 		if (!(obj instanceof Unit<?>))
 			throw new IllegalArgumentException("obj: Not an instance of Unit"); //$NON-NLS-1$
-		if ((toAppendTo == null) || (pos == null))
+		if ((toAppendTo == null))
 			throw new NullPointerException(); // Format contract.
 		try {
 			return (StringBuffer) format((Unit<?>) obj, (Appendable) toAppendTo);
@@ -150,10 +145,9 @@ abstract class AbstractFormat extends Format implements UnitFormat {
 		}
 	}
 
-	@Override
-	public final Unit<?> parseObject(String source, ParsePosition pos) {
+	public final Unit<?> parseObject(String source) {
 		try {
-			return parse(source, pos);
+			return parse(source);
 		} catch (IllegalArgumentException e) {
 			return null; // Unfortunately the message why the parsing failed
 		} // is lost; but we have to follow the Format spec.
