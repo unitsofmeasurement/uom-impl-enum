@@ -15,7 +15,7 @@
  */
 package tec.uom.impl.enums.unit;
 
-class Constants {
+abstract class Constants {
 	static final char DEG = '\u00B0';
 	
 	static final double BYTE_FACTOR = 8.0;
