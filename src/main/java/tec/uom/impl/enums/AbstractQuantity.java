@@ -50,6 +50,30 @@ public abstract class AbstractQuantity<Q extends Quantity<Q>> implements
         return toString(withUnit, withSpace, 0);
     }
 
+    /**
+     * Casts this quantity to a parameterized quantity of specified nature or throw a
+     * <code>ClassCastException</code> if the dimension of the specified
+     * quantity and its unit's dimension do not match. For
+     * example:<br/><code>
+     *     Quantity<Length> length = BaseQuantity.of("2 km").asType(Length.class);
+     * </code>
+     *
+     * @param type the quantity class identifying the nature of the measure.
+     * @return this measure parameterized with the specified type.
+     * @throws ClassCastException if the dimension of this unit is different
+     *         from the specified quantity dimension.
+     * @throws UnsupportedOperationException
+     *             if the specified quantity class does not have a public static
+     *             field named "UNIT" holding the SI unit for the quantity.
+     * @see Unit#asType(Class)
+     */
+    @SuppressWarnings("unchecked")
+    public final <T extends Quantity<T>> AbstractQuantity<T> asType(Class<T> type)
+            throws ClassCastException {
+        this.getUnit().asType(type); // Raises ClassCastException if dimension mismatches.
+        return (AbstractQuantity<T>) this;
+    }
+    
     protected String toString(boolean withSpace) {
         return toString(true, withSpace);
     }

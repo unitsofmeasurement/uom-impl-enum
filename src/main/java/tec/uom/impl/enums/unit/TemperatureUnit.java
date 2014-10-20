@@ -16,12 +16,12 @@
 package tec.uom.impl.enums.unit;
 
 import static tec.uom.impl.enums.unit.Constants.DEG;
+import tec.uom.impl.enums.AbstractQuantityFactory;
 import tec.uom.impl.enums.function.AbstractConverter;
 import tec.uom.impl.enums.function.DescriptionSupplier;
 import tec.uom.impl.enums.function.DoubleFactorSupplier;
 import tec.uom.impl.enums.model.DimensionalModel;
 import tec.uom.impl.enums.model.SimpleDimension;
-import tec.uom.impl.enums.quantity.AbstractQuantityFactory;
 
 import java.util.HashMap;
 import java.util.Map;
