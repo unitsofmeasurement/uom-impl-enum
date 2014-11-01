@@ -10,11 +10,11 @@
 		<url>http://unitsofmeasurement.github.io/</url>
 	</organization>
 	<url>https://github.com/unitsofmeasurement/unit-impl-enum</url>
-	<description>Lightweight approach based on Java enums.</description>
+	<description>Lightweight approach based on Java Enums.</description>
 	<licenses>
 		<license>
-			<name>Apache 2.0</name>
-			<url>LICENSE</url>
+			<name>BSD</name>
+			<url>LICENSE.txt</url>
 		</license>
 	</licenses>
 	<parent>
@@ -23,7 +23,7 @@
 		<version>0.7-SNAPSHOT</version>
 	</parent>
     <scm>
-        <url>https://github.com/unitsofmeasurement/unit-impl-enum.git</url>
+        <url>https://github.com/unitsofmeasurement/uom-impl-enum.git</url>
     </scm>
 	
 	<!-- ======================================================= -->
