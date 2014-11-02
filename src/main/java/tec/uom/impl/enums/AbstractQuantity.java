@@ -31,16 +31,17 @@ package tec.uom.impl.enums;
 
 import tec.uom.impl.enums.format.SimpleFormat;
 import tec.uom.impl.enums.function.DoubleFactorSupplier;
+import tec.uom.impl.enums.function.QuantityConverter;
 
 import javax.measure.Quantity;
 import javax.measure.Unit;
 
 /**
  * @author Werner Keil
- * @version 1.10 ($Revision: 450 $), $Date: 2014-04-03 03:37:47 +0200 (Do, 03 Apr 2014) $
+ * @version 0.11, $Date: 2014-11-02 $
  */
 public abstract class AbstractQuantity<Q extends Quantity<Q>> implements 
-	Quantity<Q>, Comparable<Quantity<Q>> {
+	Quantity<Q>, QuantityConverter<Q>, Comparable<Quantity<Q>> {
 
     protected abstract Number getScalar();
 

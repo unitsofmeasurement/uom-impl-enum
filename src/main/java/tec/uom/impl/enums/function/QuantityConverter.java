@@ -27,41 +27,32 @@
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE,
  * EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-package tec.uom.impl.enums.quantity;
-
-import static tec.uom.impl.enums.unit.ShirtSizeUnit.SML;
+package tec.uom.impl.enums.function;
 
 import javax.measure.Measurement;
+import javax.measure.Quantity;
 import javax.measure.Unit;
 
-import tec.uom.impl.enums.DescriptiveEnum;
-import tec.uom.impl.enums.function.UnitSupplier;
-
 /**
- * International shirt sizes represented by a Java {@linkplain Enum} implementing {@link Measurement}
- * @author Werner Keil
+ *  Represents an operation to convert values.
+ * <p>
+ * This is a <a href=
+ * "http://docs.oracle.com/javase/8/docs/api/java/util/function/package-summary.html#package.description"
+ * >functional interface</a> whose functional method is {@link #to()}.
  *
+*  @author <a href="mailto:units@catmedia.us">Werner Keil</a>
+ * @version 0.5, 2014-11-02
+ * @param <Q>
+ *            The type to convert to.
+ * @see <a href="http://en.wikipedia.org/wiki/Data_conversion">Wikipedia: Data Conversion</a>
  */
-public enum ShirtSizeEnum implements DescriptiveEnum<ShirtSizeEnum>, UnitSupplier<ShirtSize> {
-	XS("X-Small"), S("Small"), M("Medium"), L("Large"), XL("X-Large"), XXL("XX-Large");
+//equivalent to @FunctionalInterface
+public interface QuantityConverter<Q extends Quantity<Q>> {
 
-	private final String description;
-	
-	private ShirtSizeEnum(String desc) {
-		description = desc;
-	}
-	
-
-	public Unit<ShirtSize> getUnit() {
-		return SML;
-	}
-
-	public String getDescription() {
-		return description;
-	}
-
-	public DescriptiveEnum<ShirtSizeEnum>[] iValues() {
-		return values();
-	}
-
+    /**
+     * Returns a quantity converted into another unit.
+     * @param type
+     * @return the converted result.
+     */
+    Measurement<Q> to(Unit<Q> type);
 }

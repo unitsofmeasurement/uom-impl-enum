@@ -27,41 +27,32 @@
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE,
  * EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-package tec.uom.impl.enums.quantity;
+package tec.uom.impl.enums.function;
 
-import static tec.uom.impl.enums.unit.ShirtSizeUnit.SML;
-
-import javax.measure.Measurement;
+import javax.measure.Quantity;
 import javax.measure.Unit;
 
-import tec.uom.impl.enums.DescriptiveEnum;
-import tec.uom.impl.enums.function.UnitSupplier;
-
 /**
- * International shirt sizes represented by a Java {@linkplain Enum} implementing {@link Measurement}
+ * Represents a supplier of {@link Unit}-valued results.
+ * 
+ * <p>There is no requirement that a distinct result be returned each
+ * time the supplier is invoked.
+ * 
+ * <p>This is a <a href="http://download.java.net/jdk8/docs/api/java/util/function/package-summary.html">functional interface</a>
+ * whose functional method is {@link #getUnit()}.
+ * 
  * @author Werner Keil
- *
+ * @version 0.4, 2014-11-02
+ * @param <Q>
+ *            The type of the quantity.
+ * @see Unit
  */
-public enum ShirtSizeEnum implements DescriptiveEnum<ShirtSizeEnum>, UnitSupplier<ShirtSize> {
-	XS("X-Small"), S("Small"), M("Medium"), L("Large"), XL("X-Large"), XXL("XX-Large");
-
-	private final String description;
-	
-	private ShirtSizeEnum(String desc) {
-		description = desc;
-	}
-	
-
-	public Unit<ShirtSize> getUnit() {
-		return SML;
-	}
-
-	public String getDescription() {
-		return description;
-	}
-
-	public DescriptiveEnum<ShirtSizeEnum>[] iValues() {
-		return values();
-	}
-
+// equivalent to @FunctionalInterface
+public interface UnitSupplier<Q extends Quantity<Q>> {
+	/**
+	 * Returns the unit of this UnitProvider {@linkplain #getValue() value}.
+	 * 
+	 * @return the unit (can not be {@code null}).
+	 */
+	Unit<Q> getUnit();
 }
