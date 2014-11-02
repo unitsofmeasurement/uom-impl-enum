@@ -51,8 +51,8 @@ import tec.uom.impl.enums.unit.*;
  * {@link Unit}).
  * 
  * For example:<br>
- * <code>Mass m = AbstractQuantityFactory.getInstance(Mass.class).create(23.0, KILOGRAM); // 23.0 kg<br>
- * Time m = AbstractQuantityFactory.getInstance(Time.class).create(124, MILLI(SECOND));
+ * <code>Mass m = TestQuantityFactory.getInstance(Mass.class).create(23.0, KILOGRAM); // 23.0 kg<br>
+ * Time m = TestQuantityFactory.getInstance(Time.class).create(124, MILLI(SECOND));
  * // 124 ms </code>
  * 
  * @param <Q>
