@@ -29,7 +29,7 @@
  */
 package tec.uom.impl.enums;
 
-import tec.uom.impl.enums.format.SimpleFormat;
+import tec.uom.impl.enums.format.UnitStyle;
 import tec.uom.impl.enums.function.DoubleFactorSupplier;
 import tec.uom.impl.enums.function.QuantityConverter;
 
@@ -103,10 +103,10 @@ public abstract class AbstractQuantity<Q extends Quantity<Q>> implements
     }
 
     protected abstract String showInUnit(Unit<?> u, int precision, 
-            SimpleFormat.Show show);
+    		UnitStyle style);
 
     protected String showInUnit(Unit<?> u, Number s, int precision, 
-            SimpleFormat.Show show, boolean withSpace) {
+    		UnitStyle style, boolean withSpace) {
         if (u == null) {
             throw new IllegalArgumentException("Null unit not allowed!");  //$NON-NLS-1$
         }
@@ -119,7 +119,7 @@ public abstract class AbstractQuantity<Q extends Quantity<Q>> implements
 
         final String str = getStr(Double.valueOf(result), precision);
         StringBuilder sb;
-        switch (show) {
+        switch (style) {
             case NAME:
                 sb = new StringBuilder(str);
                 if (withSpace) sb.append(' ');
@@ -133,8 +133,8 @@ public abstract class AbstractQuantity<Q extends Quantity<Q>> implements
     }
     
     protected String showInUnit(Unit<?> u, Double s, int precision, 
-            SimpleFormat.Show showItem) {
-        return showInUnit(u, s, precision, showItem, true);
+    		UnitStyle style) {
+        return showInUnit(u, s, precision, style, true);
     }
 
     /**
@@ -144,7 +144,7 @@ public abstract class AbstractQuantity<Q extends Quantity<Q>> implements
      * @return
      */
     protected String showInUnit(Unit<?> u, int precision) {
-        return showInUnit(u, precision, SimpleFormat.Show.SYMBOL);
+        return showInUnit(u, precision, UnitStyle.SYMBOL);
     }
 
     protected String getStr(Number val, int precision) {

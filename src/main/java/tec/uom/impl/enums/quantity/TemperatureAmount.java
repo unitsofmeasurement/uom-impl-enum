@@ -30,7 +30,7 @@
 package tec.uom.impl.enums.quantity;
 
 import tec.uom.impl.enums.AbstractQuantity;
-import tec.uom.impl.enums.format.SimpleFormat;
+import tec.uom.impl.enums.format.UnitStyle;
 import tec.uom.impl.enums.unit.TemperatureUnit;
 
 import javax.measure.Measurement;
@@ -42,7 +42,7 @@ import javax.measure.quantity.Temperature;
 
 /**
  * @author Werner Keil
- * @version 0.7.1, $Date: 2014-09-18 $
+ * @version 0.7.2, $Date: 2014-11-02 $
  */
 public final class TemperatureAmount extends AbstractQuantity<Temperature> 
   implements Temperature {
@@ -137,8 +137,8 @@ public final class TemperatureAmount extends AbstractQuantity<Temperature>
 
     @Override
     public String showInUnit(Unit<?> u, int precision, 
-            SimpleFormat.Show showWith) {
-        return showInUnit(u, value, precision, showWith);
+    		UnitStyle style) {
+        return showInUnit(u, value, precision, style);
     }
 
 

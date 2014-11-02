@@ -31,7 +31,7 @@ package tec.uom.impl.enums.quantity;
 
 import static java.lang.Double.NaN;
 import tec.uom.impl.enums.AbstractQuantity;
-import tec.uom.impl.enums.format.SimpleFormat;
+import tec.uom.impl.enums.format.UnitStyle;
 import tec.uom.impl.enums.unit.TimeUnit;
 
 import javax.measure.Measurement;
@@ -41,7 +41,7 @@ import javax.measure.quantity.Time;
 
 /**
  * @author Werner Keil
- * @version 0.6.1, $Date: 2014-09-18 $
+ * @version 0.6.2, $Date: 2014-11-02 $
  */
 public class TimeAmount extends AbstractQuantity<Time> implements Time {
    private final double scalar; // value in reference unit
@@ -125,8 +125,8 @@ public class TimeAmount extends AbstractQuantity<Time> implements Time {
     }
 
     
-    public String showInUnit(Unit<?> u, int precision, SimpleFormat.Show showWith) {
-        return showInUnit(u, value, precision, showWith);
+    public String showInUnit(Unit<?> u, int precision, UnitStyle style) {
+        return showInUnit(u, value, precision, style);
     }
 
 	

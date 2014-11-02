@@ -50,15 +50,11 @@ public class SimpleFormat extends AbstractFormat {
     /**
      *
      */
-    private static final long serialVersionUID = -7753687108842507677L;
+    //private static final long serialVersionUID = -7753687108842507677L;
 
     private final Map<String, String> symbolMap = new HashMap<String, String>(); // Diamond (Java 7+)
 
     private static final UnitFormat DEFAULT = new SimpleFormat();
-
-    public static enum Show {
-        SYMBOL, NAME;
-    }
 
     // /////////////////
     // Class methods //
