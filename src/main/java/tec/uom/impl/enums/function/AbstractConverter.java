@@ -32,7 +32,7 @@ package tec.uom.impl.enums.function;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.measure.function.UnitConverter;
+import javax.measure.UnitConverter;
 
 /**
  * <p> The base class for our {@link UnitConverter} physics implementations.</p>

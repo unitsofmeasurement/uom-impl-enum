@@ -34,7 +34,6 @@ import tec.uom.impl.enums.AbstractQuantity;
 import tec.uom.impl.enums.format.UnitStyle;
 import tec.uom.impl.enums.unit.TimeUnit;
 
-import javax.measure.Measurement;
 import javax.measure.Quantity;
 import javax.measure.Unit;
 import javax.measure.quantity.Time;
@@ -153,7 +152,6 @@ public class TimeAmount extends AbstractQuantity<Time> implements Time {
         }
 	}
 
-	
 	public boolean eq(AbstractQuantity<Time> dq) {
 		 return eq((TimeAmount) dq);
 	}
@@ -163,42 +161,30 @@ public class TimeAmount extends AbstractQuantity<Time> implements Time {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
 	
 	public Quantity<Time> subtract(Quantity<Time> that) {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
 	
 	public Quantity<Time> add(Quantity<Time> that) {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
 	
 	public Quantity<Time> divide(Number that) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	
 	public Quantity<Time> inverse() {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
 	
 	public Quantity<?> multiply(Quantity<?> that) {
 		return new TimeAmount(value.doubleValue() * that.getValue().doubleValue(), unit);
 	}
-
-
-	public int compareTo(Measurement<Time> o) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
 
 	public int compareTo(Quantity<Time> o) {
 		// TODO Auto-generated method stub

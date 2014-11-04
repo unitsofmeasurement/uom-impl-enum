@@ -31,7 +31,6 @@ package tec.uom.impl.enums.quantity;
 
 import static tec.uom.impl.enums.unit.ShirtSizeUnit.SML;
 
-import javax.measure.Measurement;
 import javax.measure.Unit;
 
 import tec.uom.impl.enums.DescriptiveEnum;

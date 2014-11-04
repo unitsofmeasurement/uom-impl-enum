@@ -29,7 +29,6 @@
  */
 package tec.uom.impl.enums.function;
 
-import javax.measure.Measurement;
 import javax.measure.Quantity;
 import javax.measure.Unit;
 
@@ -54,5 +53,5 @@ public interface QuantityConverter<Q extends Quantity<Q>> {
      * @param type
      * @return the converted result.
      */
-    Measurement<Q> to(Unit<Q> type);
+    Quantity<Q> to(Unit<Q> type);
 }

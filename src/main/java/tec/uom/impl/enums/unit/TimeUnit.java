@@ -41,7 +41,7 @@ import javax.measure.IncommensurableException;
 import javax.measure.Quantity;
 import javax.measure.UnconvertibleException;
 import javax.measure.Unit;
-import javax.measure.function.UnitConverter;
+import javax.measure.UnitConverter;
 import javax.measure.quantity.Time;
 
 /**

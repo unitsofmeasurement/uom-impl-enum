@@ -33,11 +33,10 @@ import tec.uom.impl.enums.AbstractQuantity;
 import tec.uom.impl.enums.format.UnitStyle;
 import tec.uom.impl.enums.unit.TemperatureUnit;
 
-import javax.measure.Measurement;
 import javax.measure.Quantity;
 import javax.measure.UnconvertibleException;
 import javax.measure.Unit;
-import javax.measure.function.UnitConverter;
+import javax.measure.UnitConverter;
 import javax.measure.quantity.Temperature;
 
 /**
@@ -232,11 +231,6 @@ public final class TemperatureAmount extends AbstractQuantity<Temperature>
 	public Quantity<Temperature> divide(Number that) {
 		// TODO Auto-generated method stub
 		return null;
-	}
-
-	public int compareTo(Measurement<Temperature> o) {
-		// TODO Auto-generated method stub
-		return 0;
 	}
 
 	public int compareTo(Quantity<Temperature> o) {
