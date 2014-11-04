@@ -36,13 +36,13 @@ import java.util.logging.Logger;
 
 import javax.measure.Quantity;
 import javax.measure.Unit;
-import javax.measure.function.QuantityFactory;
 import javax.measure.quantity.Dimensionless;
 import javax.measure.quantity.Information;
 import javax.measure.quantity.InformationRate;
 import javax.measure.quantity.Length;
 import javax.measure.quantity.Temperature;
 import javax.measure.quantity.Time;
+import javax.measure.spi.QuantityFactory;
 
 import tec.uom.impl.enums.unit.*;
 
