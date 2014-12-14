@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>tec.uom.impl</groupId>
 	<artifactId>uom-impl-enum</artifactId>
-	<!--  <packaging>bundle</packaging> -->
+	<!-- <packaging>bundle</packaging> -->
 	<name>Units of Measurement Enum Implementation</name>
 	<organization>
 		<name>Units of Measurement project</name>
@@ -22,10 +22,10 @@
 		<artifactId>uom-parent</artifactId>
 		<version>0.8-SNAPSHOT</version>
 	</parent>
-    <scm>
-        <url>https://github.com/unitsofmeasurement/uom-impl-enum.git</url>
-    </scm>
-	
+	<scm>
+		<url>https://github.com/unitsofmeasurement/uom-impl-enum.git</url>
+	</scm>
+
 	<!-- ======================================================= -->
 	<!-- Build Settings -->
 	<!-- ======================================================= -->
@@ -145,6 +145,22 @@
 					<plugin>
 						<groupId>com.google.code.maven-license-plugin</groupId>
 						<artifactId>maven-license-plugin</artifactId>
+						<configuration>
+							<basedir>${basedir}</basedir>
+							<header>src/etc/header.txt</header>
+							<quiet>false</quiet>
+							<failIfMissing>true</failIfMissing>
+							<aggregate>false</aggregate>
+							<encoding>UTF-8</encoding>
+							<excludes>
+								<exclude>target/**</exclude>
+								<exclude>nbproject/**</exclude>
+								<exclude>LICENSE*.txt</exclude>
+								<exclude>README.*</exclude>
+								<exclude>checkstyle*.*</exclude>
+								<exclude>*.css</exclude>
+							</excludes>
+						</configuration>
 						<executions>
 							<execution>
 								<phase>compile</phase>
