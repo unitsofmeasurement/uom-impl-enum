@@ -20,7 +20,7 @@
 	<parent>
 		<groupId>tec.uom</groupId>
 		<artifactId>uom-parent</artifactId>
-		<version>0.7</version>
+		<version>0.8-SNAPSHOT</version>
 	</parent>
     <scm>
         <url>https://github.com/unitsofmeasurement/uom-impl-enum.git</url>
@@ -141,37 +141,6 @@
 				</property>
 			</activation>
 			<build>
-				<pluginManagement>
-					<plugins>
-						<!-- ======================================================= -->
-						<!-- License -->
-						<!-- ======================================================= -->
-						<!-- <plugin> <groupId>org.codehaus.mojo</groupId> <artifactId>license-maven-plugin</artifactId> 
-							<version>1.4</version> </plugin> -->
-						<plugin>
-							<groupId>com.google.code.maven-license-plugin</groupId>
-							<artifactId>maven-license-plugin</artifactId>
-							<version>1.4.0</version>
-							<configuration>
-								<basedir>${basedir}</basedir>
-								<header>src/etc/header.txt</header>
-								<quiet>false</quiet>
-								<failIfMissing>true</failIfMissing>
-								<aggregate>false</aggregate>
-								<encoding>UTF-8</encoding>
-								<excludes>
-									<exclude>target/**</exclude>
-									<exclude>nbproject/**</exclude>
-									<exclude>LICENSE*.txt</exclude>
-									<exclude>README.*</exclude>
-									<exclude>checkstyle*.*</exclude>
-									<exclude>*.css</exclude>
-									<exclude>*.launch</exclude>
-								</excludes>
-							</configuration>
-						</plugin>
-					</plugins>
-				</pluginManagement>
 				<plugins>
 					<plugin>
 						<groupId>com.google.code.maven-license-plugin</groupId>
