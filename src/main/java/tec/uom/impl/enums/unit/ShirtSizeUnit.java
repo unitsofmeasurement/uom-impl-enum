@@ -31,8 +31,8 @@ package tec.uom.impl.enums.unit;
 
 import tec.uom.impl.enums.AbstractQuantityFactory;
 import tec.uom.impl.enums.DescriptiveEnum;
-import tec.uom.impl.enums.model.SimpleDimension;
 import tec.uom.impl.enums.quantity.ShirtSize;
+import tec.uom.impl.enums.quantity.SimpleDimension;
 
 import java.util.HashMap;
 import java.util.Map;

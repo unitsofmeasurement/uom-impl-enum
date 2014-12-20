@@ -31,11 +31,11 @@ package tec.uom.impl.enums.unit;
 
 import static tec.uom.impl.enums.unit.Constants.DEG;
 import tec.uom.impl.enums.AbstractQuantityFactory;
+import tec.uom.impl.enums.DimensionalModel;
 import tec.uom.impl.enums.function.AbstractConverter;
 import tec.uom.impl.enums.function.DescriptionSupplier;
 import tec.uom.impl.enums.function.DoubleFactorSupplier;
-import tec.uom.impl.enums.model.DimensionalModel;
-import tec.uom.impl.enums.model.SimpleDimension;
+import tec.uom.impl.enums.quantity.SimpleDimension;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -50,7 +50,7 @@ import javax.measure.quantity.Temperature;
 
 /**
  * @author Werner Keil
- * @version 1.4 ($Revision: 444 $), $Date: 2014-03-18 23:55:19 +0100 (Di, 18 Mär 2014) $
+ * @version 0.4.1, $Date: 2014-12-20 $
  */
 public enum TemperatureUnit implements Unit<Temperature>, DoubleFactorSupplier,
 	DescriptionSupplier {
@@ -171,9 +171,8 @@ public enum TemperatureUnit implements Unit<Temperature>, DoubleFactorSupplier,
             throws IncommensurableException, UnconvertibleException {
         if (!isCompatible(that))
             throw new IncommensurableException(this + " is not compatible with " + that);
-        DimensionalModel model = DimensionalModel.getCurrent();
-        final Unit thisSystemUnit = this.getSystemUnit();
-        return model.getDimensionalTransform(thisSystemUnit.getDimension()); //.concatenate(this.getConverterToSI());
+        DimensionalModel model = DimensionalModel.current();
+        return model.getDimensionalTransform(this.getSystemUnit().getDimension()); //.concatenate(this.getConverterToSI());
     }
 
     

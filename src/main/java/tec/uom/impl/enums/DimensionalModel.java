@@ -27,7 +27,7 @@
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE,
  * EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-package tec.uom.impl.enums.model;
+package tec.uom.impl.enums;
 
 import java.lang.ref.Reference;
 import java.lang.ref.WeakReference;
@@ -36,6 +36,7 @@ import java.util.Map;
 import javax.measure.Dimension;
 
 import tec.uom.impl.enums.function.AbstractConverter;
+import tec.uom.impl.enums.quantity.SimpleDimension;
 
 /**
  * <p> This class represents the physical model used for dimensional analysis.</p>
@@ -92,7 +93,7 @@ public abstract class DimensionalModel {
      * @return the getCurrent physical model.
      * @see LocalContext
      */
-    public static DimensionalModel getCurrent() {
+    public static DimensionalModel current() {
         return DimensionalModel.Current.get();
     }
 

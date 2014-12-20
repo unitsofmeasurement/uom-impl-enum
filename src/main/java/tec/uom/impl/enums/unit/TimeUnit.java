@@ -31,7 +31,7 @@ package tec.uom.impl.enums.unit;
 
 import tec.uom.impl.enums.AbstractQuantityFactory;
 import tec.uom.impl.enums.function.DoubleFactorSupplier;
-import tec.uom.impl.enums.model.SimpleDimension;
+import tec.uom.impl.enums.quantity.SimpleDimension;
 
 import java.util.HashMap;
 import java.util.Map;

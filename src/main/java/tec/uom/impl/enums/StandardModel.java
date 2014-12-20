@@ -27,7 +27,7 @@
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE,
  * EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-package tec.uom.impl.enums.model;
+package tec.uom.impl.enums;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -40,9 +40,9 @@ import javax.measure.Unit;
  *
  * @author  <a href="mailto:jean-marie@dautelle.com">Jean-Marie Dautelle</a>
  * @author  <a href="mailto:units@catmedia.us">Werner Keil</a>
- * @version 0.5, August 03, 2014
+ * @version 0.5.1, December 20, 2014
  */
-class StandardModel extends DimensionalModel {
+public class StandardModel extends DimensionalModel {
 
 	private static final StandardModel INSTANCE = new StandardModel();
 	

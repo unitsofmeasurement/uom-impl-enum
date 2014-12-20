@@ -33,7 +33,7 @@ import static tec.uom.impl.enums.unit.Constants.*;
 import tec.uom.impl.enums.AbstractQuantityFactory;
 import tec.uom.impl.enums.DescriptiveEnum;
 import tec.uom.impl.enums.function.DoubleFactorSupplier;
-import tec.uom.impl.enums.model.SimpleDimension;
+import tec.uom.impl.enums.quantity.SimpleDimension;
 
 import java.util.HashMap;
 import java.util.Map;
