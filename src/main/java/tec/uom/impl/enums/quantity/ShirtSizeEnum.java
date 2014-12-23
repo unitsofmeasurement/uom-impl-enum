@@ -37,7 +37,7 @@ import tec.uom.impl.enums.DescriptiveEnum;
 import tec.uom.impl.enums.function.UnitSupplier;
 
 /**
- * International shirt sizes represented by a Java {@linkplain Enum} implementing {@link Measurement}
+ * International shirt sizes represented by a Java {@linkplain Enum} implementing {@link UnitSupplier}
  * @author Werner Keil
  *
  */
