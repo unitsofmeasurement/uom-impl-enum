@@ -28,7 +28,7 @@
  * EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 package tec.uom.impl.enums;
-
+// FIXME move to function
 import tec.uom.impl.enums.function.DescriptionSupplier;
 
 /**
