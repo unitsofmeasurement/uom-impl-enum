@@ -28,7 +28,7 @@
  * EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 package tec.uom.impl.enums;
-
+// FIXME move to new "spi" package.
 import java.util.HashMap;
 import java.util.Map;
 import java.util.logging.Level;
