@@ -1,6 +1,6 @@
 /**
  *  Unit-API - Units of Measurement API for Java
- *  Copyright (c) 2005-2014, Jean-Marie Dautelle, Werner Keil, V2COM.
+ *  Copyright (c) 2005-2015, Jean-Marie Dautelle, Werner Keil, V2COM.
  *
  * All rights reserved.
  *
@@ -42,7 +42,7 @@ import javax.measure.Unit;
  * whose functional method is {@link #getUnit()}.
  * 
  * @author Werner Keil
- * @version 0.4, 2014-11-02
+ * @version 0.5, 2015-04-23
  * @param <Q>
  *            The type of the quantity.
  * @see Unit
@@ -50,7 +50,7 @@ import javax.measure.Unit;
 // equivalent to @FunctionalInterface
 public interface UnitSupplier<Q extends Quantity<Q>> {
 	/**
-	 * Returns the unit of this UnitProvider {@linkplain #getValue() value}.
+	 * Returns this UnitSupplier's {@linkplain #getUnit() unit}.
 	 * 
 	 * @return the unit (can not be {@code null}).
 	 */
