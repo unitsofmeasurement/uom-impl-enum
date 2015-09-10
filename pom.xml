@@ -78,6 +78,7 @@
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
+	
 	<build>
 		<plugins>
 			<!-- ======================================================= -->
@@ -92,7 +93,15 @@
 					<encoding>${project.build.sourceEncoding}</encoding>
 				</configuration>
 			</plugin>
-
+            
+            <!-- ======================================================= -->
+            <!-- Source Attachment -->
+            <!-- ======================================================= -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-source-plugin</artifactId>
+            </plugin>
+            
 			<!-- ======================================================= -->
 			<!-- JAR packaging -->
 			<!-- ======================================================= -->
