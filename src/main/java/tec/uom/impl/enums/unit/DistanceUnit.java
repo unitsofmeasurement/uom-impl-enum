@@ -179,7 +179,7 @@ public enum DistanceUnit implements Unit<Length>, DoubleFactorSupplier, Descript
 	}
 
 	
-	public DescriptiveEnum<DistanceUnit>[] iValues() {
+	public DescriptiveEnum<DistanceUnit>[] dValues() {
 		return DistanceUnit.values();
 	}
 }

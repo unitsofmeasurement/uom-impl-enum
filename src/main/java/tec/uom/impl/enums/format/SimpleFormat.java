@@ -98,4 +98,13 @@ public class SimpleFormat extends AbstractFormat {
     public Locale getLocale() {
         return Locale.getDefault();
     }
+
+	public void label(Unit<?> unit, String label) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public boolean isLocaleSensitive() {
+		return false;
+	}
 }

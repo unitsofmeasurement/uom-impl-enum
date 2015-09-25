@@ -1,6 +1,6 @@
-/**
+/*
  *  Unit-API - Units of Measurement API for Java
- *  Copyright (c) 2005-2014, Jean-Marie Dautelle, Werner Keil, V2COM.
+ *  Copyright (c) 2005-2015, Jean-Marie Dautelle, Werner Keil, V2COM.
  *
  * All rights reserved.
  *
@@ -168,7 +168,7 @@ public enum ShirtSizeUnit implements Unit<ShirtSize>, DescriptiveEnum<ShirtSizeU
 	}
 
 	
-	public DescriptiveEnum<ShirtSizeUnit>[] iValues() {
+	public DescriptiveEnum<ShirtSizeUnit>[] dValues() {
 		return ShirtSizeUnit.values();
 	}
 }

@@ -1,6 +1,6 @@
-/**
+/*
  *  Unit-API - Units of Measurement API for Java
- *  Copyright (c) 2005-2014, Jean-Marie Dautelle, Werner Keil, V2COM.
+ *  Copyright (c) 2005-2015, Jean-Marie Dautelle, Werner Keil, V2COM.
  *
  * All rights reserved.
  *
@@ -33,6 +33,7 @@ import java.io.IOException;
 import java.util.Locale;
 
 import javax.measure.Unit;
+import javax.measure.format.ParserException;
 import javax.measure.format.UnitFormat;
 
 /**
@@ -60,14 +61,14 @@ import javax.measure.format.UnitFormat;
  * </p>
  * 
  * @author <a href="mailto:werner.keil@gmail.com">Werner Keil</a>
- * @version 0.5 $Date: 2014-09-20 $
+ * @version 0.5.1 $Date: 2015-09-25 $
  * @see <a href="http://unitsofmeasure.org">Unified Code of Measure (UCUM)</a>
  */
 abstract class AbstractFormat implements UnitFormat {
 	// TODO for #JavaME don't use java.text
 
 	/** The serialVersionUID */
-	//private static final long serialVersionUID = 7765623276257908888L;
+	// private static final long serialVersionUID = 7765623276257908888L;
 
 	/**
 	 * Returns the unit format for the default locale.
@@ -111,6 +112,26 @@ abstract class AbstractFormat implements UnitFormat {
 			throws IOException;
 
 	/**
+	 * Formats an object to produce a string. This is equivalent to <blockquote>
+	 * {@link #format(Unit, StringBuilder) format}<code>(unit,
+	 *         new StringBuilder()).toString();</code> </blockquote>
+	 *
+	 * @param obj
+	 *            The object to format
+	 * @return Formatted string.
+	 * @exception IllegalArgumentException
+	 *                if the Format cannot format the given object
+	 */
+	public final String format(Unit<?> unit) {
+		try {
+			return (this.format(unit, new StringBuilder())).toString();
+		} catch (IOException ex) {
+			throw new ParserException(ex); // Should never happen.
+		}
+
+	}
+
+	/**
 	 * Parses a portion of the specified <code>CharSequence</code> from the
 	 * specified position to produce a unit. If there is no unit to parse the
 	 * unitary unit (dimensionless) is returned.
@@ -125,10 +146,10 @@ abstract class AbstractFormat implements UnitFormat {
 	 *             if any problem occurs while parsing the specified character
 	 *             sequence (e.g. illegal syntax).
 	 */
-//	public Unit<?> parse(CharSequence csq, ParsePosition cursor)
-//			throws IllegalArgumentException {
-//		throw new UnsupportedOperationException("Not supported yet.");
-//	}
+	// public Unit<?> parse(CharSequence csq, ParsePosition cursor)
+	// throws IllegalArgumentException {
+	// throw new UnsupportedOperationException("Not supported yet.");
+	// }
 
 	/**
 	 * Parses the specified character sequence to produce a unit (convenience

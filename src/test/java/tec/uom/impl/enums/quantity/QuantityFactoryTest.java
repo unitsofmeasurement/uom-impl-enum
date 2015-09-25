@@ -1,6 +1,6 @@
-/**
+/*
  *  Unit-API - Units of Measurement API for Java
- *  Copyright (c) 2005-2014, Jean-Marie Dautelle, Werner Keil, V2COM.
+ *  Copyright (c) 2005-2015, Jean-Marie Dautelle, Werner Keil, V2COM.
  *
  * All rights reserved.
  *
@@ -56,7 +56,7 @@ public class QuantityFactoryTest {
 
 	@Test
 	public void testLength() {
-		Length l =  AbstractQuantityFactory.getInstance(Length.class).create(23.5, KILOMETRE); // 23.0 km
+		Quantity<Length> l =  AbstractQuantityFactory.getInstance(Length.class).create(23.5, KILOMETRE); // 23.0 km
 		assertEquals(Double.valueOf(23.5d), l.getValue());
 		assertEquals(KILOMETRE, l.getUnit());
 		assertEquals("km", l.getUnit().getSymbol());

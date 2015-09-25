@@ -37,8 +37,6 @@ import java.util.logging.Logger;
 import javax.measure.Quantity;
 import javax.measure.Unit;
 import javax.measure.quantity.Dimensionless;
-import javax.measure.quantity.Information;
-import javax.measure.quantity.InformationRate;
 import javax.measure.quantity.Length;
 import javax.measure.quantity.Temperature;
 import javax.measure.quantity.Time;
@@ -170,7 +168,7 @@ public abstract class AbstractQuantityFactory<Q extends Quantity<Q>> implements
 	 *            the unit
 	 * @return the corresponding quantity
 	 */
-	 public abstract <N extends Number, U extends Unit<Q>> Q create(N number, U unit);
+	 //public abstract <N extends Number, U extends Unit<Q>> Q create(N number, U unit);
 
 	/**
 	 * Returns the metric unit for quantities produced by this factory or
@@ -223,23 +221,26 @@ public abstract class AbstractQuantityFactory<Q extends Quantity<Q>> implements
 					.put(Dimensionless.class, DimensionlessUnit.ONE);
 			CLASS_TO_METRIC_UNIT.put(Length.class, DistanceUnit.METRE);
 			CLASS_TO_METRIC_UNIT.put(Time.class, TimeUnit.SECOND);
-			CLASS_TO_METRIC_UNIT.put(Information.class, BitUnit.BIT);
-			CLASS_TO_METRIC_UNIT.put(InformationRate.class, BitRateUnit.bps);
 			CLASS_TO_METRIC_UNIT.put(Temperature.class, TemperatureUnit.KELVIN);
 		}
 
-		@Override
-		public <N extends Number, U extends Unit<Q>> Q create(N number, U unit) {
+//		public <N extends Number, U extends Unit<Q>> Q create(N number, U unit) {
 			// return (Q) Proxy
 			// .newProxyInstance(type.getClassLoader(),
 			// new Class<?>[] { type }, new GenericHandler<Q>(
 			// value, unit));
-			return null;
-		}
+//			return null;
+//		}
 
 		@Override
 		public Unit<Q> getMetricUnit() {
 			return metricUnit;
+		}
+
+		@Override
+		public Quantity<Q> create(Number value, Unit<Q> unit) {
+			// TODO Auto-generated method stub
+			return null;
 		}
 	}
 }
