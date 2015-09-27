@@ -27,7 +27,7 @@
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE,
  * EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-package tec.uom.impl.enums;
+package tec.uom.impl.enums.quantity;
 // FIXME move to new "spi" package.
 import java.util.HashMap;
 import java.util.Map;
@@ -42,6 +42,7 @@ import javax.measure.quantity.Temperature;
 import javax.measure.quantity.Time;
 import javax.measure.spi.QuantityFactory;
 
+import tec.uom.impl.enums.AbstractQuantity;
 import tec.uom.impl.enums.unit.*;
 
 /**
@@ -224,12 +225,10 @@ public abstract class AbstractQuantityFactory<Q extends Quantity<Q>> implements
 //			return null;
 //		}
 
-		@Override
 		public Unit<Q> getSystemUnit() {
 			return metricUnit;
 		}
 
-		@Override
 		public Quantity<Q> create(Number value, Unit<Q> unit) {
 			// TODO Auto-generated method stub
 			return null;

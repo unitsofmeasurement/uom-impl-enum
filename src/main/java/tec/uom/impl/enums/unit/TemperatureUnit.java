@@ -30,11 +30,11 @@
 package tec.uom.impl.enums.unit;
 
 import static tec.uom.impl.enums.unit.Constants.DEG;
-import tec.uom.impl.enums.AbstractQuantityFactory;
 import tec.uom.impl.enums.DimensionalModel;
 import tec.uom.impl.enums.function.AbstractConverter;
 import tec.uom.impl.enums.function.DescriptionSupplier;
 import tec.uom.impl.enums.function.DoubleFactorSupplier;
+import tec.uom.impl.enums.quantity.AbstractQuantityFactory;
 import tec.uom.impl.enums.quantity.SimpleDimension;
 
 import java.util.HashMap;

@@ -43,8 +43,6 @@ import javax.measure.quantity.Time;
 import org.junit.Ignore;
 import org.junit.Test;
 
-import tec.uom.impl.enums.AbstractQuantityFactory;
-
 
 /**
  * @author Werner Keil
