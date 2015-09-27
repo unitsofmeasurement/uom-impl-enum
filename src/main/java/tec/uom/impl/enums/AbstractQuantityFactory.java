@@ -1,6 +1,6 @@
-/**
+/*
  *  Unit-API - Units of Measurement API for Java
- *  Copyright (c) 2005-2014, Jean-Marie Dautelle, Werner Keil, V2COM.
+ *  Copyright (c) 2005-2015, Jean-Marie Dautelle, Werner Keil, V2COM.
  *
  * All rights reserved.
  *
@@ -171,14 +171,6 @@ public abstract class AbstractQuantityFactory<Q extends Quantity<Q>> implements
 	 //public abstract <N extends Number, U extends Unit<Q>> Q create(N number, U unit);
 
 	/**
-	 * Returns the metric unit for quantities produced by this factory or
-	 * <code>null</code> if unknown.
-	 * 
-	 * @return the metric units for this factory quantities.
-	 */
-	public abstract Unit<Q> getMetricUnit();
-
-	/**
 	 * The default factory implementation. This factory uses reflection for
 	 * providing a default implementation for every
 	 * {@link tec.uom.impl.enums.AbstractQuantity} sub-types.
@@ -233,7 +225,7 @@ public abstract class AbstractQuantityFactory<Q extends Quantity<Q>> implements
 //		}
 
 		@Override
-		public Unit<Q> getMetricUnit() {
+		public Unit<Q> getSystemUnit() {
 			return metricUnit;
 		}
 

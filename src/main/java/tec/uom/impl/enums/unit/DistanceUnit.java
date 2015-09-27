@@ -141,7 +141,7 @@ public enum DistanceUnit implements Unit<Length>, DoubleFactorSupplier, Descript
     @SuppressWarnings("unchecked")
 	
     public <T extends Quantity<T>> Unit<T> asType(Class<T> tClass) {
-        Unit<T> metricUnit = AbstractQuantityFactory.getInstance(tClass).getMetricUnit();
+        Unit<T> metricUnit = AbstractQuantityFactory.getInstance(tClass).getSystemUnit();
          if ((metricUnit == null) || metricUnit.isCompatible(this))
           return (Unit<T>) this;
            throw new ClassCastException("The unit: " + this //$NON-NLS-1$
