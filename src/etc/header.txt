@@ -1,5 +1,5 @@
 ${project.name}
-Copyright © ${project.inceptionYear}-2015, ${owner}.
+Copyright © ${project.inceptionYear}-${currentYear}, ${owner}.
  
 All rights reserved.
 
