@@ -1,6 +1,6 @@
-/**
- *  Unit-API - Units of Measurement API for Java
- *  Copyright (c) 2005-2014, Jean-Marie Dautelle, Werner Keil, V2COM.
+/*
+ * Units of Measurement Enum Implementation
+ * Copyright © 2005-2015, Jean-Marie Dautelle, Werner Keil, V2COM.
  *
  * All rights reserved.
  *
@@ -38,7 +38,7 @@ import javax.measure.Unit;
 
 /**
  * @author Werner Keil
- * @version 0.11, $Date: 2014-11-02 $
+ * @version 0.12, $Date: 2015-10-06 $
  */
 public abstract class AbstractQuantity<Q extends Quantity<Q>> implements 
 	Quantity<Q>, QuantityConverter<Q>, Comparable<Quantity<Q>> {
