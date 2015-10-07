@@ -40,7 +40,6 @@
 		<name>Units of Measurement project</name>
 		<url>http://unitsofmeasurement.github.io/</url>
 	</organization>
-	<version>0.8-SNAPSHOT</version>
 	<url>https://github.com/unitsofmeasurement/unit-impl-enum</url>
 	<description>Lightweight approach based on Java Enums.</description>
 	<licenses>
