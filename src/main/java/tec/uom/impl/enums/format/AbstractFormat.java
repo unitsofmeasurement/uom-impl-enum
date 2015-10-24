@@ -30,7 +30,6 @@
 package tec.uom.impl.enums.format;
 
 import java.io.IOException;
-import java.util.Locale;
 
 import javax.measure.Unit;
 import javax.measure.format.ParserException;
@@ -76,17 +75,6 @@ abstract class AbstractFormat implements UnitFormat {
 	 * @return the locale format.
 	 */
 	public static UnitFormat getInstance() {
-		return SimpleFormat.getInstance();
-	}
-
-	/**
-	 * Returns the unit format for the specified locale.
-	 * 
-	 * @param locale
-	 *            the locale for which the format is returned.
-	 * @return the format for the specified locale.
-	 */
-	public static UnitFormat getInstance(Locale locale) {
 		return SimpleFormat.getInstance();
 	}
 

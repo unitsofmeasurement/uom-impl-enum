@@ -30,7 +30,6 @@
 package tec.uom.impl.enums.unit;
 
 import tec.uom.impl.enums.function.DoubleFactorSupplier;
-import tec.uom.impl.enums.quantity.AbstractQuantityFactory;
 import tec.uom.impl.enums.quantity.SimpleDimension;
 
 import java.util.HashMap;
@@ -141,7 +140,7 @@ public enum TimeUnit implements Unit<Time>, DoubleFactorSupplier {
     @SuppressWarnings("unchecked")
 	
     public <T extends Quantity<T>> Unit<T> asType(Class<T> tClass) {
-        Unit<T> metricUnit = AbstractQuantityFactory.getInstance(tClass).getSystemUnit();
+        Unit<T> metricUnit = (Unit<T>) getSystemUnit(); //AbstractQuantityFactory.getInstance(tClass).getSystemUnit();
          if ((metricUnit == null) || metricUnit.isCompatible(this))
           return (Unit<T>) this;
            throw new ClassCastException("The unit: " + this //$NON-NLS-1$
@@ -168,7 +167,6 @@ public enum TimeUnit implements Unit<Time>, DoubleFactorSupplier {
         return this;
     }
 
-    
     public Unit<Time> shift(double v) {
         return this;
     }

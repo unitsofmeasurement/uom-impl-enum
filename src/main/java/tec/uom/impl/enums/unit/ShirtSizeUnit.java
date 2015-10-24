@@ -30,7 +30,6 @@
 package tec.uom.impl.enums.unit;
 
 import tec.uom.impl.enums.DescriptiveEnum;
-import tec.uom.impl.enums.quantity.AbstractQuantityFactory;
 import tec.uom.impl.enums.quantity.ShirtSize;
 import tec.uom.impl.enums.quantity.SimpleDimension;
 
@@ -65,7 +64,7 @@ public enum ShirtSizeUnit implements Unit<ShirtSize>, DescriptiveEnum<ShirtSizeU
 
     
 	public Unit<ShirtSize> getSystemUnit() {
-		return null;
+		return SML;
     }
 
 	
@@ -130,7 +129,7 @@ public enum ShirtSizeUnit implements Unit<ShirtSize>, DescriptiveEnum<ShirtSizeU
     @SuppressWarnings("unchecked")
 	
     public <T extends Quantity<T>> Unit<T> asType(Class<T> tClass) {
-        Unit<T> metricUnit = AbstractQuantityFactory.getInstance(tClass).getSystemUnit();
+        Unit<T> metricUnit = (Unit<T>) getSystemUnit();
          if ((metricUnit == null) || metricUnit.isCompatible(this))
           return (Unit<T>) this;
            throw new ClassCastException("The unit: " + this //$NON-NLS-1$

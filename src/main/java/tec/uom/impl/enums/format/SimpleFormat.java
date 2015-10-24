@@ -31,7 +31,6 @@ package tec.uom.impl.enums.format;
 
 import java.io.IOException;
 import java.util.HashMap;
-import java.util.Locale;
 import java.util.Map;
 
 import javax.measure.Unit;
@@ -93,10 +92,6 @@ public class SimpleFormat extends AbstractFormat {
         appendable.append(symbol);
 
         return appendable;
-    }
-    
-    public Locale getLocale() {
-        return Locale.getDefault();
     }
 
 	public void label(Unit<?> unit, String label) {

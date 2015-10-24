@@ -34,7 +34,6 @@ import tec.uom.impl.enums.DimensionalModel;
 import tec.uom.impl.enums.function.AbstractConverter;
 import tec.uom.impl.enums.function.DescriptionSupplier;
 import tec.uom.impl.enums.function.DoubleFactorSupplier;
-import tec.uom.impl.enums.quantity.AbstractQuantityFactory;
 import tec.uom.impl.enums.quantity.SimpleDimension;
 
 import java.util.HashMap;
@@ -206,7 +205,7 @@ public enum TemperatureUnit implements Unit<Temperature>, DoubleFactorSupplier,
     @SuppressWarnings({ "unchecked" })
 	
     public final <T extends Quantity<T>> Unit<T> asType(Class<T> type) {
-        Unit<T> metricUnit = AbstractQuantityFactory.getInstance(type).getSystemUnit();
+        Unit<T> metricUnit = (Unit<T>) getSystemUnit();
          if ((metricUnit == null) || metricUnit.isCompatible(this))
           return (Unit<T>) this;
            throw new ClassCastException("The unit: " + this //$NON-NLS-1$
