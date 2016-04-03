@@ -75,7 +75,7 @@ abstract class AbstractFormat implements UnitFormat {
 	 * @return the locale format.
 	 */
 	public static UnitFormat getInstance() {
-		return SimpleFormat.getInstance();
+		return SimpleUnitFormat.getInstance();
 	}
 
 	/**

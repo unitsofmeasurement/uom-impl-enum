@@ -45,7 +45,7 @@ import javax.measure.format.UnitFormat;
  * @author <a href="mailto:units@catmedia.us">Werner Keil</a>
  * @version 1.7.1 ($Revision: 473 $), $Date: 2014-07-01 21:26:05 +0200 (Di, 01 Jul 2014) $
  */
-public class SimpleFormat extends AbstractFormat {
+public class SimpleUnitFormat extends AbstractFormat {
     /**
      *
      */
@@ -53,7 +53,7 @@ public class SimpleFormat extends AbstractFormat {
 
     private final Map<String, String> symbolMap = new HashMap<String, String>(); // Diamond (Java 7+)
 
-    private static final UnitFormat DEFAULT = new SimpleFormat();
+    private static final UnitFormat DEFAULT = new SimpleUnitFormat();
 
     // /////////////////
     // Class methods //
@@ -69,7 +69,7 @@ public class SimpleFormat extends AbstractFormat {
     /**
      * Base constructor.
      */
-    SimpleFormat() {
+    SimpleUnitFormat() {
     }
 
     // //////////////
