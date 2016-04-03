@@ -1,6 +1,6 @@
 /*
  * Units of Measurement Enum Implementation
- * Copyright © 2005-2015, Jean-Marie Dautelle, Werner Keil, V2COM.
+ * Copyright © 2005-2016, Jean-Marie Dautelle, Werner Keil, V2COM.
  *
  * All rights reserved.
  *
@@ -38,7 +38,7 @@ import javax.measure.Unit;
 
 /**
  * @author Werner Keil
- * @version 0.12, $Date: 2015-10-06 $
+ * @version 0.13, $Date: 2016-04-03 $
  */
 public abstract class AbstractQuantity<Q extends Quantity<Q>> implements 
 	Quantity<Q>, QuantityConverter<Q>, Comparable<Quantity<Q>> {
@@ -56,6 +56,16 @@ public abstract class AbstractQuantity<Q extends Quantity<Q>> implements
             return eq((AbstractQuantity<Q>) o);
         }
         return false;
+    }
+    
+    /**
+     * Returns the hash code for this measure.
+     *
+     * @return the hash code value.
+     */
+    @Override
+    public int hashCode() {
+      return getUnit().hashCode() + getValue().hashCode();
     }
 
     public abstract String toString(boolean withUnit, boolean withSpace, 
