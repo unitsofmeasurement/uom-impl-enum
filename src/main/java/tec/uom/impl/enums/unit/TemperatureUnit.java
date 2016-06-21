@@ -54,26 +54,26 @@ import javax.measure.quantity.Temperature;
 public enum TemperatureUnit implements Unit<Temperature>, DoubleFactorSupplier,
 	DescriptionSupplier {
 
-	/** Kelvin, commonly used in scientific endeavors. */
-	KELVIN(1d, 0d, null, 273.15d, 373.15d, "K", 
-			"William Thomson, 1st Baron Kelvin"),
+    /** Kelvin, commonly used in scientific endeavors. */
+    KELVIN(1d, 0d, null, 273.15d, 373.15d, "K",
+	    "William Thomson, 1st Baron Kelvin"),
 
-	/** Rankine, used in scientific endeavors. */
-	RANKINE(5/9, 0d, KELVIN, 491.67d, 671.641d, DEG + "R", 
-			"William John Macquorn Rankine"),
-			
-	/** Celsius, used by most of the world's population. */
-	CELSIUS(0d, 273.15d, KELVIN, 0d, 100d, DEG + "C", "Anders Celsius"),
+    /** Rankine, used in scientific endeavors. */
+    RANKINE(5 / 9, 0d, KELVIN, 491.67d, 671.641d, DEG + "R",
+	    "William John Macquorn Rankine"),
 
-	/** Fahrenheit, commonly used in the United States. */
-	FAHRENHEIT(0d, 459.67d, RANKINE, 32d, 212d, DEG + "F", 
-				"Daniel Gabriel Fahrenheit");
-   
+    /** Celsius, used by most of the world's population. */
+    CELSIUS(0d, 273.15d, KELVIN, 0d, 100d, DEG + "C", "Anders Celsius"),
+
+    /** Fahrenheit, commonly used in the United States. */
+    FAHRENHEIT(0d, 459.67d, RANKINE, 32d, 212d, DEG + "F",
+	    "Daniel Gabriel Fahrenheit");
+
     /** Units by which this temperature scale is expressed. */
     private final String description;
-    
+
     private final double multFactor;
-    
+
     /** Freezing point of water for each temperature scale. */
     private final double freezingPoint;
 
@@ -82,162 +82,163 @@ public enum TemperatureUnit implements Unit<Temperature>, DoubleFactorSupplier,
 
     /** Name of person that this temperature scale is named for. */
     private final String namedFor;
-    
+
     private final TemperatureUnit relativeTo;
 
-//	private static final Double FIVE = new Double("5");
-//    private static final Double NINE = new Double("9");
-//    private static final Double THIRTY_TWO = new Double("32");
-//    private static final Double KELVIN_CELSIUS_DELTA = new Double("273");
+    // private static final Double FIVE = new Double("5");
+    // private static final Double NINE = new Double("9");
+    // private static final Double THIRTY_TWO = new Double("32");
+    // private static final Double KELVIN_CELSIUS_DELTA = new Double("273");
     private static final double RANKINE_FAHRENHEIT_DELTA = 459.67d;
-    
+
     /**
      * Constructor for TemperatureUnit that accepts key characteristics of each
      * temperature scale.
      *
-     * @param newFreezingPoint Freezing point for this temperature scale.
-     * @param newBoilingPoint Boiling point for this temperature scale.
-     * @param newUnits Unit symbol for this temperature scale.
-     * @param newNamedFor Name of person after which temperature scale was named.
+     * @param newFreezingPoint
+     *            Freezing point for this temperature scale.
+     * @param newBoilingPoint
+     *            Boiling point for this temperature scale.
+     * @param newUnits
+     *            Unit symbol for this temperature scale.
+     * @param newNamedFor
+     *            Name of person after which temperature scale was named.
      */
-    private TemperatureUnit(
-       double newMult,
-       double shift,
-       final TemperatureUnit rel,
-       double newFreezingPoint,
-       double newBoilingPoint,
-       final String newSymbol,
-       final String newNamedFor)
-    {
-       this.multFactor = newMult;
-       this.relativeTo = rel;
-       this.freezingPoint = newFreezingPoint;
-       this.boilingPoint = newBoilingPoint;
-       this.description = newSymbol;
-       this.namedFor = newNamedFor;
+    private TemperatureUnit(double newMult, double shift,
+	    final TemperatureUnit rel, double newFreezingPoint,
+	    double newBoilingPoint, final String newSymbol,
+	    final String newNamedFor) {
+	this.multFactor = newMult;
+	this.relativeTo = rel;
+	this.freezingPoint = newFreezingPoint;
+	this.boilingPoint = newBoilingPoint;
+	this.description = newSymbol;
+	this.namedFor = newNamedFor;
     }
 
     public String getSymbol() {
-        return description;
+	return description;
     }
 
     public double getFactor() {
-        return multFactor;
-    }
-    
-	
-	public String getName() {
-		return namedFor;
-	}
-    
-    
-	public Unit<Temperature> getSystemUnit() {
-		return KELVIN;
+	return multFactor;
     }
 
-    
-    public Map<? extends Unit<Temperature>, Integer> getProductUnits() {
-        Map<Unit<Temperature>, Integer> prodUnits = new HashMap<Unit<Temperature>, Integer>();
-        prodUnits.put(KELVIN, Integer.valueOf(2));
-        return prodUnits;
+    public String getName() {
+	return namedFor;
+    }
+
+    public Unit<Temperature> getSystemUnit() {
+	return KELVIN;
+    }
+
+    public Map<? extends Unit<Temperature>, Integer> getBaseUnits() {
+	Map<Unit<Temperature>, Integer> prodUnits = new HashMap<Unit<Temperature>, Integer>();
+	prodUnits.put(KELVIN, Integer.valueOf(2));
+	return prodUnits;
     }
 
     public static TemperatureUnit getBySymbol(String symbol) {
-        if (CELSIUS.name().equals(symbol)) {
-            return CELSIUS;
-        }
-        if (FAHRENHEIT.name().equals(symbol)) {
-            return FAHRENHEIT;
-        }
-        return KELVIN;
+	if (CELSIUS.name().equals(symbol)) {
+	    return CELSIUS;
+	}
+	if (FAHRENHEIT.name().equals(symbol)) {
+	    return FAHRENHEIT;
+	}
+	return KELVIN;
     }
 
     public UnitConverter getConverterTo(Unit<Temperature> that)
-            throws UnconvertibleException {
-    	if ((this == that) || this.equals(that)) return AbstractConverter.IDENTITY; // Shortcut.
-    	Unit<Temperature> thisSystemUnit = this.getSystemUnit();
-        Unit<Temperature> thatSystemUnit = that.getSystemUnit();
-        if (!thisSystemUnit.equals(thatSystemUnit))
-			try {
-				return getConverterToAny(that);
-			} catch (IncommensurableException e) {
-				throw new UnconvertibleException(e);
-			}
-        return that.getConverterTo(thatSystemUnit);
+	    throws UnconvertibleException {
+	if ((this == that) || this.equals(that))
+	    return AbstractConverter.IDENTITY; // Shortcut.
+	Unit<Temperature> thisSystemUnit = this.getSystemUnit();
+	Unit<Temperature> thatSystemUnit = that.getSystemUnit();
+	if (!thisSystemUnit.equals(thatSystemUnit))
+	    try {
+		return getConverterToAny(that);
+	    } catch (IncommensurableException e) {
+		throw new UnconvertibleException(e);
+	    }
+	return that.getConverterTo(thatSystemUnit);
     }
 
     public UnitConverter getConverterToAny(Unit<?> that)
-            throws IncommensurableException, UnconvertibleException {
-        if (!isCompatible(that))
-            throw new IncommensurableException(this + " is not compatible with " + that);
-        DimensionalModel model = DimensionalModel.current();
-        return model.getDimensionalTransform(this.getSystemUnit().getDimension()); //.concatenate(this.getConverterToSI());
+	    throws IncommensurableException, UnconvertibleException {
+	if (!isCompatible(that))
+	    throw new IncommensurableException(this
+		    + " is not compatible with " + that);
+	DimensionalModel model = DimensionalModel.current();
+	return model.getDimensionalTransform(this.getSystemUnit()
+		.getDimension()); // .concatenate(this.getConverterToSI());
     }
 
-    
     public Unit<Temperature> alternate(String s) {
-        return this;
+	return this;
     }
 
     public Dimension getDimension() {
-        return SimpleDimension.INSTANCE;
+	return SimpleDimension.INSTANCE;
     }
 
-     public Unit<?> inverse() {
-        return this;
+    public Unit<?> inverse() {
+	return this;
     }
 
-    
     public Unit<Temperature> divide(double v) {
-        return null;  //To change body of implemented methods use File | Settings | File TemplateBuilder.
+	return null; // To change body of implemented methods use File |
+		     // Settings | File TemplateBuilder.
     }
 
-    
     public Unit<?> divide(Unit<?> unit) {
-        return null;  //To change body of implemented methods use File | Settings | File TemplateBuilder.
+	return null; // To change body of implemented methods use File |
+		     // Settings | File TemplateBuilder.
     }
 
     public boolean isCompatible(Unit<?> that) {
-        if (that instanceof TemperatureUnit) return true;
-        return false;
+	if (that instanceof TemperatureUnit)
+	    return true;
+	return false;
     }
 
     @SuppressWarnings({ "unchecked" })
-	
     public final <T extends Quantity<T>> Unit<T> asType(Class<T> type) {
-        Unit<T> metricUnit = (Unit<T>) getSystemUnit();
-         if ((metricUnit == null) || metricUnit.isCompatible(this))
-          return (Unit<T>) this;
-           throw new ClassCastException("The unit: " + this //$NON-NLS-1$
-               + " is not of parameterized type " + type); //$NON-NLS-1$
+	Unit<T> metricUnit = (Unit<T>) getSystemUnit();
+	if ((metricUnit == null) || metricUnit.isCompatible(this))
+	    return (Unit<T>) this;
+	throw new ClassCastException("The unit: " + this //$NON-NLS-1$
+		+ " is not of parameterized type " + type); //$NON-NLS-1$
     }
 
     public Unit<Temperature> multiply(double factor) {
-        return this;
+	return this;
     }
 
     public Unit<?> multiply(Unit<?> that) {
-        return this;
+	return this;
     }
 
     public Unit<?> pow(int n) {
-        return this;
+	return this;
     }
 
     public Unit<?> root(int n) {
-        return this;
+	return this;
     }
 
     public Unit<Temperature> transform(UnitConverter operation) {
-        return this;
+	return this;
     }
 
-    
     public Unit<Temperature> shift(double v) {
-        return this;
+	return this;
     }
 
-	public String getDescription() {
-		return description;
-	}
+    public String getDescription() {
+	return description;
+    }
+
+    public Map getProductUnits() {
+	throw new UnsupportedOperationException("Use getBaseUnits() instead");
+    }
 }

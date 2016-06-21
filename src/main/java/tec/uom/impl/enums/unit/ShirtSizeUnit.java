@@ -47,127 +47,126 @@ import javax.measure.UnitConverter;
  * @author Werner Keil
  * @version 0.1, $Date: 2014-08-28 $
  */
-public enum ShirtSizeUnit implements Unit<ShirtSize>, DescriptiveEnum<ShirtSizeUnit> {
+public enum ShirtSizeUnit implements Unit<ShirtSize>,
+	DescriptiveEnum<ShirtSizeUnit> {
     SML("S-M-L", "Small to Large");
 
     private final String symbol;
     private final String description;
 
     private ShirtSizeUnit(final String symbol, final String name) {
-        this.symbol = symbol;
-    	this.description = name;
+	this.symbol = symbol;
+	this.description = name;
     }
 
     public String getSymbol() {
-        return symbol;
+	return symbol;
     }
 
-    
-	public Unit<ShirtSize> getSystemUnit() {
-		return SML;
+    public Unit<ShirtSize> getSystemUnit() {
+	return SML;
     }
 
-	
-	public String getName() {
-		return name();
-	}
-    
-    
-    public Map<? extends Unit<ShirtSize>, Integer> getProductUnits() {
-        Map<Unit<ShirtSize>, Integer> prodUnits = new HashMap<Unit<ShirtSize>, Integer>();
-        prodUnits.put(SML, Integer.valueOf(1));
-        return prodUnits;
+    public String getName() {
+	return name();
+    }
+
+    public Map<? extends Unit<ShirtSize>, Integer> getBaseUnits() {
+	Map<Unit<ShirtSize>, Integer> prodUnits = new HashMap<Unit<ShirtSize>, Integer>();
+	prodUnits.put(SML, Integer.valueOf(1));
+	return prodUnits;
     }
 
     public static ShirtSizeUnit getBySymbol(String symbol) {
-        if (SML.getSymbol().equals(symbol)) {
-            return SML;
-        }
-        return SML;
+	if (SML.getSymbol().equals(symbol)) {
+	    return SML;
+	}
+	return SML;
     }
 
     public UnitConverter getConverterTo(Unit<ShirtSize> that)
-            throws UnconvertibleException {
-        // currently unused
-        return null;
+	    throws UnconvertibleException {
+	// currently unused
+	return null;
     }
 
     public UnitConverter getConverterToAny(Unit<?> that)
-            throws IncommensurableException, UnconvertibleException {
-        // currently unused
-        return null;
+	    throws IncommensurableException, UnconvertibleException {
+	// currently unused
+	return null;
     }
 
-    
     public Unit<ShirtSize> alternate(String s) {
-        return null;  //To change body of implemented methods use File | Settings | File TemplateBuilder.
+	return null; // To change body of implemented methods use File |
+		     // Settings | File TemplateBuilder.
     }
 
     public Dimension getDimension() {
-        return SimpleDimension.INSTANCE;
+	return SimpleDimension.INSTANCE;
     }
 
-     public Unit<?> inverse() {
-        return this;
+    public Unit<?> inverse() {
+	return this;
     }
 
-    
     public Unit<ShirtSize> divide(double v) {
-        return null;  //To change body of implemented methods use File | Settings | File TemplateBuilder.
+	return null; // To change body of implemented methods use File |
+		     // Settings | File TemplateBuilder.
     }
 
-    
     public Unit<?> divide(Unit<?> unit) {
-        return null;  //To change body of implemented methods use File | Settings | File TemplateBuilder.
+	return null; // To change body of implemented methods use File |
+		     // Settings | File TemplateBuilder.
     }
 
     public boolean isCompatible(Unit<?> that) {
-        if (that instanceof ShirtSizeUnit) return true;
-        return false;
+	if (that instanceof ShirtSizeUnit)
+	    return true;
+	return false;
     }
 
     @SuppressWarnings("unchecked")
-	
     public <T extends Quantity<T>> Unit<T> asType(Class<T> tClass) {
-        Unit<T> metricUnit = (Unit<T>) getSystemUnit();
-         if ((metricUnit == null) || metricUnit.isCompatible(this))
-          return (Unit<T>) this;
-           throw new ClassCastException("The unit: " + this //$NON-NLS-1$
-               + " is not of parameterized type " + tClass); //$NON-NLS-1$
+	Unit<T> metricUnit = (Unit<T>) getSystemUnit();
+	if ((metricUnit == null) || metricUnit.isCompatible(this))
+	    return (Unit<T>) this;
+	throw new ClassCastException("The unit: " + this //$NON-NLS-1$
+		+ " is not of parameterized type " + tClass); //$NON-NLS-1$
     }
 
     public Unit<ShirtSize> multiply(double factor) {
-        return this;
+	return this;
     }
 
     public Unit<?> multiply(Unit<?> that) {
-        return this;
+	return this;
     }
 
     public Unit<?> pow(int n) {
-        return this;
+	return this;
     }
 
     public Unit<?> root(int n) {
-        return this;
+	return this;
     }
 
     public Unit<ShirtSize> transform(UnitConverter operation) {
-        return this;
+	return this;
     }
 
-    
     public Unit<ShirtSize> shift(double v) {
-        return this;
+	return this;
     }
 
-	
-	public String getDescription() {
-		return description;
-	}
+    public String getDescription() {
+	return description;
+    }
 
-	
-	public DescriptiveEnum<ShirtSizeUnit>[] dValues() {
-		return ShirtSizeUnit.values();
-	}
+    public DescriptiveEnum<ShirtSizeUnit>[] dValues() {
+	return ShirtSizeUnit.values();
+    }
+
+    public Map getProductUnits() {
+	throw new UnsupportedOperationException("Use getBaseUnits() instead");
+    }
 }
