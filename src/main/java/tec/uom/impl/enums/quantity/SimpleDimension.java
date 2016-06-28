@@ -71,7 +71,7 @@ public final class SimpleDimension implements Dimension {
     }
 
    
-    public Map<? extends Dimension, Integer> getProductDimensions() {
+    public Map<? extends Dimension, Integer> getBaseDimensions() {
         Map<Dimension, Integer> products = new HashMap<Dimension, Integer>();
         products.put(this, Integer.valueOf(1));
         return products;
