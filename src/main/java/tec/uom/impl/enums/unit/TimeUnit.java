@@ -45,8 +45,7 @@ import javax.measure.quantity.Time;
 
 /**
  * @author Werner Keil
- * @version 1.2 ($Revision: 444 $), $Date: 2014-03-18 23:55:19 +0100 (Di, 18 Mär
- *          2014) $
+ * @version 1.3, $Date: 2016-06-30 $
  */
 public enum TimeUnit implements Unit<Time>, DoubleFactorSupplier {
 
@@ -164,9 +163,5 @@ public enum TimeUnit implements Unit<Time>, DoubleFactorSupplier {
 
     public Unit<Time> shift(double v) {
 	return this;
-    }
-
-    public Map getProductUnits() {
-	throw new UnsupportedOperationException("Use getBaseUnits() instead");
     }
 }

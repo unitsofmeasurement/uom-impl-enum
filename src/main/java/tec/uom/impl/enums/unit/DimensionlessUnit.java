@@ -48,7 +48,7 @@ import javax.measure.quantity.Dimensionless;
 
 /**
  * @author Werner Keil
- * @version 1.2, $Date: 2016-06-21 $
+ * @version 1.3, $Date: 2016-06-30 $
  */
 public enum DimensionlessUnit implements Unit<Dimensionless>,
 	DoubleFactorSupplier {
@@ -160,9 +160,5 @@ public enum DimensionlessUnit implements Unit<Dimensionless>,
 
     public Unit<Dimensionless> shift(double v) {
 	return this;
-    }
-
-    public Map getProductUnits() {
-	throw new UnsupportedOperationException("Use getBaseUnits() instead");
     }
 }

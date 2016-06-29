@@ -49,7 +49,7 @@ import javax.measure.quantity.Temperature;
 
 /**
  * @author Werner Keil
- * @version 0.4.1, $Date: 2014-12-20 $
+ * @version 0.5, $Date: 2016-06-30 $
  */
 public enum TemperatureUnit implements Unit<Temperature>, DoubleFactorSupplier,
 	DescriptionSupplier {
@@ -236,9 +236,5 @@ public enum TemperatureUnit implements Unit<Temperature>, DoubleFactorSupplier,
 
     public String getDescription() {
 	return description;
-    }
-
-    public Map getProductUnits() {
-	throw new UnsupportedOperationException("Use getBaseUnits() instead");
     }
 }

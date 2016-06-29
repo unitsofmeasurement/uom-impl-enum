@@ -49,8 +49,7 @@ import javax.measure.quantity.Length;
 
 /**
  * @author Werner Keil
- * @version 1.3.1 ($Revision: 444 $), $Date: 2014-03-18 23:55:19 +0100 (Di, 18
- *          Mär 2014) $
+ * @version 1.3.2, $Date: 2016-06-30 $
  */
 public enum DistanceUnit implements Unit<Length>, DoubleFactorSupplier,
 	DescriptiveEnum<DistanceUnit> {
@@ -176,9 +175,5 @@ public enum DistanceUnit implements Unit<Length>, DoubleFactorSupplier,
 
     public DescriptiveEnum<DistanceUnit>[] dValues() {
 	return DistanceUnit.values();
-    }
-
-    public Map getProductUnits() {
-	throw new UnsupportedOperationException("Use getBaseUnits() instead");
     }
 }
