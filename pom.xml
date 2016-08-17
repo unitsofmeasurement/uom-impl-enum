@@ -10,7 +10,7 @@
 		<url>http://unitsofmeasurement.github.io/</url>
 	</organization>
 	<url>https://github.com/unitsofmeasurement/unit-impl-enum</url>
-	<description>Lightweight approach based on Java Enums.</description>
+	<description>Small footprint approach based on Java Enums.</description>
 	<licenses>
 		<license>
 			<name>BSD</name>
@@ -131,13 +131,38 @@
 					</instructions>
 				</configuration>
 			</plugin>
-<!--  
-			<plugin>
-				<groupId>org.codehaus.mojo</groupId>
-				<artifactId>license-maven-plugin</artifactId>
-				<version>1.8</version>
-			</plugin>
--->
+<!-- ======================================================= -->
+            <!-- Source Attachment -->
+            <!-- ======================================================= -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-source-plugin</artifactId>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>attach-javadocs</id>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <detectLinks>true</detectLinks>
+                    <!-- excludePackageNames>package1</excludePackageNames -->
+                    <keywords>true</keywords>
+                    <linksource>true</linksource>
+                    <failOnError>false</failOnError>
+                    <!-- overview>${basedir}/overview.html</overview -->
+                    <source>${maven.compile.sourceLevel}</source>
+                    <!-- stylesheetfile>${basedir}/src/site/css/money-jdoc.css</stylesheetfile -->
+                    <verbose>true</verbose>
+                </configuration>
+            </plugin>
+
 			<plugin>
 			    <groupId>com.mycila</groupId>
 			    <artifactId>license-maven-plugin</artifactId>
