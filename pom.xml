@@ -20,7 +20,7 @@
 	<parent>
 		<groupId>tec.uom</groupId>
 		<artifactId>uom-parent</artifactId>
-		<version>1.0</version>
+		<version>1.0.1-SNAPSHOT</version>
 	</parent>
 	<scm>
 		<url>https://github.com/unitsofmeasurement/uom-impl-enum.git</url>
