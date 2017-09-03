@@ -32,9 +32,9 @@
  */
 package tec.uom.impl.enums.unit;
 
-import tec.uom.impl.enums.DescriptiveEnum;
-import tec.uom.impl.enums.function.DoubleFactorSupplier;
 import tec.uom.impl.enums.quantity.SimpleDimension;
+import tec.uom.lib.common.function.DoubleFactorSupplier;
+import tec.uom.lib.common.util.DescriptiveEnum;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -49,7 +49,7 @@ import javax.measure.quantity.Length;
 
 /**
  * @author Werner Keil
- * @version 1.3.2, $Date: 2016-06-30 $
+ * @version 1.3.3, $Date: 2017-09-03 $
  */
 public enum DistanceUnit implements Unit<Length>, DoubleFactorSupplier,
 	DescriptiveEnum<DistanceUnit> {

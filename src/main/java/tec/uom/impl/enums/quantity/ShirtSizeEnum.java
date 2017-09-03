@@ -33,8 +33,8 @@ import static tec.uom.impl.enums.unit.ShirtSizeUnit.SML;
 
 import javax.measure.Unit;
 
-import tec.uom.impl.enums.DescriptiveEnum;
-import tec.uom.impl.enums.function.UnitSupplier;
+import tec.uom.lib.common.function.UnitSupplier;
+import tec.uom.lib.common.util.DescriptiveEnum;
 
 /**
  * International shirt sizes represented by a Java {@linkplain Enum} implementing {@link UnitSupplier}

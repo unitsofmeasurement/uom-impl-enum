@@ -20,7 +20,7 @@
 	<parent>
 		<groupId>tec.uom</groupId>
 		<artifactId>uom-parent</artifactId>
-		<version>1.0.1-SNAPSHOT</version>
+		<version>1.0.4</version>
 	</parent>
 	<scm>
 		<url>https://github.com/unitsofmeasurement/uom-impl-enum.git</url>
@@ -31,6 +31,7 @@
 	<!-- ======================================================= -->
 	<properties>
 		<jsr.version>1.0</jsr.version>
+		<lib.version>1.0.2</lib.version>
 		<sourceEncoding>UTF-8</sourceEncoding> <!-- in Maven 3. -->
 		<project.build.sourceEncoding>${sourceEncoding}</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>${sourceEncoding}</project.reporting.outputEncoding>
@@ -40,22 +41,6 @@
 		<maven.compile.sourceLevel>${jdkVersion}</maven.compile.sourceLevel>
 	</properties>
 
-	<dependencies>
-		<dependency>
-			<groupId>javax.measure</groupId>
-			<artifactId>unit-api</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.hamcrest</groupId>
-			<artifactId>hamcrest-all</artifactId>
-			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>junit</groupId>
-			<artifactId>junit</artifactId>
-			<scope>test</scope>
-		</dependency>
-	</dependencies>
 	<dependencyManagement>
 		<dependencies>
 			<dependency>
@@ -69,8 +54,33 @@
 				<artifactId>unit-api</artifactId>
 				<version>${jsr.version}</version>
 			</dependency>
+			<dependency>
+				<groupId>tec.uom.lib</groupId>
+				<artifactId>uom-lib-common</artifactId>
+				<version>${lib.version}</version>
+			</dependency>
 		</dependencies>
 	</dependencyManagement>
+	<dependencies>
+		<dependency>
+			<groupId>javax.measure</groupId>
+			<artifactId>unit-api</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>tec.uom.lib</groupId>
+			<artifactId>uom-lib-common</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.hamcrest</groupId>
+			<artifactId>hamcrest-all</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
 
 	<build>
 		<plugins>
@@ -131,67 +141,69 @@
 					</instructions>
 				</configuration>
 			</plugin>
-<!-- ======================================================= -->
-            <!-- Source Attachment -->
-            <!-- ======================================================= -->
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-source-plugin</artifactId>
-            </plugin>
-
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-javadoc-plugin</artifactId>
-                <executions>
-                    <execution>
-                        <id>attach-javadocs</id>
-                        <goals>
-                            <goal>jar</goal>
-                        </goals>
-                    </execution>
-                </executions>
-                <configuration>
-                    <detectLinks>true</detectLinks>
-                    <!-- excludePackageNames>package1</excludePackageNames -->
-                    <keywords>true</keywords>
-                    <linksource>true</linksource>
-                    <failOnError>false</failOnError>
-                    <!-- overview>${basedir}/overview.html</overview -->
-                    <source>${maven.compile.sourceLevel}</source>
-                    <!-- stylesheetfile>${basedir}/src/site/css/money-jdoc.css</stylesheetfile -->
-                    <verbose>true</verbose>
-                </configuration>
-            </plugin>
+			<!-- ======================================================= -->
+			<!-- Source Attachment -->
+			<!-- ======================================================= -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-source-plugin</artifactId>
+			</plugin>
 
 			<plugin>
-			    <groupId>com.mycila</groupId>
-			    <artifactId>license-maven-plugin</artifactId>
-			    <configuration>
-			        <header>src/etc/header.txt</header>
-			        <properties>
-			            <owner>Jean-Marie Dautelle, Werner Keil, V2COM</owner>
-			            <currentYear>2016</currentYear>
-			        </properties>
-			        <excludes>
-			            <exclude>**/pom.xml</exclude>
-			            <exclude>**/README</exclude>
-			            <exclude>**/settings.xml</exclude>
-			            <exclude>src/test/resources/**</exclude>
-			            <exclude>src/main/resources/**</exclude>
-			            <exclude>src/etc/**</exclude>
-			        </excludes>
-			        <headerDefinitions>
-                        <headerDefinition>src/etc/headers.xml</headerDefinition>
-                    </headerDefinitions>
-                    <mapping>
-                        <java>JAVA_STYLE</java>
-                    </mapping>
-			    </configuration>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-javadoc-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>attach-javadocs</id>
+						<goals>
+							<goal>jar</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<detectLinks>true</detectLinks>
+					<!-- excludePackageNames>package1</excludePackageNames -->
+					<keywords>true</keywords>
+					<linksource>true</linksource>
+					<failOnError>false</failOnError>
+					<!-- overview>${basedir}/overview.html</overview -->
+					<source>${maven.compile.sourceLevel}</source>
+					<!-- stylesheetfile>${basedir}/src/site/css/money-jdoc.css</stylesheetfile -->
+					<verbose>true</verbose>
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>com.mycila</groupId>
+				<artifactId>license-maven-plugin</artifactId>
+				<configuration>
+					<header>src/main/config/header.txt</header>
+					<properties>
+						<owner>Jean-Marie Dautelle, Werner Keil, V2COM</owner>
+						<currentYear>2016</currentYear>
+					</properties>
+					<excludes>
+						<exclude>**/pom.xml</exclude>
+						<exclude>**/README</exclude>
+						<exclude>**/settings.xml</exclude>
+						<exclude>src/test/resources/**</exclude>
+						<exclude>src/main/resources/**</exclude>
+						<exclude>src/etc/**</exclude>
+						<exclude>src/main/config/**</exclude>
+					</excludes>
+					<headerDefinitions>
+						<headerDefinition>src/main/config/headers.xml</headerDefinition>
+					</headerDefinitions>
+					<mapping>
+						<java>JAVA_STYLE</java>
+					</mapping>
+				</configuration>
 			</plugin>
 		</plugins>
 		<pluginManagement>
 			<plugins>
-				<!--This plugin's configuration is used to store Eclipse m2e settings only. It has no influence on the Maven build itself.-->
+				<!--This plugin's configuration is used to store Eclipse m2e settings 
+					only. It has no influence on the Maven build itself. -->
 				<plugin>
 					<groupId>org.eclipse.m2e</groupId>
 					<artifactId>lifecycle-mapping</artifactId>
@@ -253,10 +265,10 @@
 			<url>http://oss.jfrog.org/artifactory/libs-snapshot</url>
 		</repository>
 		<repository>
-            <id>geotoolkit</id>
-            <name>Geotoolkit.org project</name>
-            <url>http://maven.geotoolkit.org</url>
-        </repository>
+			<id>geotoolkit</id>
+			<name>Geotoolkit.org project</name>
+			<url>http://maven.geotoolkit.org</url>
+		</repository>
 	</repositories>
 
 	<distributionManagement>
@@ -271,4 +283,5 @@
 			<url>https://oss.jfrog.org/artifactory/oss-snapshot-local</url>
 		</snapshotRepository>
 	</distributionManagement>
+	<version>1.0.1-SNAPSHOT</version>
 </project>

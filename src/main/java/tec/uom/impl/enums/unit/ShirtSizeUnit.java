@@ -29,9 +29,9 @@
  */
 package tec.uom.impl.enums.unit;
 
-import tec.uom.impl.enums.DescriptiveEnum;
 import tec.uom.impl.enums.quantity.ShirtSize;
 import tec.uom.impl.enums.quantity.SimpleDimension;
+import tec.uom.lib.common.util.DescriptiveEnum;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -45,7 +45,7 @@ import javax.measure.UnitConverter;
 
 /**
  * @author Werner Keil
- * @version 0.2, $Date: 2016-06-30 $
+ * @version 0.3, $Date: 2017-09-03 $
  */
 public enum ShirtSizeUnit implements Unit<ShirtSize>,
 	DescriptiveEnum<ShirtSizeUnit> {

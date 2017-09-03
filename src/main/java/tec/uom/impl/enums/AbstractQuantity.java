@@ -30,8 +30,8 @@
 package tec.uom.impl.enums;
 
 import tec.uom.impl.enums.format.UnitStyle;
-import tec.uom.impl.enums.function.DoubleFactorSupplier;
 import tec.uom.impl.enums.function.QuantityConverter;
+import tec.uom.lib.common.function.DoubleFactorSupplier;
 
 import javax.measure.Quantity;
 import javax.measure.Unit;

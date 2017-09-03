@@ -32,9 +32,9 @@ package tec.uom.impl.enums.unit;
 import static tec.uom.impl.enums.unit.Constants.DEG;
 import tec.uom.impl.enums.DimensionalModel;
 import tec.uom.impl.enums.function.AbstractConverter;
-import tec.uom.impl.enums.function.DescriptionSupplier;
-import tec.uom.impl.enums.function.DoubleFactorSupplier;
 import tec.uom.impl.enums.quantity.SimpleDimension;
+import tec.uom.lib.common.function.DescriptionSupplier;
+import tec.uom.lib.common.function.DoubleFactorSupplier;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -49,7 +49,7 @@ import javax.measure.quantity.Temperature;
 
 /**
  * @author Werner Keil
- * @version 0.5, $Date: 2016-06-30 $
+ * @version 0.6, $Date: 2017-09-03 $
  */
 public enum TemperatureUnit implements Unit<Temperature>, DoubleFactorSupplier,
 	DescriptionSupplier {

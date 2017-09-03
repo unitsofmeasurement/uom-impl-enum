@@ -44,6 +44,7 @@ import javax.measure.Unit;
  * @param <Q>
  *            The type to convert to.
  * @see <a href="http://en.wikipedia.org/wiki/Data_conversion">Wikipedia: Data Conversion</a>
+ * @deprecated Use Lib Common in the next version
  */
 //equivalent to @FunctionalInterface
 public interface QuantityConverter<Q extends Quantity<Q>> {
