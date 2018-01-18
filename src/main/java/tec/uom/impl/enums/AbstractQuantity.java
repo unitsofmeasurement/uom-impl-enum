@@ -30,15 +30,15 @@
 package tec.uom.impl.enums;
 
 import tec.uom.impl.enums.format.UnitStyle;
-import tec.uom.impl.enums.function.QuantityConverter;
 import tec.uom.lib.common.function.DoubleFactorSupplier;
+import tec.uom.lib.common.function.QuantityConverter;
 
 import javax.measure.Quantity;
 import javax.measure.Unit;
 
 /**
  * @author Werner Keil
- * @version 0.13, $Date: 2016-04-03 $
+ * @version 0.14, $Date: 2018-01-19 $
  */
 public abstract class AbstractQuantity<Q extends Quantity<Q>> implements 
 	Quantity<Q>, QuantityConverter<Q>, Comparable<Quantity<Q>> {
