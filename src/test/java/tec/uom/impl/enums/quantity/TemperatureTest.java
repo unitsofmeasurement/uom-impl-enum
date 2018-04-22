@@ -13,7 +13,7 @@
  * 2. Redistributions in binary form must reproduce the above copyright notice, this list of conditions
  *    and the following disclaimer in the documentation and/or other materials provided with the distribution.
  *
- * 3. Neither the name of JSR-363, Unit-API nor the names of their contributors may be used to endorse or promote products
+ * 3. Neither the name of JSR-385, Unit-API nor the names of their contributors may be used to endorse or promote products
  *    derived from this software without specific prior written permission.
  *
  * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
@@ -38,13 +38,13 @@ import javax.measure.quantity.Temperature;
 import org.junit.Ignore;
 import org.junit.Test;
 
-import tech.uom.impl.enums.quantity.TemperatureAmount;
+import tech.uom.impl.enums.quantity.TemperatureQuantity;
 
 public class TemperatureTest {
 	
 	@Test
 	public void testInstanciate() {
-		Temperature t =  new TemperatureAmount(23.0, CELSIUS); // 23.0 °C
+		Temperature t =  new TemperatureQuantity(23.0, CELSIUS); // 23.0 °C
 		assertEquals(Double.valueOf(23.0d), t.getValue());
 		assertEquals(CELSIUS, t.getUnit());
 		//assertEquals("km", l.getUnit().getSymbol());
@@ -52,20 +52,20 @@ public class TemperatureTest {
 	
 	@Test
 	public void testToString() {
-		Temperature t =  new TemperatureAmount(23.0d, CELSIUS); // 23.0 °C
+		Temperature t =  new TemperatureQuantity(23.0d, CELSIUS); // 23.0 °C
 		assertEquals("23.0°C", t.toString());
 	}
 	
 	@Test
 	public void testTemperatureQuantityDoubleTemperatureUnit() {
-		Temperature t = new TemperatureAmount(Double.valueOf(20d), CELSIUS);
+		Temperature t = new TemperatureQuantity(Double.valueOf(20d), CELSIUS);
 		assertEquals(Double.valueOf(20d), t.getValue());
 	}
 
 	@Test
 	@Ignore
 	public void testTo() {
-		TemperatureAmount t = new TemperatureAmount(Double.valueOf(30d), CELSIUS);
+		TemperatureQuantity t = new TemperatureQuantity(Double.valueOf(30d), CELSIUS);
 		Quantity<Temperature> t2 = t.to(FAHRENHEIT);
 		assertEquals(Double.valueOf(20d), t2.getValue());
 	}

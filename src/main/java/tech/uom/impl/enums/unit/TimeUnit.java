@@ -13,7 +13,7 @@
  * 2. Redistributions in binary form must reproduce the above copyright notice, this list of conditions
  *    and the following disclaimer in the documentation and/or other materials provided with the distribution.
  *
- * 3. Neither the name of JSR-363, Unit-API nor the names of their contributors may be used to endorse or promote products
+ * 3. Neither the name of JSR-385, Unit-API nor the names of their contributors may be used to endorse or promote products
  *    derived from this software without specific prior written permission.
  *
  * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
@@ -29,7 +29,7 @@
  */
 package tech.uom.impl.enums.unit;
 
-import tec.uom.lib.common.function.DoubleFactorSupplier;
+import tech.uom.lib.common.function.DoubleFactorSupplier;
 import tech.uom.impl.enums.quantity.SimpleDimension;
 
 import java.util.HashMap;
@@ -37,6 +37,7 @@ import java.util.Map;
 
 import javax.measure.Dimension;
 import javax.measure.IncommensurableException;
+import javax.measure.Prefix;
 import javax.measure.Quantity;
 import javax.measure.UnconvertibleException;
 import javax.measure.Unit;
@@ -45,123 +46,132 @@ import javax.measure.quantity.Time;
 
 /**
  * @author Werner Keil
- * @version 1.3.1, $Date: 2017-09-03 $
+ * @version 1.4, $Date: 2018-04-22 $
  */
 public enum TimeUnit implements Unit<Time>, DoubleFactorSupplier {
 
-    SECOND("s", 1.0), // reference Unit
-    MINUTE("m", 60), HOUR("h", 60 * 60);
+	SECOND("s", 1.0), // reference Unit
+	MINUTE("m", 60), HOUR("h", 60 * 60),
+	MILLISECOND("ms", .001);
 
-    private final String symbol;
-    private final double multFactor;
+	private final String symbol;
+	private final double multFactor;
 
-    private TimeUnit(String s, double multF) {
-	this.symbol = s;
-	this.multFactor = multF;
-    }
-
-    public String getSymbol() {
-	return symbol;
-    }
-
-    public String getName() {
-	return name();
-    }
-
-    public double getFactor() {
-	return multFactor;
-    }
-
-    public Unit<Time> getSystemUnit() {
-	return SECOND;
-    }
-
-    public Map<? extends Unit<?>, Integer> getBaseUnits() {
-	Map<Unit<Time>, Integer> prodUnits = new HashMap<Unit<Time>, Integer>();
-	prodUnits.put(HOUR, Integer.valueOf(2));
-	return prodUnits;
-    }
-
-    public static TimeUnit getBySymbol(String symbol) {
-	if (HOUR.name().equals(symbol)) {
-	    return HOUR;
+	private TimeUnit(String s, double multF) {
+		this.symbol = s;
+		this.multFactor = multF;
 	}
-	if (MINUTE.name().equals(symbol)) {
-	    return MINUTE;
+
+	public String getSymbol() {
+		return symbol;
 	}
-	return SECOND;
-    }
 
-    public UnitConverter getConverterTo(Unit<Time> that)
-	    throws UnconvertibleException {
-	// currently unused
-	return null;
-    }
+	public String getName() {
+		return name();
+	}
 
-    public UnitConverter getConverterToAny(Unit<?> that)
-	    throws IncommensurableException, UnconvertibleException {
-	// currently unused
-	return null;
-    }
+	public double getFactor() {
+		return multFactor;
+	}
 
-    public Unit<Time> alternate(String s) {
-	return this;
-    }
+	public Unit<Time> getSystemUnit() {
+		return SECOND;
+	}
 
-    public Dimension getDimension() {
-	return SimpleDimension.INSTANCE;
-    }
+	public Map<? extends Unit<?>, Integer> getBaseUnits() {
+		Map<Unit<Time>, Integer> prodUnits = new HashMap<Unit<Time>, Integer>();
+		prodUnits.put(HOUR, Integer.valueOf(2));
+		return prodUnits;
+	}
 
-    public Unit<?> inverse() {
-	return this;
-    }
+	public static TimeUnit getBySymbol(String symbol) {
+		if (HOUR.name().equals(symbol)) {
+			return HOUR;
+		}
+		if (MINUTE.name().equals(symbol)) {
+			return MINUTE;
+		}
+		return SECOND;
+	}
 
-    public Unit<Time> divide(double v) {
-	return null; // To change body of implemented methods use File |
-		     // Settings | File TemplateBuilder.
-    }
+	public UnitConverter getConverterTo(Unit<Time> that) throws UnconvertibleException {
+		// currently unused
+		return null;
+	}
 
-    public Unit<?> divide(Unit<?> unit) {
-	return null; // To change body of implemented methods use File |
-		     // Settings | File TemplateBuilder.
-    }
+	public UnitConverter getConverterToAny(Unit<?> that) throws IncommensurableException, UnconvertibleException {
+		// currently unused
+		return null;
+	}
 
-    public boolean isCompatible(Unit<?> that) {
-	if (that instanceof TimeUnit)
-	    return true;
-	return false;
-    }
+	public Unit<Time> alternate(String s) {
+		return this;
+	}
 
-    @SuppressWarnings("unchecked")
-    public <T extends Quantity<T>> Unit<T> asType(Class<T> tClass) {
-	Unit<T> metricUnit = (Unit<T>) getSystemUnit(); // AbstractQuantityFactory.getInstance(tClass).getSystemUnit();
-	if ((metricUnit == null) || metricUnit.isCompatible(this))
-	    return (Unit<T>) this;
-	throw new ClassCastException("The unit: " + this //$NON-NLS-1$
-		+ " is not of parameterized type " + tClass); //$NON-NLS-1$
-    }
+	public Dimension getDimension() {
+		return SimpleDimension.INSTANCE;
+	}
 
-    public Unit<Time> multiply(double factor) {
-	return this;
-    }
+	public Unit<?> inverse() {
+		return this;
+	}
 
-    public Unit<?> multiply(Unit<?> that) {
-	return this;
-    }
+	public Unit<Time> divide(double v) {
+		return null; // To change body of implemented methods use File |
+		// Settings | File TemplateBuilder.
+	}
 
-    public Unit<?> pow(int n) {
-	return this;
-    }
+	public Unit<?> divide(Unit<?> unit) {
+		return null; // To change body of implemented methods use File |
+		// Settings | File TemplateBuilder.
+	}
 
-    public Unit<?> root(int n) {
-	return this;
-    }
+	public boolean isCompatible(Unit<?> that) {
+		if (that instanceof TimeUnit)
+			return true;
+		return false;
+	}
 
-    public Unit<Time> transform(UnitConverter operation) {
-	return this;
-    }
+	@SuppressWarnings("unchecked")
+	public <T extends Quantity<T>> Unit<T> asType(Class<T> tClass) {
+		Unit<T> metricUnit = (Unit<T>) getSystemUnit(); // AbstractQuantityFactory.getInstance(tClass).getSystemUnit();
+		if ((metricUnit == null) || metricUnit.isCompatible(this))
+			return (Unit<T>) this;
+		throw new ClassCastException("The unit: " + this //$NON-NLS-1$
+				+ " is not of parameterized type " + tClass); //$NON-NLS-1$
+	}
 
-    public Unit<Time> shift(double v) {
-	return this;
-    }
+	public Unit<Time> multiply(double factor) {
+		for (TimeUnit tu : values()) {
+			if (tu.getFactor() == factor) {
+				return tu;
+			}
+		}
+		return this;
+	}
+
+	public Unit<?> multiply(Unit<?> that) {
+		return this;
+	}
+
+	public Unit<?> pow(int n) {
+		return this;
+	}
+
+	public Unit<?> root(int n) {
+		return this;
+	}
+
+	public Unit<Time> transform(UnitConverter operation) {
+		return this;
+	}
+
+	public Unit<Time> shift(double v) {
+		return this;
+	}
+
+	@Override
+	public Unit<Time> prefix(Prefix prefix) {
+		return this.multiply(Math.pow(prefix.getBase(), prefix.getExponent()));
+	}
 }

@@ -13,7 +13,7 @@
  * 2. Redistributions in binary form must reproduce the above copyright notice, this list of conditions
  *    and the following disclaimer in the documentation and/or other materials provided with the distribution.
  *
- * 3. Neither the name of JSR-363, Unit-API nor the names of their contributors may be used to endorse or promote products
+ * 3. Neither the name of JSR-385, Unit-API nor the names of their contributors may be used to endorse or promote products
  *    derived from this software without specific prior written permission.
  *
  * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
@@ -30,7 +30,7 @@
 package tec.uom.impl.enums.unit;
 
 import static org.junit.Assert.*;
-//import static javax.measure.MetricPrefix;
+import static javax.measure.MetricPrefix.MILLI;
 import static tech.uom.impl.enums.unit.TimeUnit.*;
 
 import javax.measure.Unit;
@@ -68,6 +68,8 @@ public class TimeUnitTest {
 	@Test
 	public void testPrefix() {
 		Unit<Time> t =  SECOND; // sec
-		//Unit<Time> conv = MILLI(SECOND);
+		Unit<Time> conv = MILLI(SECOND);
+		assertEquals("ms", conv.getSymbol());
+		assertEquals(MILLISECOND, conv);
 	}
 }

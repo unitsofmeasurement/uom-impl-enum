@@ -13,7 +13,7 @@
  * 2. Redistributions in binary form must reproduce the above copyright notice, this list of conditions
  *    and the following disclaimer in the documentation and/or other materials provided with the distribution.
  *
- * 3. Neither the name of JSR-363, Unit-API nor the names of their contributors may be used to endorse or promote products
+ * 3. Neither the name of JSR-385, Unit-API nor the names of their contributors may be used to endorse or promote products
  *    derived from this software without specific prior written permission.
  *
  * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
@@ -29,7 +29,7 @@
  */
 package tech.uom.impl.enums.unit;
 
-import tec.uom.lib.common.util.DescriptiveEnum;
+import tech.uom.lib.common.util.DescriptiveEnum;
 import tech.uom.impl.enums.quantity.ShirtSize;
 import tech.uom.impl.enums.quantity.SimpleDimension;
 
@@ -38,6 +38,7 @@ import java.util.Map;
 
 import javax.measure.Dimension;
 import javax.measure.IncommensurableException;
+import javax.measure.Prefix;
 import javax.measure.Quantity;
 import javax.measure.UnconvertibleException;
 import javax.measure.Unit;
@@ -165,4 +166,9 @@ public enum ShirtSizeUnit implements Unit<ShirtSize>,
     public DescriptiveEnum<ShirtSizeUnit>[] dValues() {
 	return ShirtSizeUnit.values();
     }
+
+	@Override
+	public Unit<ShirtSize> prefix(Prefix prefix) {
+		return this.multiply(Math.pow(prefix.getBase(), prefix.getExponent()));
+	}
 }

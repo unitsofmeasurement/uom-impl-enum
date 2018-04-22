@@ -13,7 +13,7 @@
  * 2. Redistributions in binary form must reproduce the above copyright notice, this list of conditions
  *    and the following disclaimer in the documentation and/or other materials provided with the distribution.
  *
- * 3. Neither the name of JSR-363, Unit-API nor the names of their contributors may be used to endorse or promote products
+ * 3. Neither the name of JSR-385, Unit-API nor the names of their contributors may be used to endorse or promote products
  *    derived from this software without specific prior written permission.
  *
  * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
@@ -43,78 +43,78 @@ import tech.uom.impl.enums.unit.TemperatureUnit;
  * @author Werner Keil
  * @version 0.7.2, $Date: 2014-11-02 $
  */
-public final class TemperatureAmount extends AbstractQuantity<Temperature> 
+public final class TemperatureQuantity extends AbstractQuantity<Temperature> 
   implements Temperature {
     private final Double scalar; // value in reference unit
 
-    private final Double value; // value in unit (Unit unit)
+    private final double value; // value in unit (Unit unit)
 
     private final TemperatureUnit unit;
 
-    public TemperatureAmount(Double val, TemperatureUnit un) {
+    public TemperatureQuantity(double val, TemperatureUnit un) {
         value = val;
         unit = un;
-        if (val!= null && un != null) {
-        	scalar = val.doubleValue() * un.getFactor();
+        if (un != null) {
+        	scalar = val * un.getFactor();
         } 
         else scalar = null;        
     }
     
-    public TemperatureAmount(Double val, Unit<Temperature> u) {
-    	this(val, (TemperatureUnit)u);
+    public TemperatureQuantity(Number val, @SuppressWarnings("rawtypes") Unit u) {
+    	this(val.doubleValue(), (TemperatureUnit)u);
     }
 
     @Override
     public boolean isZero() {
-        return (value != null) && 0d==(value.doubleValue());
+        return 0d==(value);
     }
 
-    public TemperatureAmount add(TemperatureAmount d1) {
-        final TemperatureAmount dn = new TemperatureAmount(Double.valueOf(
-                this.value.doubleValue() + d1.value.doubleValue()),
+    public TemperatureQuantity add(TemperatureQuantity d1) {
+        final TemperatureQuantity dn = new TemperatureQuantity(Double.valueOf(
+                this.value + d1.value),
         		this.unit);
         return dn;
     }
 
-    public TemperatureAmount subtract(TemperatureAmount d1) {
-    	final TemperatureAmount dn = new TemperatureAmount(
-                this.value.doubleValue() - d1.value.doubleValue(), this.unit);
+    public TemperatureQuantity subtract(TemperatureQuantity d1) {
+    	final TemperatureQuantity dn = new TemperatureQuantity(
+                this.value- d1.value, this.unit);
         return dn;
     }
 
-    protected boolean eq(TemperatureAmount dq) {
+    protected boolean eq(TemperatureQuantity dq) {
          return dq!=null && dq.getValue().equals(getValue()) && 
                  dq.getUnit().equals(getUnit()) &&
                  dq.getScalar().equals(getScalar());
     }
 
-    boolean ne(TemperatureAmount d1) {
-        return ne((TemperatureAmount) d1);
+    boolean ne(TemperatureQuantity d1) {
+        return ne((TemperatureQuantity) d1);
     }
 
-    boolean gt(TemperatureAmount d1) {
-        return gt((TemperatureAmount) d1);
+    boolean gt(TemperatureQuantity d1) {
+        return gt((TemperatureQuantity) d1);
     }
 
-    public boolean lt(TemperatureAmount d1) {
-        return lt((TemperatureAmount) d1);
+    public boolean lt(TemperatureQuantity d1) {
+        return lt((TemperatureQuantity) d1);
     }
 
-    public boolean ge(TemperatureAmount d1) {
-        return ge((TemperatureAmount)d1);
+    public boolean ge(TemperatureQuantity d1) {
+        return ge((TemperatureQuantity)d1);
     }
 
-    public boolean le(TemperatureAmount d1) {
-        return le((TemperatureAmount) d1);
+    public boolean le(TemperatureQuantity d1) {
+        return le((TemperatureQuantity) d1);
     }
 
-    public TemperatureAmount divide(Double v) {
-        return new TemperatureAmount(value.doubleValue() / v.doubleValue(), 
+    public TemperatureQuantity divide(double v) {
+        return new TemperatureQuantity(value / v, 
                 unit);
     }
 
-    protected TemperatureAmount convert(TemperatureUnit newUnit) {
-        return new TemperatureAmount(value.doubleValue() /  
+    protected TemperatureQuantity convert(TemperatureUnit newUnit) {
+        return new TemperatureQuantity(value /  
                 newUnit.getFactor(), newUnit);
     }
 
@@ -152,14 +152,12 @@ public final class TemperatureAmount extends AbstractQuantity<Temperature>
 
 
 	public Quantity<Temperature> multiply(Number that) {
-		return new TemperatureAmount(value.doubleValue() * 
-                        that.doubleValue(), unit);
+		return new TemperatureQuantity(value * that.doubleValue(), unit);
 	}
 	
 
 	public Quantity<?> multiply(Quantity<?> that) {
-		return new TemperatureAmount(value.doubleValue() * 
-                that.getValue().doubleValue(), unit);
+		return new TemperatureQuantity(value * that.getValue().doubleValue(), unit);
 	}
 
 
@@ -206,7 +204,7 @@ public final class TemperatureAmount extends AbstractQuantity<Temperature>
 
 
 	protected boolean eq(AbstractQuantity<Temperature> dq) {
-		 return eq((TemperatureAmount) dq);
+		 return eq((TemperatureQuantity) dq);
 	}
 
 

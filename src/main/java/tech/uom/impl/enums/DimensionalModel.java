@@ -13,7 +13,7 @@
  * 2. Redistributions in binary form must reproduce the above copyright notice, this list of conditions
  *    and the following disclaimer in the documentation and/or other materials provided with the distribution.
  *
- * 3. Neither the name of JSR-363, Unit-API nor the names of their contributors may be used to endorse or promote products
+ * 3. Neither the name of JSR-385, Unit-API nor the names of their contributors may be used to endorse or promote products
  *    derived from this software without specific prior written permission.
  *
  * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
@@ -34,6 +34,7 @@ import java.lang.ref.WeakReference;
 import java.util.Map;
 
 import javax.measure.Dimension;
+import javax.measure.UnitConverter;
 
 import tech.uom.impl.enums.function.AbstractConverter;
 import tech.uom.impl.enums.quantity.SimpleDimension;
@@ -146,13 +147,13 @@ public abstract class DimensionalModel {
      * @param dimension the dimension for which the dimensional transform is returned.
      * @return the dimensional transform (identity for fundamental dimensions).
      */
-    public AbstractConverter getDimensionalTransform(Dimension dimension) {
+    public UnitConverter getDimensionalTransform(Dimension dimension) {
         Map<? extends Dimension, Integer> dimensions = dimension.getBaseDimensions();
         if (dimensions == null) return AbstractConverter.IDENTITY; // Fundamental dimension.
         // Dimensional Product.
-        AbstractConverter toFundamental = AbstractConverter.IDENTITY;
+        UnitConverter toFundamental = AbstractConverter.IDENTITY;
         for (Map.Entry<? extends Dimension, Integer> e : dimensions.entrySet()) {
-            AbstractConverter cvtr = this.getDimensionalTransform(e.getKey());
+            UnitConverter cvtr = this.getDimensionalTransform(e.getKey());
             if (!(cvtr.isLinear()))
                 throw new UnsupportedOperationException("Non-linear dimensional transform");
             int pow = e.getValue();

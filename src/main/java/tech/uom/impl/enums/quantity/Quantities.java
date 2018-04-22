@@ -27,11 +27,53 @@
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE,
  * EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
+package tech.uom.impl.enums.quantity;
+
+import java.math.BigDecimal;
+import java.math.BigInteger;
+import java.util.Objects;
+
+import javax.measure.Quantity;
+import javax.measure.Unit;
+
+import tech.uom.impl.enums.unit.TimeUnit;
+
+
 /**
- * 
- */
-/**
- * @author Werner
+ * Singleton class for accessing {@link Quantity} instances.
  *
+ * @author werner
+ * @author otaviojava
+ * @since 1.0
  */
-package tech.uom.impl.enums.format;
+public final class Quantities {
+  /**
+   * Private singleton constructor.
+   */
+  private Quantities() {
+  }
+
+  /**
+   * Returns the scalar measurement. When the {@link Number} was {@link BigDecimal} or {@link BigInteger} will uses {@link DecimalQuantity}, when the
+   * {@link Number} was {@link Double} will {@link DoubleQuantity} otherwise will {@link NumberQuantity}. in the specified unit.
+   *
+   * @param value
+   *          the measurement value.
+   * @param unit
+   *          the measurement unit.
+   * @return the corresponding <code>numeric</code> measurement.
+   * @throws NullPointerException
+   *           when value or unit were null
+   */
+  @SuppressWarnings("unchecked")
+  public static <Q extends Quantity<Q>> Quantity<Q> getQuantity(Number value, Unit<Q> unit) {
+    Objects.requireNonNull(value);
+    Objects.requireNonNull(unit);
+    if (TemperatureQuantity.class.isInstance(unit)) {
+      return (Quantity<Q>) new TemperatureQuantity(value, unit);
+    } else if (TimeUnit.class.isInstance(unit)) {
+      return (Quantity<Q>) new TimeQuantity(value, unit);
+    }
+    return (Quantity<Q>) new DimensionlessQuantity(value, unit);
+  }
+}

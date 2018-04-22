@@ -13,7 +13,7 @@
  * 2. Redistributions in binary form must reproduce the above copyright notice, this list of conditions
  *    and the following disclaimer in the documentation and/or other materials provided with the distribution.
  *
- * 3. Neither the name of JSR-363, Unit-API nor the names of their contributors may be used to endorse or promote products
+ * 3. Neither the name of JSR-385, Unit-API nor the names of their contributors may be used to endorse or promote products
  *    derived from this software without specific prior written permission.
  *
  * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
@@ -29,8 +29,8 @@
  */
 package tech.uom.impl.enums;
 
-import tec.uom.lib.common.function.DoubleFactorSupplier;
-import tec.uom.lib.common.function.QuantityConverter;
+import tech.uom.lib.common.function.DoubleFactorSupplier;
+import tech.uom.lib.common.function.QuantityConverter;
 import tech.uom.impl.enums.format.UnitStyle;
 
 import javax.measure.Quantity;
@@ -38,7 +38,7 @@ import javax.measure.Unit;
 
 /**
  * @author Werner Keil
- * @version 0.14, $Date: 2018-01-19 $
+ * @version 1.0, $Date: 2018-04-22 $
  */
 public abstract class AbstractQuantity<Q extends Quantity<Q>> implements 
 	Quantity<Q>, QuantityConverter<Q>, Comparable<Quantity<Q>> {

@@ -13,7 +13,7 @@
  * 2. Redistributions in binary form must reproduce the above copyright notice, this list of conditions
  *    and the following disclaimer in the documentation and/or other materials provided with the distribution.
  *
- * 3. Neither the name of JSR-363, Unit-API nor the names of their contributors may be used to endorse or promote products
+ * 3. Neither the name of JSR-385, Unit-API nor the names of their contributors may be used to endorse or promote products
  *    derived from this software without specific prior written permission.
  *
  * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
@@ -33,8 +33,8 @@ import static tech.uom.impl.enums.unit.ShirtSizeUnit.SML;
 
 import javax.measure.Unit;
 
-import tec.uom.lib.common.function.UnitSupplier;
-import tec.uom.lib.common.util.DescriptiveEnum;
+import tech.uom.lib.common.function.UnitSupplier;
+import tech.uom.lib.common.util.DescriptiveEnum;
 
 /**
  * International shirt sizes represented by a Java {@linkplain Enum} implementing {@link UnitSupplier}
