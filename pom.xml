@@ -1,7 +1,7 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>tec.uom.impl</groupId>
+	<groupId>tech.uom.impl</groupId>
 	<artifactId>uom-impl-enum</artifactId>
 	<!-- <packaging>bundle</packaging> -->
 	<name>Units of Measurement Enum Implementation</name>
@@ -14,13 +14,13 @@
 	<licenses>
 		<license>
 			<name>BSD</name>
-			<url>LICENSE.txt</url>
+			<url>LICENSE</url>
 		</license>
 	</licenses>
 	<parent>
-		<groupId>tec.uom</groupId>
+		<groupId>tech.uom</groupId>
 		<artifactId>uom-parent</artifactId>
-		<version>1.0.4</version>
+		<version>1.2</version>
 	</parent>
 	<scm>
 		<url>https://github.com/unitsofmeasurement/uom-impl-enum.git</url>
@@ -136,7 +136,7 @@
 				<extensions>true</extensions>
 				<configuration>
 					<instructions>
-						<Export-Package>tec.uom.impl.enums.*</Export-Package>
+						<Export-Package>tech.uom.impl.enums.*</Export-Package>
 						<Private-Package>!*</Private-Package>
 					</instructions>
 				</configuration>
@@ -283,5 +283,5 @@
 			<url>https://oss.jfrog.org/artifactory/oss-snapshot-local</url>
 		</snapshotRepository>
 	</distributionManagement>
-	<version>1.0.1-SNAPSHOT</version>
+	<version>1.1</version>
 </project>

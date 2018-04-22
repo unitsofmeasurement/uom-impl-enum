@@ -27,14 +27,10 @@
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE,
  * EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-/**
- *
- */
-package tec.uom.impl.enums.unit;
+package tech.uom.impl.enums.unit;
 
-import tec.uom.impl.enums.quantity.SimpleDimension;
 import tec.uom.lib.common.function.DoubleFactorSupplier;
-import tec.uom.lib.common.util.DescriptiveEnum;
+import tech.uom.impl.enums.quantity.SimpleDimension;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -45,24 +41,22 @@ import javax.measure.Quantity;
 import javax.measure.UnconvertibleException;
 import javax.measure.Unit;
 import javax.measure.UnitConverter;
-import javax.measure.quantity.Length;
+import javax.measure.quantity.Time;
 
 /**
  * @author Werner Keil
- * @version 1.3.3, $Date: 2017-09-03 $
+ * @version 1.3.1, $Date: 2017-09-03 $
  */
-public enum DistanceUnit implements Unit<Length>, DoubleFactorSupplier,
-	DescriptiveEnum<DistanceUnit> {
-    METRE("m", "m", 1.0), // reference Unit
-    KILOMETRE("km", "km", 1.0e3);
+public enum TimeUnit implements Unit<Time>, DoubleFactorSupplier {
+
+    SECOND("s", 1.0), // reference Unit
+    MINUTE("m", 60), HOUR("h", 60 * 60);
 
     private final String symbol;
-    private final String description;
     private final double multFactor;
 
-    private DistanceUnit(final String symbol, final String name, double multF) {
-	this.symbol = symbol;
-	this.description = name;
+    private TimeUnit(String s, double multF) {
+	this.symbol = s;
 	this.multFactor = multF;
     }
 
@@ -70,32 +64,35 @@ public enum DistanceUnit implements Unit<Length>, DoubleFactorSupplier,
 	return symbol;
     }
 
-    public double getFactor() {
-	return multFactor;
-    }
-
-    public Unit<Length> getSystemUnit() {
-	return METRE;
-    }
-
     public String getName() {
 	return name();
     }
 
-    public Map<? extends Unit<Length>, Integer> getBaseUnits() {
-	Map<Unit<Length>, Integer> prodUnits = new HashMap<Unit<Length>, Integer>();
-	prodUnits.put(KILOMETRE, Integer.valueOf(3));
+    public double getFactor() {
+	return multFactor;
+    }
+
+    public Unit<Time> getSystemUnit() {
+	return SECOND;
+    }
+
+    public Map<? extends Unit<?>, Integer> getBaseUnits() {
+	Map<Unit<Time>, Integer> prodUnits = new HashMap<Unit<Time>, Integer>();
+	prodUnits.put(HOUR, Integer.valueOf(2));
 	return prodUnits;
     }
 
-    public static DistanceUnit getBySymbol(String symbol) {
-	if (KILOMETRE.getSymbol().equals(symbol)) {
-	    return KILOMETRE;
+    public static TimeUnit getBySymbol(String symbol) {
+	if (HOUR.name().equals(symbol)) {
+	    return HOUR;
 	}
-	return METRE;
+	if (MINUTE.name().equals(symbol)) {
+	    return MINUTE;
+	}
+	return SECOND;
     }
 
-    public UnitConverter getConverterTo(Unit<Length> that)
+    public UnitConverter getConverterTo(Unit<Time> that)
 	    throws UnconvertibleException {
 	// currently unused
 	return null;
@@ -107,9 +104,8 @@ public enum DistanceUnit implements Unit<Length>, DoubleFactorSupplier,
 	return null;
     }
 
-    public Unit<Length> alternate(String s) {
-	return null; // To change body of implemented methods use File |
-		     // Settings | File TemplateBuilder.
+    public Unit<Time> alternate(String s) {
+	return this;
     }
 
     public Dimension getDimension() {
@@ -120,7 +116,7 @@ public enum DistanceUnit implements Unit<Length>, DoubleFactorSupplier,
 	return this;
     }
 
-    public Unit<Length> divide(double v) {
+    public Unit<Time> divide(double v) {
 	return null; // To change body of implemented methods use File |
 		     // Settings | File TemplateBuilder.
     }
@@ -131,21 +127,21 @@ public enum DistanceUnit implements Unit<Length>, DoubleFactorSupplier,
     }
 
     public boolean isCompatible(Unit<?> that) {
-	if (that instanceof DistanceUnit)
+	if (that instanceof TimeUnit)
 	    return true;
 	return false;
     }
 
     @SuppressWarnings("unchecked")
     public <T extends Quantity<T>> Unit<T> asType(Class<T> tClass) {
-	Unit<T> metricUnit = (Unit<T>) METRE;
+	Unit<T> metricUnit = (Unit<T>) getSystemUnit(); // AbstractQuantityFactory.getInstance(tClass).getSystemUnit();
 	if ((metricUnit == null) || metricUnit.isCompatible(this))
 	    return (Unit<T>) this;
 	throw new ClassCastException("The unit: " + this //$NON-NLS-1$
 		+ " is not of parameterized type " + tClass); //$NON-NLS-1$
     }
 
-    public Unit<Length> multiply(double factor) {
+    public Unit<Time> multiply(double factor) {
 	return this;
     }
 
@@ -161,19 +157,11 @@ public enum DistanceUnit implements Unit<Length>, DoubleFactorSupplier,
 	return this;
     }
 
-    public Unit<Length> transform(UnitConverter operation) {
+    public Unit<Time> transform(UnitConverter operation) {
 	return this;
     }
 
-    public Unit<Length> shift(double v) {
+    public Unit<Time> shift(double v) {
 	return this;
-    }
-
-    public String getDescription() {
-	return description;
-    }
-
-    public DescriptiveEnum<DistanceUnit>[] dValues() {
-	return DistanceUnit.values();
     }
 }

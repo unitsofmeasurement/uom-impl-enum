@@ -27,16 +27,17 @@
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE,
  * EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-package tec.uom.impl.enums.quantity;
+package tech.uom.impl.enums.quantity;
 
 import static java.lang.Double.NaN;
-import tec.uom.impl.enums.AbstractQuantity;
-import tec.uom.impl.enums.format.UnitStyle;
-import tec.uom.impl.enums.unit.TimeUnit;
 
 import javax.measure.Quantity;
 import javax.measure.Unit;
 import javax.measure.quantity.Time;
+
+import tech.uom.impl.enums.AbstractQuantity;
+import tech.uom.impl.enums.format.UnitStyle;
+import tech.uom.impl.enums.unit.TimeUnit;
 
 /**
  * @author Werner Keil

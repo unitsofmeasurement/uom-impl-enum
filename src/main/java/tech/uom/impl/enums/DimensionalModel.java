@@ -27,7 +27,7 @@
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE,
  * EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-package tec.uom.impl.enums;
+package tech.uom.impl.enums;
 
 import java.lang.ref.Reference;
 import java.lang.ref.WeakReference;
@@ -35,8 +35,8 @@ import java.util.Map;
 
 import javax.measure.Dimension;
 
-import tec.uom.impl.enums.function.AbstractConverter;
-import tec.uom.impl.enums.quantity.SimpleDimension;
+import tech.uom.impl.enums.function.AbstractConverter;
+import tech.uom.impl.enums.quantity.SimpleDimension;
 
 /**
  * <p> This class represents the physical model used for dimensional analysis.</p>

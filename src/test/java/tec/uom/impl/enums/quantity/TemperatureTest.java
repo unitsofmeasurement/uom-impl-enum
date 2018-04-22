@@ -30,7 +30,7 @@
 package tec.uom.impl.enums.quantity;
 
 import static org.junit.Assert.*;
-import static tec.uom.impl.enums.unit.TemperatureUnit.*;
+import static tech.uom.impl.enums.unit.TemperatureUnit.*;
 
 import javax.measure.Quantity;
 import javax.measure.quantity.Temperature;
@@ -38,7 +38,7 @@ import javax.measure.quantity.Temperature;
 import org.junit.Ignore;
 import org.junit.Test;
 
-import tec.uom.impl.enums.quantity.TemperatureAmount;
+import tech.uom.impl.enums.quantity.TemperatureAmount;
 
 public class TemperatureTest {
 	

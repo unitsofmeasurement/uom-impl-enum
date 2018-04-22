@@ -27,11 +27,11 @@
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE,
  * EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-package tec.uom.impl.enums.unit;
+package tech.uom.impl.enums.unit;
 
-import tec.uom.impl.enums.quantity.ShirtSize;
-import tec.uom.impl.enums.quantity.SimpleDimension;
 import tec.uom.lib.common.util.DescriptiveEnum;
+import tech.uom.impl.enums.quantity.ShirtSize;
+import tech.uom.impl.enums.quantity.SimpleDimension;
 
 import java.util.HashMap;
 import java.util.Map;

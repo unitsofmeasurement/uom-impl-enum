@@ -30,10 +30,10 @@
 /**
  *
  */
-package tec.uom.impl.enums.unit;
+package tech.uom.impl.enums.unit;
 
-import tec.uom.impl.enums.quantity.SimpleDimension;
 import tec.uom.lib.common.function.DoubleFactorSupplier;
+import tech.uom.impl.enums.quantity.SimpleDimension;
 
 import java.util.HashMap;
 import java.util.Map;

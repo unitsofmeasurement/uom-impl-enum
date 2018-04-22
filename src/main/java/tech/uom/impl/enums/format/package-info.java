@@ -27,15 +27,11 @@
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE,
  * EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-package tec.uom.impl.enums.quantity;
-
-import javax.measure.Quantity;
-
 /**
- * Size of a shirt.
  * 
- * @author <a href="mailto:werner@uom.technology">Werner Keil</a>
- * @version 0.1
  */
-public interface ShirtSize extends Quantity<ShirtSize> {
-}
+/**
+ * @author Werner
+ *
+ */
+package tech.uom.impl.enums.format;

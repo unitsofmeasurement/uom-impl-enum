@@ -27,7 +27,7 @@
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE,
  * EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-package tec.uom.impl.enums.format;
+package tech.uom.impl.enums.format;
 
 import java.io.IOException;
 
@@ -48,9 +48,9 @@ import javax.measure.format.UnitFormat;
  * specification). For example:
  * 
  * <pre><code>
- *        AbstractFormat.getInstance().parse("kW").equals(KILO(WATT))
- *        AbstractFormat.getInstance().parse("[ft_i]").equals(METRE.multiply(3048).divide(10000))
- *        AbstractFormat.getInstance(Locale.USA).parse("ft").equals(METRE.multiply(3048).divide(10000))
+ *        AbstractUnitFormat.getInstance().parse("kW").equals(KILO(WATT))
+ *        AbstractUnitFormat.getInstance().parse("[ft_i]").equals(METRE.multiply(3048).divide(10000))
+ *        AbstractUnitFormat.getInstance(Locale.USA).parse("ft").equals(METRE.multiply(3048).divide(10000))
  * [/code]
  * </p>
  * 
@@ -63,7 +63,7 @@ import javax.measure.format.UnitFormat;
  * @version 0.5.1 $Date: 2015-09-25 $
  * @see <a href="http://unitsofmeasure.org">Unified Code of Measure (UCUM)</a>
  */
-abstract class AbstractFormat implements UnitFormat {
+abstract class AbstractUnitFormat implements UnitFormat {
 	// TODO for #JavaME don't use java.text
 
 	/** The serialVersionUID */
@@ -81,7 +81,7 @@ abstract class AbstractFormat implements UnitFormat {
 	/**
 	 * Base constructor.
 	 */
-	protected AbstractFormat() {
+	protected AbstractUnitFormat() {
 	}
 
 	/**

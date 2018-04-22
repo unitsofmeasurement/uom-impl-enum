@@ -27,14 +27,15 @@
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE,
  * EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-package tec.uom.impl.enums.unit;
+package tech.uom.impl.enums.unit;
 
-import static tec.uom.impl.enums.unit.Constants.DEG;
-import tec.uom.impl.enums.DimensionalModel;
-import tec.uom.impl.enums.function.AbstractConverter;
-import tec.uom.impl.enums.quantity.SimpleDimension;
 import tec.uom.lib.common.function.DescriptionSupplier;
 import tec.uom.lib.common.function.DoubleFactorSupplier;
+import tech.uom.impl.enums.DimensionalModel;
+import tech.uom.impl.enums.function.AbstractConverter;
+import tech.uom.impl.enums.quantity.SimpleDimension;
+
+import static tech.uom.impl.enums.unit.Constants.DEG;
 
 import java.util.HashMap;
 import java.util.Map;

@@ -32,7 +32,8 @@ package tec.uom.impl.enums.quantity;
 import static org.junit.Assert.*;
 import org.junit.Test;
 
-import tec.uom.impl.enums.unit.ShirtSizeUnit;
+import tech.uom.impl.enums.quantity.ShirtSizeEnum;
+import tech.uom.impl.enums.unit.ShirtSizeUnit;
 
 /**
  * 

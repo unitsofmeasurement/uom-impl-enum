@@ -30,14 +30,14 @@
 package tec.uom.impl.enums.quantity;
 
 import static org.junit.Assert.*;
-import static tec.uom.impl.enums.unit.TimeUnit.*;
+import static tech.uom.impl.enums.unit.TimeUnit.*;
 
 import javax.measure.Quantity;
 import javax.measure.quantity.Time;
 
 import org.junit.Test;
 
-import tec.uom.impl.enums.quantity.TimeAmount;
+import tech.uom.impl.enums.quantity.TimeAmount;
 
 public class TimeTest {
 	

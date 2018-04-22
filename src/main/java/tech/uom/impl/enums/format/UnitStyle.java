@@ -27,8 +27,29 @@
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE,
  * EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-package tec.uom.impl.enums.unit;
+package tech.uom.impl.enums.format;
 
-abstract class Constants {
-	static final char DEG = '\u00B0';
+
+/**
+ * Defines the different variants of unit formatting.
+ * 
+ * @author Werner Keil
+ */
+public enum UnitStyle {
+
+	/**
+	 * The unit will be rendered as its localized display name. If no display
+	 * name is known for the required {@link javax.measure.Unit}, the unit symbol
+	 * should be used as a fall-back.
+	 * 
+	 * @see javax.measure.Unit#getName()
+	 */
+	NAME,
+
+	/**
+	 * The unit will be rendered as its (non localized) unit symbol.
+	 * 
+	 * @see javax.measure.Unit#getSymbol()
+	 */
+	SYMBOL
 }

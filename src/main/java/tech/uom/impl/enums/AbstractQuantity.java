@@ -27,11 +27,11 @@
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE,
  * EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-package tec.uom.impl.enums;
+package tech.uom.impl.enums;
 
-import tec.uom.impl.enums.format.UnitStyle;
 import tec.uom.lib.common.function.DoubleFactorSupplier;
 import tec.uom.lib.common.function.QuantityConverter;
+import tech.uom.impl.enums.format.UnitStyle;
 
 import javax.measure.Quantity;
 import javax.measure.Unit;

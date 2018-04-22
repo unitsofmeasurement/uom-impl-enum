@@ -27,7 +27,7 @@
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE,
  * EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-package tec.uom.impl.enums.format;
+package tech.uom.impl.enums.format;
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -45,7 +45,7 @@ import javax.measure.format.UnitFormat;
  * @author <a href="mailto:units@catmedia.us">Werner Keil</a>
  * @version 1.7.1 ($Revision: 473 $), $Date: 2014-07-01 21:26:05 +0200 (Di, 01 Jul 2014) $
  */
-public class SimpleUnitFormat extends AbstractFormat {
+public class SimpleUnitFormat extends AbstractUnitFormat {
     /**
      *
      */

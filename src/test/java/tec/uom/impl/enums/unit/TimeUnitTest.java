@@ -30,11 +30,15 @@
 package tec.uom.impl.enums.unit;
 
 import static org.junit.Assert.*;
-import static tec.uom.impl.enums.unit.TimeUnit.*;
+//import static javax.measure.MetricPrefix;
+import static tech.uom.impl.enums.unit.TimeUnit.*;
+
+import javax.measure.Unit;
+import javax.measure.quantity.Time;
 
 import org.junit.Test;
 
-import tec.uom.impl.enums.unit.TimeUnit;
+import tech.uom.impl.enums.unit.TimeUnit;
 
 
 /**
@@ -53,5 +57,17 @@ public class TimeUnitTest {
 	public void testToString() {
 		TimeUnit t =  MINUTE; // min
 		assertEquals("MINUTE", t.toString());
+	}
+	
+	@Test
+	public void testToString2() {
+		TimeUnit t =  SECOND; // sec
+		assertEquals("SECOND", t.toString());
+	}
+	
+	@Test
+	public void testPrefix() {
+		Unit<Time> t =  SECOND; // sec
+		//Unit<Time> conv = MILLI(SECOND);
 	}
 }

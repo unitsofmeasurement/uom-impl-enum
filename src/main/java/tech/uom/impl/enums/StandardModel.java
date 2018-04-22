@@ -27,40 +27,47 @@
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE,
  * EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-package tec.uom.impl.enums.quantity;
+package tech.uom.impl.enums;
 
-import static tec.uom.impl.enums.unit.ShirtSizeUnit.SML;
+import java.util.HashMap;
+import java.util.Map;
 
+import javax.measure.Quantity;
 import javax.measure.Unit;
 
-import tec.uom.lib.common.function.UnitSupplier;
-import tec.uom.lib.common.util.DescriptiveEnum;
-
 /**
- * International shirt sizes represented by a Java {@linkplain Enum} implementing {@link UnitSupplier}
- * @author Werner Keil
+ * This class represents the standard model. 
  *
+ * @author  <a href="mailto:jean-marie@dautelle.com">Jean-Marie Dautelle</a>
+ * @author  <a href="mailto:units@catmedia.us">Werner Keil</a>
+ * @version 0.5.1, December 20, 2014
  */
-public enum ShirtSizeEnum implements DescriptiveEnum<ShirtSizeEnum>, UnitSupplier<ShirtSize> {
-	XS("X-Small"), S("Small"), M("Medium"), L("Large"), XL("X-Large"), XXL("XX-Large");
+public class StandardModel extends DimensionalModel {
 
-	private final String description;
+	private static final StandardModel INSTANCE = new StandardModel();
 	
-	private ShirtSizeEnum(String desc) {
-		description = desc;
-	}
+    /**
+     * Default constructor.
+     */
+    public StandardModel() {
+    }
+    
+    /**
+     * Returns the singleton instance of this class.
+     *
+     * @return the metric system instance.
+     */
+    public static StandardModel getInstance() {
+        return INSTANCE;
+    }
+
+    @SuppressWarnings("rawtypes")
+	protected final Map<Class<? extends Quantity>, Unit>
+            quantityToUnit = new HashMap<Class<? extends Quantity>, Unit>(); // Diamond (Java 7+)
+    
+    @SuppressWarnings("unchecked")
+    public <Q extends Quantity<Q>> Unit<Q> getUnit(Class<Q> quantityType) {
+        return quantityToUnit.get(quantityType);
+    }
 	
-
-	public Unit<ShirtSize> getUnit() {
-		return SML;
-	}
-
-	public String getDescription() {
-		return description;
-	}
-
-	public DescriptiveEnum<ShirtSizeEnum>[] dValues() {
-		return values();
-	}
-
 }

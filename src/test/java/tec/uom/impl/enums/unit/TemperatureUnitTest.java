@@ -30,11 +30,11 @@
 package tec.uom.impl.enums.unit;
 
 import static org.junit.Assert.*;
-import static tec.uom.impl.enums.unit.TemperatureUnit.*;
+import static tech.uom.impl.enums.unit.TemperatureUnit.*;
 
 import org.junit.Test;
 
-import tec.uom.impl.enums.unit.TemperatureUnit;
+import tech.uom.impl.enums.unit.TemperatureUnit;
 
 
 /**

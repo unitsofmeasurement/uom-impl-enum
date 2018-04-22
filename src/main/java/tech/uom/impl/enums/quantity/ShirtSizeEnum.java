@@ -27,11 +27,40 @@
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE,
  * EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
+package tech.uom.impl.enums.quantity;
+
+import static tech.uom.impl.enums.unit.ShirtSizeUnit.SML;
+
+import javax.measure.Unit;
+
+import tec.uom.lib.common.function.UnitSupplier;
+import tec.uom.lib.common.util.DescriptiveEnum;
+
 /**
- * 
- */
-/**
- * @author Werner
+ * International shirt sizes represented by a Java {@linkplain Enum} implementing {@link UnitSupplier}
+ * @author Werner Keil
  *
  */
-package tec.uom.impl.enums.format;
+public enum ShirtSizeEnum implements DescriptiveEnum<ShirtSizeEnum>, UnitSupplier<ShirtSize> {
+	XS("X-Small"), S("Small"), M("Medium"), L("Large"), XL("X-Large"), XXL("XX-Large");
+
+	private final String description;
+	
+	private ShirtSizeEnum(String desc) {
+		description = desc;
+	}
+	
+
+	public Unit<ShirtSize> getUnit() {
+		return SML;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public DescriptiveEnum<ShirtSizeEnum>[] dValues() {
+		return values();
+	}
+
+}
