@@ -179,12 +179,13 @@
 				<configuration>
 					<header>src/main/config/header.txt</header>
 					<properties>
-						<owner>Jean-Marie Dautelle, Werner Keil, V2COM</owner>
-						<currentYear>2016</currentYear>
+						<owner>Jean-Marie Dautelle, Werner Keil, Otavio Santana</owner>
+						<currentYear>2018</currentYear>
 					</properties>
 					<excludes>
 						<exclude>**/pom.xml</exclude>
 						<exclude>**/README</exclude>
+						<exclude>**/LICENSE</exclude>
 						<exclude>**/settings.xml</exclude>
 						<exclude>src/test/resources/**</exclude>
 						<exclude>src/main/resources/**</exclude>
