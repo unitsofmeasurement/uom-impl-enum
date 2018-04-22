@@ -31,7 +31,7 @@
 	<!-- ======================================================= -->
 	<properties>
 		<jsr.version>1.0</jsr.version>
-		<lib.version>1.0.3-SNAPSHOT</lib.version>
+		<lib.version>1.1</lib.version>
 		<sourceEncoding>UTF-8</sourceEncoding> <!-- in Maven 3. -->
 		<project.build.sourceEncoding>${sourceEncoding}</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>${sourceEncoding}</project.reporting.outputEncoding>
@@ -55,7 +55,7 @@
 				<version>${jsr.version}</version>
 			</dependency>
 			<dependency>
-				<groupId>tec.uom.lib</groupId>
+				<groupId>tech.uom.lib</groupId>
 				<artifactId>uom-lib-common</artifactId>
 				<version>${lib.version}</version>
 			</dependency>
@@ -67,7 +67,7 @@
 			<artifactId>unit-api</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>tec.uom.lib</groupId>
+			<groupId>tech.uom.lib</groupId>
 			<artifactId>uom-lib-common</artifactId>
 		</dependency>
 		<dependency>
