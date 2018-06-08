@@ -52,7 +52,7 @@ public class TimeTest {
 	@Test
 	public void testToString() {
 		Time t =  new TimeQuantity(23.0d, MINUTE); // 23.0 min
-		assertEquals("23.0m", t.toString());
+		assertEquals("23.0 m", t.toString());
 	}
 	
 	@Test

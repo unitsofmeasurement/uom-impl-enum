@@ -53,7 +53,7 @@ public class TemperatureTest {
 	@Test
 	public void testToString() {
 		Temperature t =  new TemperatureQuantity(23.0d, CELSIUS); // 23.0 °C
-		assertEquals("23.0°C", t.toString());
+		assertEquals("23.0 °C", t.toString());
 	}
 	
 	@Test

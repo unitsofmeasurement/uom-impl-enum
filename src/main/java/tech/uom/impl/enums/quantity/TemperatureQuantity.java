@@ -41,7 +41,7 @@ import tech.uom.impl.enums.unit.TemperatureUnit;
 
 /**
  * @author Werner Keil
- * @version 0.7.2, $Date: 2014-11-02 $
+ * @version 0.8, $Date: 2018-06-08 $
  */
 public final class TemperatureQuantity extends AbstractQuantity<Temperature> 
   implements Temperature {
@@ -140,26 +140,21 @@ public final class TemperatureQuantity extends AbstractQuantity<Temperature>
         return showInUnit(u, value, precision, style);
     }
 
-
 	public Number getValue() {
 		 return value;
 	}
-
 
 	public Unit<Temperature> getUnit() {
 		 return unit;
 	}
 
-
 	public Quantity<Temperature> multiply(Number that) {
 		return new TemperatureQuantity(value * that.doubleValue(), unit);
 	}
 	
-
 	public Quantity<?> multiply(Quantity<?> that) {
 		return new TemperatureQuantity(value * that.getValue().doubleValue(), unit);
 	}
-
 
 	public Quantity<Temperature> inverse() {
 		// TODO Auto-generated method stub
@@ -184,7 +179,6 @@ public final class TemperatureQuantity extends AbstractQuantity<Temperature>
 		// }
 	}
 	
-
 	public Quantity<Temperature> to(Unit<Temperature> unit) {
         if (this.unit.equals(unit)) {
             return this;
@@ -202,29 +196,24 @@ public final class TemperatureQuantity extends AbstractQuantity<Temperature>
         }
 	}
 
-
 	protected boolean eq(AbstractQuantity<Temperature> dq) {
 		 return eq((TemperatureQuantity) dq);
 	}
-
 
 	public Quantity<?> divide(Quantity<?> that) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-
 	public Quantity<Temperature> subtract(Quantity<Temperature> that) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-
 	public Quantity<Temperature> add(Quantity<Temperature> that) {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
 	
 	public Quantity<Temperature> divide(Number that) {
 		// TODO Auto-generated method stub

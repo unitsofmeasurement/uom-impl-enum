@@ -38,7 +38,8 @@ import javax.measure.Unit;
 
 /**
  * @author Werner Keil
- * @version 1.0, $Date: 2018-04-22 $
+ * @version 1.1, $Date: 2018-06-08 $
+ * @since 1.0
  */
 public abstract class AbstractQuantity<Q extends Quantity<Q>> implements 
 	Quantity<Q>, QuantityConverter<Q>, Comparable<Quantity<Q>> {
@@ -109,7 +110,7 @@ public abstract class AbstractQuantity<Q extends Quantity<Q>> implements
 
     @Override
     public String toString() {
-        return toString(false);
+        return toString(true);
     }
 
     protected abstract String showInUnit(Unit<?> u, int precision, 
