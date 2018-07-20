@@ -63,6 +63,12 @@ public class TemperatureTest {
 	}
 
 	@Test
+	public void testNegate() {
+		TemperatureQuantity t = new TemperatureQuantity(Double.valueOf(30d), CELSIUS);
+		assertEquals(Double.valueOf(-30d), t.negate().getValue());
+	}
+	
+	@Test
 	@Ignore
 	public void testTo() {
 		TemperatureQuantity t = new TemperatureQuantity(Double.valueOf(30d), CELSIUS);

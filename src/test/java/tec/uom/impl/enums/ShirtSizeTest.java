@@ -27,12 +27,12 @@
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE,
  * EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-package tec.uom.impl.enums.quantity;
+package tec.uom.impl.enums;
 
 import static org.junit.Assert.*;
 import org.junit.Test;
 
-import tech.uom.impl.enums.quantity.ShirtSizeEnum;
+import tech.uom.impl.enums.ShirtSizeEnum;
 import tech.uom.impl.enums.unit.ShirtSizeUnit;
 
 /**

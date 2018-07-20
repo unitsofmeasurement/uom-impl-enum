@@ -41,7 +41,7 @@ import tech.uom.impl.enums.unit.TemperatureUnit;
 
 /**
  * @author Werner Keil
- * @version 0.8, $Date: 2018-06-08 $
+ * @version 0.9, $Date: 2018-07-21 $
  */
 public final class TemperatureQuantity extends AbstractQuantity<Temperature> 
   implements Temperature {
@@ -223,5 +223,10 @@ public final class TemperatureQuantity extends AbstractQuantity<Temperature>
 	public int compareTo(Quantity<Temperature> o) {
 		// TODO Auto-generated method stub
 		return 0;
+	}
+	
+	@Override
+	public Quantity<Temperature> negate() {
+		return new TemperatureQuantity(-value, unit);
 	}
 }

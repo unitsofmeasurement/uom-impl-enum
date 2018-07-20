@@ -40,7 +40,7 @@ import tech.uom.impl.enums.unit.DimensionlessUnit;
 
 /**
  * @author Werner Keil
- * @version 0.6
+ * @version 0.7
  */
 public class DimensionlessQuantity extends AbstractQuantity<Dimensionless> implements Dimensionless {
 	private final double scalar;
@@ -161,5 +161,10 @@ public class DimensionlessQuantity extends AbstractQuantity<Dimensionless> imple
 	protected String showInUnit(Unit<?> u, int precision, UnitStyle style) {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	@Override
+	public Quantity<Dimensionless> negate() {
+		return new DimensionlessQuantity(-value.doubleValue(), unit);
 	}
 }

@@ -41,13 +41,12 @@ import tech.uom.impl.enums.unit.TimeUnit;
 
 /**
  * @author Werner Keil
- * @version 0.7, $Date: 2018-04-22 $
+ * @version 0.8, $Date: 2018-07-21 $
  */
 public class TimeQuantity extends AbstractQuantity<Time> implements Time {
 	private final double scalar; // value in reference unit
 
 	private final Double value; // value in unit (Unit unit)
-
 	private final TimeUnit unit;
 
 	public TimeQuantity(Number val, TimeUnit un) {
@@ -186,5 +185,10 @@ public class TimeQuantity extends AbstractQuantity<Time> implements Time {
 	public int compareTo(Quantity<Time> o) {
 		// TODO Auto-generated method stub
 		return 0;
+	}
+	
+	@Override
+	public Quantity<Time> negate() {
+		return new TimeQuantity(-value, unit);
 	}
 }

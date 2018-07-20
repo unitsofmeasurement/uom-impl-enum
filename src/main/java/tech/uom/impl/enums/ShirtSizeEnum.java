@@ -27,12 +27,13 @@
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE,
  * EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-package tech.uom.impl.enums.quantity;
+package tech.uom.impl.enums;
 
 import static tech.uom.impl.enums.unit.ShirtSizeUnit.SML;
 
 import javax.measure.Unit;
 
+import tech.uom.impl.enums.quantity.ShirtSize;
 import tech.uom.lib.common.function.UnitSupplier;
 import tech.uom.lib.common.util.DescriptiveEnum;
 

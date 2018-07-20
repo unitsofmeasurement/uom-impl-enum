@@ -67,4 +67,10 @@ public class TimeTest {
 		Quantity<Time> t2 = t.to(SECOND);
 		assertEquals(Double.valueOf(1800), t2.getValue());
 	}
+	
+	@Test
+	public void testNegate() {
+		TimeQuantity t = new TimeQuantity(Double.valueOf(15d), MINUTE);
+		assertEquals(Double.valueOf(-15d), t.negate().getValue());
+	}
 }
