@@ -27,41 +27,43 @@
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE,
  * EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-package tech.uom.impl.enums;
+package tec.uom.impl.enums.quantity;
 
-import static tech.uom.impl.enums.unit.ShirtSizeUnit.SML;
+import static org.junit.Assert.*;
+import org.junit.Test;
 
-import javax.measure.Unit;
-
-import tech.uom.impl.enums.quantity.ShirtSize;
-import tech.uom.lib.common.function.UnitSupplier;
-import tech.uom.lib.common.util.DescriptiveEnum;
+import tech.uom.impl.enums.quantity.ShirtSizeEnum;
+import tech.uom.impl.enums.unit.ShirtSizeUnit;
 
 /**
- * International shirt sizes represented by a Java {@linkplain Enum} implementing {@link UnitSupplier}
+ * 
  * @author Werner Keil
  *
  */
-public enum ShirtSizeEnum implements DescriptiveEnum<ShirtSizeEnum>, UnitSupplier<ShirtSize> {
-	XS("X-Small"), S("Small"), M("Medium"), L("Large"), XL("X-Large"), XXL("XX-Large");
-
-	private final String description;
+public class ShirtSizeTest {
 	
-	private ShirtSizeEnum(String desc) {
-		description = desc;
+	@Test
+	public void testInstanciate() {
+		ShirtSizeEnum s = ShirtSizeEnum.S;
+		assertEquals("Small", s.getDescription());
 	}
 	
-
-	public Unit<ShirtSize> getUnit() {
-		return SML;
+	@Test
+	public void testToString() {
+		ShirtSizeEnum s = ShirtSizeEnum.XXL;
+		assertEquals("XXL", s.toString());
 	}
 
-	public String getDescription() {
-		return description;
+	@Test
+	public void testGetDescription() {
+		ShirtSizeEnum s = ShirtSizeEnum.XL;
+		assertEquals("X-Large", s.getDescription());
 	}
-
-	public DescriptiveEnum<ShirtSizeEnum>[] dValues() {
-		return values();
+	
+	@Test
+	public void testGetUnit() {
+		ShirtSizeEnum s = ShirtSizeEnum.L;
+		assertEquals(ShirtSizeUnit.SML, s.getUnit());
+		assertEquals("S-M-L", s.getUnit().getSymbol());
 	}
-
 }
