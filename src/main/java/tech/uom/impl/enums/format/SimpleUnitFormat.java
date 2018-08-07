@@ -39,6 +39,7 @@ import javax.measure.format.MeasurementParseException;
 import javax.measure.format.UnitFormat;
 
 import tech.uom.impl.enums.unit.DimensionlessUnit;
+import tech.uom.impl.enums.unit.DistanceUnit;
 
 /**
  * <p>
@@ -78,6 +79,7 @@ public class SimpleUnitFormat extends AbstractUnitFormat {
 	 * Base constructor.
 	 */
 	SimpleUnitFormat() {
+		unitMap.put("m", DistanceUnit.METRE);
 	}
 
 	// //////////////
