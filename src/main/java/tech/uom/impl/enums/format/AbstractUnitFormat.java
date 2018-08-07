@@ -30,9 +30,8 @@
 package tech.uom.impl.enums.format;
 
 import java.io.IOException;
-
 import javax.measure.Unit;
-import javax.measure.format.ParserException;
+import javax.measure.format.MeasurementParseException;
 import javax.measure.format.UnitFormat;
 
 /**
@@ -60,11 +59,10 @@ import javax.measure.format.UnitFormat;
  * </p>
  * 
  * @author <a href="mailto:werner.keil@gmail.com">Werner Keil</a>
- * @version 0.5.1 $Date: 2015-09-25 $
+ * @version 0.6 $Date: 2018-08-08 $
  * @see <a href="http://unitsofmeasure.org">Unified Code of Measure (UCUM)</a>
  */
 abstract class AbstractUnitFormat implements UnitFormat {
-	// TODO for #JavaME don't use java.text
 
 	/** The serialVersionUID */
 	// private static final long serialVersionUID = 7765623276257908888L;
@@ -114,9 +112,8 @@ abstract class AbstractUnitFormat implements UnitFormat {
 		try {
 			return (this.format(unit, new StringBuilder())).toString();
 		} catch (IOException ex) {
-			throw new ParserException(ex); // Should never happen.
+			throw new MeasurementParseException(ex); // Should never happen.
 		}
-
 	}
 
 	/**
@@ -155,7 +152,7 @@ abstract class AbstractUnitFormat implements UnitFormat {
 			throws IllegalArgumentException {
 		return parse(csq);
 	}
-
+	
 	public final StringBuffer format(Object obj, final StringBuffer toAppendTo) {
 		if (!(obj instanceof Unit<?>))
 			throw new IllegalArgumentException("obj: Not an instance of Unit"); //$NON-NLS-1$
