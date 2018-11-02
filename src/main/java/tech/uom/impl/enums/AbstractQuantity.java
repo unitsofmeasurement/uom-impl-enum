@@ -33,12 +33,15 @@ import tech.uom.lib.common.function.DoubleFactorSupplier;
 import tech.uom.lib.common.function.QuantityConverter;
 import tech.uom.impl.enums.format.UnitStyle;
 
+import java.util.Objects;
+
+import javax.measure.LevelOfMeasurement;
 import javax.measure.Quantity;
 import javax.measure.Unit;
 
 /**
  * @author Werner Keil
- * @version 1.1, $Date: 2018-06-08 $
+ * @version 1.2, $Date: 2018-11-02 $
  * @since 1.0
  */
 public abstract class AbstractQuantity<Q extends Quantity<Q>> implements 
@@ -49,6 +52,23 @@ public abstract class AbstractQuantity<Q extends Quantity<Q>> implements
     protected abstract boolean eq(AbstractQuantity<Q> dq);
 
     protected abstract boolean isZero();
+    
+    private final LevelOfMeasurement level;
+    
+    /**
+     * Constructor.
+     * @param level a level of measurement
+     */
+    protected AbstractQuantity(LevelOfMeasurement level) {
+        this.level = level;
+    }
+    
+    /**
+     * Constructor.
+     */
+    protected AbstractQuantity() {
+        this(LevelOfMeasurement.RATIO);
+    }
 
     @SuppressWarnings("unchecked")
 	@Override
@@ -60,13 +80,24 @@ public abstract class AbstractQuantity<Q extends Quantity<Q>> implements
     }
     
     /**
+     * Returns the measurement level.
+     *
+     * @return the measurement level.
+     * @since 2.0
+     */
+    @Override
+    public LevelOfMeasurement getLevel() {
+        return level;
+    }
+    
+    /**
      * Returns the hash code for this measure.
      *
      * @return the hash code value.
      */
     @Override
     public int hashCode() {
-      return getUnit().hashCode() + getValue().hashCode();
+      return Objects.hash(getValue(), getUnit(), getLevel());
     }
 
     public abstract String toString(boolean withUnit, boolean withSpace, 

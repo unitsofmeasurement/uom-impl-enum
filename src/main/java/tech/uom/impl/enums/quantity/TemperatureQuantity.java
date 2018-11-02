@@ -29,6 +29,7 @@
  */
 package tech.uom.impl.enums.quantity;
 
+import javax.measure.LevelOfMeasurement;
 import javax.measure.Quantity;
 import javax.measure.UnconvertibleException;
 import javax.measure.Unit;
@@ -41,7 +42,7 @@ import tech.uom.impl.enums.unit.TemperatureUnit;
 
 /**
  * @author Werner Keil
- * @version 0.9, $Date: 2018-07-21 $
+ * @version 1.0, $Date: 2018-11-02 $
  */
 public final class TemperatureQuantity extends AbstractQuantity<Temperature> 
   implements Temperature {
@@ -52,8 +53,11 @@ public final class TemperatureQuantity extends AbstractQuantity<Temperature>
     private final TemperatureUnit unit;
 
     public TemperatureQuantity(double val, TemperatureUnit un) {
-        value = val;
+        super((TemperatureUnit.KELVIN.equals(un) ? 
+                LevelOfMeasurement.RATIO : 
+                LevelOfMeasurement.INTERVAL));
         unit = un;
+        value = val;
         if (un != null) {
         	scalar = val * un.getFactor();
         } 
