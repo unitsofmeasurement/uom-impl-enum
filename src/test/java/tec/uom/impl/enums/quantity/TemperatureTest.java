@@ -30,6 +30,7 @@
 package tec.uom.impl.enums.quantity;
 
 import static org.junit.Assert.*;
+import static javax.measure.LevelOfMeasurement.*;
 import static tech.uom.impl.enums.unit.TemperatureUnit.*;
 
 import javax.measure.Quantity;
@@ -41,39 +42,47 @@ import org.junit.Test;
 import tech.uom.impl.enums.quantity.TemperatureQuantity;
 
 public class TemperatureTest {
-	
-	@Test
-	public void testInstanciate() {
-		Temperature t =  new TemperatureQuantity(23.0, CELSIUS); // 23.0 °C
-		assertEquals(Double.valueOf(23.0d), t.getValue());
-		assertEquals(CELSIUS, t.getUnit());
-		//assertEquals("km", l.getUnit().getSymbol());
-	}
-	
-	@Test
-	public void testToString() {
-		Temperature t =  new TemperatureQuantity(23.0d, CELSIUS); // 23.0 °C
-		assertEquals("23.0 °C", t.toString());
-	}
-	
-	@Test
-	public void testTemperatureQuantityDoubleTemperatureUnit() {
-		Temperature t = new TemperatureQuantity(Double.valueOf(20d), CELSIUS);
-		assertEquals(Double.valueOf(20d), t.getValue());
-	}
 
-	@Test
-	public void testNegate() {
-		TemperatureQuantity t = new TemperatureQuantity(Double.valueOf(30d), CELSIUS);
-		assertEquals(Double.valueOf(-30d), t.negate().getValue());
-	}
-	
-	@Test
-	@Ignore
-	public void testTo() {
-		TemperatureQuantity t = new TemperatureQuantity(Double.valueOf(30d), CELSIUS);
-		Quantity<Temperature> t2 = t.to(FAHRENHEIT);
-		assertEquals(Double.valueOf(20d), t2.getValue());
-	}
+    @Test
+    public void testInstanciate() {
+        Temperature t = new TemperatureQuantity(23.0, CELSIUS); // 23.0 °C
+        assertEquals(Double.valueOf(23.0d), t.getValue());
+        assertEquals(CELSIUS, t.getUnit());
+        assertEquals(INTERVAL, t.getLevel());
+        // assertEquals("km", l.getUnit().getSymbol());
+    }
 
+    @Test
+    public void testToString() {
+        Temperature t = new TemperatureQuantity(23.0d, CELSIUS); // 23.0 °C
+        assertEquals("23.0 °C", t.toString());
+    }
+
+    @Test
+    public void testTemperatureQuantityDoubleTemperatureUnit() {
+        Temperature t = new TemperatureQuantity(Double.valueOf(20d), CELSIUS);
+        assertEquals(Double.valueOf(20d), t.getValue());
+    }
+
+    @Test
+    public void testNegate() {
+        TemperatureQuantity t = new TemperatureQuantity(Double.valueOf(30d), CELSIUS);
+        assertEquals(Double.valueOf(-30d), t.negate().getValue());
+    }
+
+    @Test
+    @Ignore
+    public void testTo() {
+        TemperatureQuantity t = new TemperatureQuantity(Double.valueOf(30d), CELSIUS);
+        Quantity<Temperature> t2 = t.to(FAHRENHEIT);
+        assertEquals(INTERVAL, t2.getLevel());
+        assertEquals(Double.valueOf(20d), t2.getValue());
+    }
+
+    @Test
+    public void testKelvin() {
+        Temperature t = new TemperatureQuantity(25.0d, KELVIN); // 25.0 K
+        assertEquals("25.0 K", t.toString());
+        assertEquals(RATIO, t.getLevel());
+    }
 }
