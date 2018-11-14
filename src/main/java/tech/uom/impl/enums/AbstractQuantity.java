@@ -35,13 +35,12 @@ import tech.uom.impl.enums.format.UnitStyle;
 
 import java.util.Objects;
 
-import javax.measure.LevelOfMeasurement;
 import javax.measure.Quantity;
 import javax.measure.Unit;
 
 /**
  * @author Werner Keil
- * @version 1.2, $Date: 2018-11-02 $
+ * @version 1.3, $Date: 2018-11-14 $
  * @since 1.0
  */
 public abstract class AbstractQuantity<Q extends Quantity<Q>> implements 
@@ -53,13 +52,13 @@ public abstract class AbstractQuantity<Q extends Quantity<Q>> implements
 
     protected abstract boolean isZero();
     
-    private final LevelOfMeasurement level;
+    private final boolean level;
     
     /**
      * Constructor.
      * @param level a level of measurement
      */
-    protected AbstractQuantity(LevelOfMeasurement level) {
+    protected AbstractQuantity(boolean level) {
         this.level = level;
     }
     
@@ -67,7 +66,7 @@ public abstract class AbstractQuantity<Q extends Quantity<Q>> implements
      * Constructor.
      */
     protected AbstractQuantity() {
-        this(LevelOfMeasurement.RATIO);
+        this(true);
     }
 
     @SuppressWarnings("unchecked")
@@ -86,7 +85,7 @@ public abstract class AbstractQuantity<Q extends Quantity<Q>> implements
      * @since 2.0
      */
     @Override
-    public LevelOfMeasurement getLevel() {
+    public boolean isAbsolute() {
         return level;
     }
     
@@ -97,7 +96,7 @@ public abstract class AbstractQuantity<Q extends Quantity<Q>> implements
      */
     @Override
     public int hashCode() {
-      return Objects.hash(getValue(), getUnit(), getLevel());
+      return Objects.hash(getValue(), getUnit(), isAbsolute());
     }
 
     public abstract String toString(boolean withUnit, boolean withSpace, 
