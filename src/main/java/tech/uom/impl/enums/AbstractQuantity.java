@@ -52,21 +52,21 @@ public abstract class AbstractQuantity<Q extends Quantity<Q>> implements
 
     protected abstract boolean isZero();
     
-    private final boolean level;
+    private final Scale scale;
     
     /**
      * Constructor.
-     * @param level a level of measurement
+     * @param scale a scale of measurement
      */
-    protected AbstractQuantity(boolean level) {
-        this.level = level;
+    protected AbstractQuantity(Scale scale) {
+        this.scale = scale;
     }
     
     /**
      * Constructor.
      */
     protected AbstractQuantity() {
-        this(true);
+        this(Scale.ABSOLUTE);
     }
 
     @SuppressWarnings("unchecked")
@@ -85,8 +85,8 @@ public abstract class AbstractQuantity<Q extends Quantity<Q>> implements
      * @since 2.0
      */
     @Override
-    public boolean isAbsolute() {
-        return level;
+    public Scale getScale() {
+        return scale;
     }
     
     /**
@@ -96,7 +96,7 @@ public abstract class AbstractQuantity<Q extends Quantity<Q>> implements
      */
     @Override
     public int hashCode() {
-      return Objects.hash(getValue(), getUnit(), isAbsolute());
+      return Objects.hash(getValue(), getUnit(), getScale());
     }
 
     public abstract String toString(boolean withUnit, boolean withSpace, 

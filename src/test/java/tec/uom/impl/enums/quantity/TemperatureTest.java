@@ -31,6 +31,7 @@ package tec.uom.impl.enums.quantity;
 
 import static org.junit.Assert.*;
 import static tech.uom.impl.enums.unit.TemperatureUnit.*;
+import static javax.measure.Quantity.Scale.*;
 
 import javax.measure.Quantity;
 import javax.measure.quantity.Temperature;
@@ -47,8 +48,7 @@ public class TemperatureTest {
         Temperature t = new TemperatureQuantity(23.0, CELSIUS); // 23.0 °C
         assertEquals(Double.valueOf(23.0d), t.getValue());
         assertEquals(CELSIUS, t.getUnit());
-        assertEquals(false, t.isAbsolute());
-        // assertEquals("km", l.getUnit().getSymbol());
+        assertEquals(RELATIVE, t.getScale());
     }
 
     @Test
@@ -74,7 +74,7 @@ public class TemperatureTest {
     public void testTo() {
         TemperatureQuantity t = new TemperatureQuantity(Double.valueOf(30d), CELSIUS);
         Quantity<Temperature> t2 = t.to(FAHRENHEIT);
-        assertEquals(false, t.isAbsolute());
+        assertEquals(RELATIVE, t.getScale());
         assertEquals(Double.valueOf(20d), t2.getValue());
     }
 
@@ -82,6 +82,6 @@ public class TemperatureTest {
     public void testKelvin() {
         Temperature t = new TemperatureQuantity(25.0d, KELVIN); // 25.0 K
         assertEquals("25.0 K", t.toString());
-        assertEquals(true, t.isAbsolute());
+        assertEquals(ABSOLUTE, t.getScale());
     }
 }
