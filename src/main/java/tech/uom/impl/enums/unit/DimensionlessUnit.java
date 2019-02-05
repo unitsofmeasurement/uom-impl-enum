@@ -49,7 +49,7 @@ import javax.measure.quantity.Dimensionless;
 
 /**
  * @author Werner Keil
- * @version 1.3.1, $Date: 2017-09-03 $
+ * @version 1.4, $Date: 2019-02-04 $
  */
 public enum DimensionlessUnit implements Unit<Dimensionless>,
 	DoubleFactorSupplier {
@@ -167,4 +167,9 @@ public enum DimensionlessUnit implements Unit<Dimensionless>,
 	public Unit<Dimensionless> prefix(Prefix prefix) {
 		return this.multiply(Math.pow(prefix.getBase(), prefix.getExponent()));
 	}
+	
+    @Override
+    public Unit<Dimensionless> compound(Unit<Dimensionless> that) {
+        return new CompoundUnit<>(this, that);
+    }
 }

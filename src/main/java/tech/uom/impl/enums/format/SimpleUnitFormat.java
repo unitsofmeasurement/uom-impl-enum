@@ -38,104 +38,114 @@ import javax.measure.Unit;
 import javax.measure.format.MeasurementParseException;
 import javax.measure.format.UnitFormat;
 
+import tech.uom.impl.enums.unit.CompoundUnit;
 import tech.uom.impl.enums.unit.DimensionlessUnit;
 import tech.uom.impl.enums.unit.DistanceUnit;
 
 /**
  * <p>
- * This class provides a simple interface for formatting and parsing
- * {@linkplain org.unitsofmeasurement.unit.Unit units}.
+ * This class provides a simple interface for formatting and parsing {@linkplain org.unitsofmeasurement.unit.Unit units}.
  * </p>
  *
  * @author <a href="mailto:units@catmedia.us">Werner Keil</a>
  * @version 1.7.2 ($Revision: 473 $), $Date: 2018-08-08 $
  */
 public class SimpleUnitFormat extends AbstractUnitFormat {
-	/**
-	 *
-	 */
-	// private static final long serialVersionUID = -7753687108842507677L;
+    /**
+     *
+     */
+    // private static final long serialVersionUID = -7753687108842507677L;
 
-	private final Map<String, String> symbolMap = new HashMap<String, String>(); // Diamond (Java 7+)
-	/**
-	 * Holds the unique symbols collection.
-	 */
-	private static final Map<String, Unit<?>> unitMap = new HashMap<>();
+    private final Map<String, String> symbolMap = new HashMap<String, String>(); // Diamond (Java 7+)
+    /**
+     * Holds the unique symbols collection.
+     */
+    private static final Map<String, Unit<?>> unitMap = new HashMap<>();
 
-	private static final UnitFormat DEFAULT = new SimpleUnitFormat();
+    private static final UnitFormat DEFAULT = new SimpleUnitFormat();
 
-	// /////////////////
-	// Class methods //
-	// /////////////////
-	/** Returns the default instance for formatting */
-	public static UnitFormat getInstance() {
-		return DEFAULT;
-	}
+    // /////////////////
+    // Class methods //
+    // /////////////////
+    /** Returns the default instance for formatting */
+    public static UnitFormat getInstance() {
+        return DEFAULT;
+    }
 
-	// ////////////////
-	// Constructors //
-	// ////////////////
-	/**
-	 * Base constructor.
-	 */
-	SimpleUnitFormat() {
-		unitMap.put("m", DistanceUnit.METRE);
-	}
+    // ////////////////
+    // Constructors //
+    // ////////////////
+    /**
+     * Base constructor.
+     */
+    SimpleUnitFormat() {
+        unitMap.put("m", DistanceUnit.METRE);
+    }
 
-	// //////////////
-	// Formatting //
-	// //////////////
-	public Appendable format(Unit<?> unit, Appendable appendable) throws IOException {
-		CharSequence symbol;
+    // //////////////
+    // Formatting //
+    // //////////////
+    public Appendable format(Unit<?> unit, Appendable appendable) throws IOException {
+        // Compound unit.
+        if (unit instanceof CompoundUnit) {
+            CompoundUnit<?> cpdUnit = (CompoundUnit<?>) unit;
+            final StringBuilder compoundable = new StringBuilder();
+            compoundable.append(cpdUnit.getUpper().getSymbol());
+            compoundable.append(":"); // FIXME we need a more flexible pattern here
+            compoundable.append(cpdUnit.getLower().getSymbol());
+            return compoundable;
+        } else {
+            CharSequence symbol;
 
-		@SuppressWarnings("unlikely-arg-type")
-		String mapSymbol = symbolMap.get(unit);
-		if (mapSymbol != null) {
-			symbol = mapSymbol;
-		} else {
-			throw new IllegalArgumentException("Symbol mapping for unit of type " + //$NON-NLS-1$
-					unit.getClass().getName() + " has not been set " + //$NON-NLS-1$
-					"(see UnitFormat.SymbolMap)"); //$NON-NLS-1$
-		}
+            @SuppressWarnings("unlikely-arg-type")
+            String mapSymbol = symbolMap.get(unit);
+            if (mapSymbol != null) {
+                symbol = mapSymbol;
+            } else {
+                throw new IllegalArgumentException("Symbol mapping for unit of type " + //$NON-NLS-1$
+                        unit.getClass().getName() + " has not been set " + //$NON-NLS-1$
+                        "(see UnitFormat.SymbolMap)"); //$NON-NLS-1$
+            }
 
-		appendable.append(symbol);
+            appendable.append(symbol);
 
-		return appendable;
-	}
+            return appendable;
+        }
+    }
 
-	public void label(Unit<?> unit, String label) {
-		// do nothing
-	}
+    public void label(Unit<?> unit, String label) {
+        // do nothing
+    }
 
-	public boolean isLocaleSensitive() {
-		return false;
-	}
+    public boolean isLocaleSensitive() {
+        return false;
+    }
 
-	protected Unit<?> parse(CharSequence csq, int index) throws MeasurementParseException {
-		// Parsing reads the whole character sequence from the parse position.
-		int start = index; // cursor != null ? cursor.getIndex() : 0;
-		int end = csq.length();
-		if (end <= start) {
-			return DimensionlessUnit.ONE;
-		}
-		final Unit<?> result = unitMap.get(csq);
-		if (result != null) {
-			return result;
-		}
-		throw new MeasurementParseException("Error", csq, index);
-	}
+    protected Unit<?> parse(CharSequence csq, int index) throws MeasurementParseException {
+        // Parsing reads the whole character sequence from the parse position.
+        int start = index; // cursor != null ? cursor.getIndex() : 0;
+        int end = csq.length();
+        if (end <= start) {
+            return DimensionlessUnit.ONE;
+        }
+        final Unit<?> result = unitMap.get(csq);
+        if (result != null) {
+            return result;
+        }
+        throw new MeasurementParseException("Error", csq, index);
+    }
 
-	/**
-	 * Parses the specified character sequence to produce a unit (convenience
-	 * method). If the specified sequence is empty, the unitary unit (dimensionless)
-	 * is returned.
-	 *
-	 * @param csq the <code>CharSequence</code> to parse.
-	 * @return the unit parsed from the specified character sub-sequence.
-	 * @throws ParseException if any problem occurs while parsing the specified
-	 *                        character sequence (e.g. illegal syntax).
-	 */
-	public final Unit<?> parse(CharSequence csq, ParsePosition pos) throws MeasurementParseException {
-		return parse(csq, pos.getIndex());
-	}
+    /**
+     * Parses the specified character sequence to produce a unit (convenience method). If the specified sequence is empty, the unitary unit
+     * (dimensionless) is returned.
+     *
+     * @param csq
+     *            the <code>CharSequence</code> to parse.
+     * @return the unit parsed from the specified character sub-sequence.
+     * @throws ParseException
+     *             if any problem occurs while parsing the specified character sequence (e.g. illegal syntax).
+     */
+    public final Unit<?> parse(CharSequence csq, ParsePosition pos) throws MeasurementParseException {
+        return parse(csq, pos.getIndex());
+    }
 }

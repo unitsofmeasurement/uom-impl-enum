@@ -46,7 +46,7 @@ import javax.measure.quantity.Time;
 
 /**
  * @author Werner Keil
- * @version 1.4, $Date: 2018-04-22 $
+ * @version 1.5, $Date: 2019-02-05 $
  */
 public enum TimeUnit implements Unit<Time>, DoubleFactorSupplier {
 
@@ -174,4 +174,9 @@ public enum TimeUnit implements Unit<Time>, DoubleFactorSupplier {
 	public Unit<Time> prefix(Prefix prefix) {
 		return this.multiply(Math.pow(prefix.getBase(), prefix.getExponent()));
 	}
+	
+    @Override
+    public Unit<Time> compound(Unit<Time> that) {
+        return new CompoundUnit<>(this, that);
+    }
 }

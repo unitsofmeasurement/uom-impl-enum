@@ -50,10 +50,9 @@ import javax.measure.quantity.Length;
 
 /**
  * @author Werner Keil
- * @version 1.4, $Date: 2018-04-22 $
+ * @version 1.5, $Date: 2019-02-04 $
  */
-public enum DistanceUnit implements Unit<Length>, DoubleFactorSupplier,
-	DescriptiveEnum<DistanceUnit> {
+public enum DistanceUnit implements Unit<Length>, DoubleFactorSupplier, DescriptiveEnum<DistanceUnit> {
     METRE("m", "m", 1.0), // reference Unit
     KILOMETRE("km", "km", 1.0e3);
 
@@ -62,124 +61,127 @@ public enum DistanceUnit implements Unit<Length>, DoubleFactorSupplier,
     private final double multFactor;
 
     private DistanceUnit(final String symbol, final String name, double multF) {
-	this.symbol = symbol;
-	this.description = name;
-	this.multFactor = multF;
+        this.symbol = symbol;
+        this.description = name;
+        this.multFactor = multF;
     }
 
     public String getSymbol() {
-	return symbol;
+        return symbol;
     }
 
     public double getFactor() {
-	return multFactor;
+        return multFactor;
     }
 
     public Unit<Length> getSystemUnit() {
-	return METRE;
+        return METRE;
     }
 
     public String getName() {
-	return name();
+        return name();
     }
 
     public Map<? extends Unit<Length>, Integer> getBaseUnits() {
-	Map<Unit<Length>, Integer> prodUnits = new HashMap<Unit<Length>, Integer>();
-	prodUnits.put(KILOMETRE, Integer.valueOf(3));
-	return prodUnits;
+        Map<Unit<Length>, Integer> prodUnits = new HashMap<Unit<Length>, Integer>();
+        prodUnits.put(KILOMETRE, Integer.valueOf(3));
+        return prodUnits;
     }
 
     public static DistanceUnit getBySymbol(String symbol) {
-	if (KILOMETRE.getSymbol().equals(symbol)) {
-	    return KILOMETRE;
-	}
-	return METRE;
+        if (KILOMETRE.getSymbol().equals(symbol)) {
+            return KILOMETRE;
+        }
+        return METRE;
     }
 
-    public UnitConverter getConverterTo(Unit<Length> that)
-	    throws UnconvertibleException {
-	// currently unused
-	return null;
+    public UnitConverter getConverterTo(Unit<Length> that) throws UnconvertibleException {
+        // currently unused
+        return null;
     }
 
-    public UnitConverter getConverterToAny(Unit<?> that)
-	    throws IncommensurableException, UnconvertibleException {
-	// currently unused
-	return null;
+    public UnitConverter getConverterToAny(Unit<?> that) throws IncommensurableException, UnconvertibleException {
+        // currently unused
+        return null;
     }
 
     public Unit<Length> alternate(String s) {
-	return null; // To change body of implemented methods use File |
-		     // Settings | File TemplateBuilder.
+        return null; // To change body of implemented methods use File |
+        // Settings | File TemplateBuilder.
     }
 
     public Dimension getDimension() {
-	return SimpleDimension.INSTANCE;
+        return SimpleDimension.INSTANCE;
     }
 
     public Unit<?> inverse() {
-	return this;
+        return this;
     }
 
     public Unit<Length> divide(double v) {
-	return null; // To change body of implemented methods use File |
-		     // Settings | File TemplateBuilder.
+        return null; // To change body of implemented methods use File |
+        // Settings | File TemplateBuilder.
     }
 
     public Unit<?> divide(Unit<?> unit) {
-	return null; // To change body of implemented methods use File |
-		     // Settings | File TemplateBuilder.
+        return null; // To change body of implemented methods use File |
+        // Settings | File TemplateBuilder.
     }
 
     public boolean isCompatible(Unit<?> that) {
-	if (that instanceof DistanceUnit)
-	    return true;
-	return false;
+        if (that instanceof DistanceUnit)
+            return true;
+        return false;
     }
 
     @SuppressWarnings("unchecked")
     public <T extends Quantity<T>> Unit<T> asType(Class<T> tClass) {
-	Unit<T> metricUnit = (Unit<T>) METRE;
-	if ((metricUnit == null) || metricUnit.isCompatible(this))
-	    return (Unit<T>) this;
-	throw new ClassCastException("The unit: " + this //$NON-NLS-1$
-		+ " is not of parameterized type " + tClass); //$NON-NLS-1$
+        Unit<T> metricUnit = (Unit<T>) METRE;
+        if ((metricUnit == null) || metricUnit.isCompatible(this))
+            return (Unit<T>) this;
+        throw new ClassCastException("The unit: " + this //$NON-NLS-1$
+                + " is not of parameterized type " + tClass); //$NON-NLS-1$
     }
 
     public Unit<Length> multiply(double factor) {
-	return this;
+        return this;
     }
 
     public Unit<?> multiply(Unit<?> that) {
-	return this;
+        return this;
     }
 
     public Unit<?> pow(int n) {
-	return this;
+        return this;
     }
 
     public Unit<?> root(int n) {
-	return this;
+        return this;
     }
 
     public Unit<Length> transform(UnitConverter operation) {
-	return this;
+        return this;
     }
 
     public Unit<Length> shift(double v) {
-	return this;
+        return this;
     }
 
     public String getDescription() {
-	return description;
+        return description;
     }
 
     public DescriptiveEnum<DistanceUnit>[] dValues() {
-	return DistanceUnit.values();
+        return DistanceUnit.values();
     }
-    
-	@Override
-	public Unit<Length> prefix(Prefix prefix) {
-		return this.multiply(Math.pow(prefix.getBase(), prefix.getExponent()));
-	}
+
+    @Override
+    public Unit<Length> prefix(Prefix prefix) {
+        return this.multiply(Math.pow(prefix.getBase(), prefix.getExponent()));
+    }
+
+    @Override
+    public Unit<Length> compound(Unit<Length> that) {
+        return new CompoundUnit<>(this, that);
+    }
 }

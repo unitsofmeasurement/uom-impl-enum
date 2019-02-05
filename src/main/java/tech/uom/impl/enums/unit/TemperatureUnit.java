@@ -51,7 +51,7 @@ import javax.measure.quantity.Temperature;
 
 /**
  * @author Werner Keil
- * @version 0.7, $Date: 2018-04-22 $
+ * @version 0.8, $Date: 2019-02-05 $
  */
 public enum TemperatureUnit implements Unit<Temperature>, DoubleFactorSupplier, DescriptionSupplier {
 
@@ -234,4 +234,9 @@ public enum TemperatureUnit implements Unit<Temperature>, DoubleFactorSupplier, 
 	public Unit<Temperature> prefix(Prefix prefix) {
 		return this.multiply(Math.pow(prefix.getBase(), prefix.getExponent()));
 	}
+	
+    @Override
+    public Unit<Temperature> compound(Unit<Temperature> that) {
+        return new CompoundUnit<>(this, that);
+    }
 }

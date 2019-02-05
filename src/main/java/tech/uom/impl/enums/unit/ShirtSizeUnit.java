@@ -46,7 +46,7 @@ import javax.measure.UnitConverter;
 
 /**
  * @author Werner Keil
- * @version 0.3, $Date: 2017-09-03 $
+ * @version 0.4, $Date: 2019-03-05 $
  */
 public enum ShirtSizeUnit implements Unit<ShirtSize>,
 	DescriptiveEnum<ShirtSizeUnit> {
@@ -171,4 +171,9 @@ public enum ShirtSizeUnit implements Unit<ShirtSize>,
 	public Unit<ShirtSize> prefix(Prefix prefix) {
 		return this.multiply(Math.pow(prefix.getBase(), prefix.getExponent()));
 	}
+	
+    @Override
+    public Unit<ShirtSize> compound(Unit<ShirtSize> that) {
+        return new CompoundUnit<>(this, that);
+    }
 }
