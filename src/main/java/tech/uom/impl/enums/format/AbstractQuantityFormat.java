@@ -37,6 +37,7 @@ import java.text.ParsePosition;
 import javax.measure.Quantity;
 import javax.measure.format.MeasurementParseException;
 import javax.measure.format.QuantityFormat;
+
 import tech.uom.lib.common.function.Parser;
 
 /**
@@ -46,7 +47,7 @@ import tech.uom.lib.common.function.Parser;
  *
  * @author <a href="mailto:jean-marie@dautelle.com">Jean-Marie Dautelle</a>
  * @author <a href="mailto:werner@uom.technology">Werner Keil</a>
- * @version 1.0, $Date: 2018-04-22 $
+ * @version 1.1, $Date: 2019-03-11 $
  * @since 2.0
  * 
  */
@@ -124,11 +125,7 @@ public abstract class AbstractQuantityFormat extends Format implements QuantityF
       throw new IllegalArgumentException("obj: Not an instance of Quantity");
     if ((toAppendTo == null) || (pos == null))
       throw new NullPointerException();
-    try {
-      return (StringBuffer) format((Quantity<?>) obj, toAppendTo);
-    } catch (IOException ex) {
-      throw new Error(ex); // Cannot happen.
-    }
+    return (StringBuffer) format((Quantity<?>) obj, toAppendTo);
   }
 
   @Override
@@ -149,11 +146,15 @@ public abstract class AbstractQuantityFormat extends Format implements QuantityF
    *          the appendable destination.
    * @return the specified <code>StringBuilder</code>.
    */
-  public final StringBuilder format(Quantity<?> quantity, StringBuilder dest) {
+  protected final StringBuffer format(Quantity<?> quantity, StringBuffer dest) {
     try {
-      return (StringBuilder) this.format(quantity, (Appendable) dest);
+      return (StringBuffer) this.format(quantity, (Appendable) dest);
     } catch (IOException ex) {
       throw new RuntimeException(ex); // Should not happen.
     }
+  }
+  
+  public final String format(Quantity<?> quantity) {
+        return (this.format(quantity, new StringBuffer())).toString();
   }
 }
