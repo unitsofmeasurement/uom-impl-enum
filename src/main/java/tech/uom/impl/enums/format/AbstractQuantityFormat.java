@@ -55,7 +55,7 @@ import tech.uom.lib.common.function.Parser;
 public abstract class AbstractQuantityFormat extends Format implements QuantityFormat, Parser<CharSequence, Quantity> {
   // TODO for later, see https://github.com/unitsofmeasurement/indriya/issues/17
   // * <p>
-  // * Instances of this class should be able to format quantities stated in {@link CompoundUnit}. See {@link #formatCompound formatCompound(...)}.
+  // * Instances of this class should be able to format quantities stated in {@link MixedUnit}.
   // * </p>
 
   /**

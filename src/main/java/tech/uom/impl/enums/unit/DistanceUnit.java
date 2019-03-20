@@ -181,7 +181,7 @@ public enum DistanceUnit implements Unit<Length>, DoubleFactorSupplier, Descript
     }
 
     @Override
-    public Unit<Length> compound(Unit<Length> that) {
-        return new CompoundUnit<>(this, that);
+    public Unit<Length> mix(Unit<Length> that) {
+        return new MixedUnit<>(this, that);
     }
 }

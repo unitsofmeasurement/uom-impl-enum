@@ -173,7 +173,7 @@ public enum ShirtSizeUnit implements Unit<ShirtSize>,
 	}
 	
     @Override
-    public Unit<ShirtSize> compound(Unit<ShirtSize> that) {
-        return new CompoundUnit<>(this, that);
+    public Unit<ShirtSize> mix(Unit<ShirtSize> that) {
+        return new MixedUnit<>(this, that);
     }
 }

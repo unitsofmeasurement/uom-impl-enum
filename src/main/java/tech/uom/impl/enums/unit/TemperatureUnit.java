@@ -236,7 +236,7 @@ public enum TemperatureUnit implements Unit<Temperature>, DoubleFactorSupplier, 
 	}
 	
     @Override
-    public Unit<Temperature> compound(Unit<Temperature> that) {
-        return new CompoundUnit<>(this, that);
+    public Unit<Temperature> mix(Unit<Temperature> that) {
+        return new MixedUnit<>(this, that);
     }
 }

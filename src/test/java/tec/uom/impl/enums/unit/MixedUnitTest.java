@@ -45,18 +45,18 @@ import tech.uom.impl.enums.unit.TimeUnit;
  *
  * @author Werner Keil
  */
-public class CompoundUnitTest {
+public class MixedUnitTest {
 
   @Test
   public void testLength() {
-    final Unit<Length> compLen =  DistanceUnit.KILOMETRE.compound(DistanceUnit.METRE);
+    final Unit<Length> compLen =  DistanceUnit.KILOMETRE.mix(DistanceUnit.METRE);
     assertEquals("km:m", compLen.toString());
   }
   
   @Test
   public void testTime() {
     final Unit<Time> compTime =  TimeUnit.HOUR.
-              compound(TimeUnit.MINUTE).compound(TimeUnit.SECOND);
+              mix(TimeUnit.MINUTE).mix(TimeUnit.SECOND);
     assertEquals("h:m:s", compTime.toString());
   }
 }

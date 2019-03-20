@@ -176,7 +176,7 @@ public enum TimeUnit implements Unit<Time>, DoubleFactorSupplier {
 	}
 	
     @Override
-    public Unit<Time> compound(Unit<Time> that) {
-        return new CompoundUnit<>(this, that);
+    public Unit<Time> mix(Unit<Time> that) {
+        return new MixedUnit<>(this, that);
     }
 }

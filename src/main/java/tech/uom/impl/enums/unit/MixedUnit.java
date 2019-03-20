@@ -44,21 +44,21 @@ import javax.measure.Unit;
 
 /**
  * <p>
- * This class represents multi-radix units (such as "hour:min:sec" or "ft, in"). Instances of this class are created using the {@link Unit#compound
- * Unit.compound} method.
+ * This class represents multi-radix units (such as "hour:min:sec" or "ft, in"). Instances of this class are created using the {@link Unit#mix
+ * Unit.mix} method.
  * </p>
  * 
  * <p>
- * Examples of compound units:<code> Unit<Time> HOUR_MINUTE_SECOND = HOUR.compound(MINUTE).compound(SECOND); <br>Unit<Length> FOOT_INCH =
- * FOOT.compound(INCH); </code>
+ * Examples of mixed units:<code> Unit<Time> HOUR_MINUTE_SECOND = HOUR.mix(MINUTE).mix(SECOND); <br>Unit<Length> FOOT_INCH =
+ * FOOT.mix(INCH); </code>
  * </p>
  *
  * @author <a href="mailto:jean-marie@dautelle.com">Jean-Marie Dautelle</a>
- * @author <a href="mailto:units@catmedia.us">Werner Keil</a>
- * @version 1.8, February 4, 2019
+ * @author <a href="mailto:werner@units.tech">Werner Keil</a>
+ * @version 1.9, March 20, 2019
  * @since 2.0
  */
-public final class CompoundUnit<Q extends Quantity<Q>> implements Unit<Q> {
+public final class MixedUnit<Q extends Quantity<Q>> implements Unit<Q> {
 
     /**
      * Holds the upper unit.
@@ -71,7 +71,7 @@ public final class CompoundUnit<Q extends Quantity<Q>> implements Unit<Q> {
     private final Unit<Q> lower;
 
     /**
-     * Creates a compound unit from the specified units.
+     * Creates a mixed unit from the specified units.
      *
      * @param up
      *            the upper unit.
@@ -80,7 +80,7 @@ public final class CompoundUnit<Q extends Quantity<Q>> implements Unit<Q> {
      * @throws IllegalArgumentException
      *             if both units do not the same system unit.
      */
-    public CompoundUnit(Unit<Q> up, Unit<Q> low) {
+    public MixedUnit(Unit<Q> up, Unit<Q> low) {
         if (!up.getSystemUnit().equals(low.getSystemUnit()))
             throw new IllegalArgumentException("Both units do not have the same system unit");
         upper = up;
@@ -88,7 +88,7 @@ public final class CompoundUnit<Q extends Quantity<Q>> implements Unit<Q> {
     }
 
     /**
-     * Returns the lower unit of this compound unit.
+     * Returns the lower unit of this mixed unit.
      *
      * @return the lower unit.
      */
@@ -97,7 +97,7 @@ public final class CompoundUnit<Q extends Quantity<Q>> implements Unit<Q> {
     }
 
     /**
-     * Returns the upper unit of this compound unit.
+     * Returns the upper unit of this mixed unit.
      *
      * @return the upper unit.
      */
@@ -106,7 +106,7 @@ public final class CompoundUnit<Q extends Quantity<Q>> implements Unit<Q> {
     }
 
     /**
-     * Indicates if this compound unit is considered equals to the specified object (both are compound units with same composing units in the same
+     * Indicates if this mixed unit is considered equals to the specified object (both are mixed units with same composing units in the same
      * order).
      *
      * @param obj
@@ -117,8 +117,8 @@ public final class CompoundUnit<Q extends Quantity<Q>> implements Unit<Q> {
         if (this == obj) {
             return true;
         }
-        if (obj instanceof CompoundUnit) {
-            CompoundUnit<?> thatUnit = (CompoundUnit<?>) obj;
+        if (obj instanceof MixedUnit) {
+            MixedUnit<?> thatUnit = (MixedUnit<?>) obj;
             return this.upper.equals(thatUnit.upper) && this.lower.equals(thatUnit.lower);
         }
         return super.equals(obj);
@@ -244,8 +244,8 @@ public final class CompoundUnit<Q extends Quantity<Q>> implements Unit<Q> {
     }
 
     @Override
-    public Unit<Q> compound(Unit<Q> that) {
-        return new CompoundUnit<Q>(this, that);
+    public Unit<Q> mix(Unit<Q> that) {
+        return new MixedUnit<Q>(this, that);
     }
     
     /**

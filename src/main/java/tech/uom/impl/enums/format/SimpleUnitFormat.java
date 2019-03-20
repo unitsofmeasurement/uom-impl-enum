@@ -38,7 +38,7 @@ import javax.measure.Unit;
 import javax.measure.format.MeasurementParseException;
 import javax.measure.format.UnitFormat;
 
-import tech.uom.impl.enums.unit.CompoundUnit;
+import tech.uom.impl.enums.unit.MixedUnit;
 import tech.uom.impl.enums.unit.DimensionlessUnit;
 import tech.uom.impl.enums.unit.DistanceUnit;
 
@@ -47,8 +47,8 @@ import tech.uom.impl.enums.unit.DistanceUnit;
  * This class provides a simple interface for formatting and parsing {@linkplain org.unitsofmeasurement.unit.Unit units}.
  * </p>
  *
- * @author <a href="mailto:units@catmedia.us">Werner Keil</a>
- * @version 1.7.2 ($Revision: 473 $), $Date: 2018-08-08 $
+ * @author <a href="mailto:werner@units.tech">Werner Keil</a>
+ * @version 1.8, $Date: 2019-03-20 $
  */
 public class SimpleUnitFormat extends AbstractUnitFormat {
     /**
@@ -86,14 +86,14 @@ public class SimpleUnitFormat extends AbstractUnitFormat {
     // Formatting //
     // //////////////
     public Appendable format(Unit<?> unit, Appendable appendable) throws IOException {
-        // Compound unit.
-        if (unit instanceof CompoundUnit) {
-            CompoundUnit<?> cpdUnit = (CompoundUnit<?>) unit;
-            final StringBuilder compoundable = new StringBuilder();
-            compoundable.append(cpdUnit.getUpper().getSymbol());
-            compoundable.append(":"); // FIXME we need a more flexible pattern here
-            compoundable.append(cpdUnit.getLower().getSymbol());
-            return compoundable;
+        // Mixed unit.
+        if (unit instanceof MixedUnit) {
+            MixedUnit<?> cpdUnit = (MixedUnit<?>) unit;
+            final StringBuilder mixable = new StringBuilder();
+            mixable.append(cpdUnit.getUpper().getSymbol());
+            mixable.append(":"); // FIXME we need a more flexible pattern here
+            mixable.append(cpdUnit.getLower().getSymbol());
+            return mixable;
         } else {
             CharSequence symbol;
 

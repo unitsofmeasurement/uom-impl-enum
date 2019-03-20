@@ -169,7 +169,7 @@ public enum DimensionlessUnit implements Unit<Dimensionless>,
 	}
 	
     @Override
-    public Unit<Dimensionless> compound(Unit<Dimensionless> that) {
-        return new CompoundUnit<>(this, that);
+    public Unit<Dimensionless> mix(Unit<Dimensionless> that) {
+        return new MixedUnit<>(this, that);
     }
 }
