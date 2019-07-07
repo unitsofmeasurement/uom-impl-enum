@@ -37,7 +37,7 @@ import javax.measure.Dimension;
 import javax.measure.UnitConverter;
 
 import tech.uom.impl.enums.function.AbstractConverter;
-import tech.uom.impl.enums.quantity.SimpleDimension;
+import tech.uom.impl.enums.unit.SimpleDimension;
 
 /**
  * <p> This class represents the physical model used for dimensional analysis.</p>

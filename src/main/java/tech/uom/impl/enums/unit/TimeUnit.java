@@ -30,7 +30,6 @@
 package tech.uom.impl.enums.unit;
 
 import tech.uom.lib.common.function.DoubleFactorSupplier;
-import tech.uom.impl.enums.quantity.SimpleDimension;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -46,7 +45,7 @@ import javax.measure.quantity.Time;
 
 /**
  * @author Werner Keil
- * @version 1.5, $Date: 2019-02-05 $
+ * @version 1.6, $Date: 2019-07-08 $
  */
 public enum TimeUnit implements Unit<Time>, DoubleFactorSupplier {
 
@@ -172,11 +171,21 @@ public enum TimeUnit implements Unit<Time>, DoubleFactorSupplier {
 
 	@Override
 	public Unit<Time> prefix(Prefix prefix) {
-		return this.multiply(Math.pow(prefix.getBase(), prefix.getExponent()));
+		return this.multiply(Math.pow(prefix.getValue().doubleValue(), prefix.getExponent()));
 	}
-	
-    @Override
-    public Unit<Time> mix(Unit<Time> that) {
-        return new MixedUnit<>(this, that);
-    }
+
+	@Override
+	public Unit<Time> shift(Number offset) {
+		return this;
+	}
+
+	@Override
+	public Unit<Time> multiply(Number multiplier) {
+		return this;
+	}
+
+	@Override
+	public Unit<Time> divide(Number divisor) {
+		return this;
+	}
 }

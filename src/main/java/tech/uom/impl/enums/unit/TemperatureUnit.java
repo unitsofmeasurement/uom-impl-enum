@@ -33,7 +33,6 @@ import tech.uom.lib.common.function.DescriptionSupplier;
 import tech.uom.lib.common.function.DoubleFactorSupplier;
 import tech.uom.impl.enums.DimensionalModel;
 import tech.uom.impl.enums.function.AbstractConverter;
-import tech.uom.impl.enums.quantity.SimpleDimension;
 
 import static tech.uom.impl.enums.unit.Constants.DEG;
 
@@ -51,7 +50,7 @@ import javax.measure.quantity.Temperature;
 
 /**
  * @author Werner Keil
- * @version 0.8, $Date: 2019-02-05 $
+ * @version 0.9, $Date: 2019-02-05 $
  */
 public enum TemperatureUnit implements Unit<Temperature>, DoubleFactorSupplier, DescriptionSupplier {
 
@@ -232,11 +231,21 @@ public enum TemperatureUnit implements Unit<Temperature>, DoubleFactorSupplier, 
 
 	@Override
 	public Unit<Temperature> prefix(Prefix prefix) {
-		return this.multiply(Math.pow(prefix.getBase(), prefix.getExponent()));
+		return this.multiply(Math.pow(prefix.getValue().doubleValue(), prefix.getExponent()));
 	}
 	
-    @Override
-    public Unit<Temperature> mix(Unit<Temperature> that) {
-        return new MixedUnit<>(this, that);
-    }
+	@Override
+	public Unit<Temperature> shift(Number offset) {
+		return this;
+	}
+
+	@Override
+	public Unit<Temperature> multiply(Number multiplier) {
+		return this;
+	}
+
+	@Override
+	public Unit<Temperature> divide(Number divisor) {
+		return this;
+	}
 }

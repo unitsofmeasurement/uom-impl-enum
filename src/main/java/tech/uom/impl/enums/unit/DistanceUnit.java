@@ -34,7 +34,6 @@ package tech.uom.impl.enums.unit;
 
 import tech.uom.lib.common.function.DoubleFactorSupplier;
 import tech.uom.lib.common.util.DescriptiveEnum;
-import tech.uom.impl.enums.quantity.SimpleDimension;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -177,11 +176,21 @@ public enum DistanceUnit implements Unit<Length>, DoubleFactorSupplier, Descript
 
     @Override
     public Unit<Length> prefix(Prefix prefix) {
-        return this.multiply(Math.pow(prefix.getBase(), prefix.getExponent()));
+        return this.multiply(Math.pow(prefix.getValue().doubleValue(), prefix.getExponent()));
     }
 
-    @Override
-    public Unit<Length> mix(Unit<Length> that) {
-        return new MixedUnit<>(this, that);
-    }
+	@Override
+	public Unit<Length> shift(Number offset) {
+		return this;
+	}
+
+	@Override
+	public Unit<Length> multiply(Number multiplier) {
+		return this;
+	}
+
+	@Override
+	public Unit<Length> divide(Number divisor) {
+		return this;
+	}
 }

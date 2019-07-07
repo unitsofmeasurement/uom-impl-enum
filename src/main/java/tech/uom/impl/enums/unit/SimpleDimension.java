@@ -30,7 +30,7 @@
 /**
  *
  */
-package tech.uom.impl.enums.quantity;
+package tech.uom.impl.enums.unit;
 
 
 import java.util.HashMap;

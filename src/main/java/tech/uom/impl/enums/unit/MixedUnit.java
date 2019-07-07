@@ -210,40 +210,34 @@ public final class MixedUnit<Q extends Quantity<Q>> implements Unit<Q> {
 
     @Override
     public Unit<Q> divide(double divisor) {
-        // TODO Auto-generated method stub
-        return null;
+    	return this;
     }
 
     @Override
     public Unit<?> divide(Unit<?> divisor) {
-        // TODO Auto-generated method stub
-        return null;
+    	return this;
     }
 
     @Override
     public Unit<?> root(int n) {
-        // TODO Auto-generated method stub
-        return null;
+    	return this;
     }
 
     @Override
     public Unit<?> pow(int n) {
-        // TODO Auto-generated method stub
-        return null;
+    	return this;
     }
 
     @Override
     public Unit<Q> transform(UnitConverter operation) {
-        // TODO Auto-generated method stub
-        return null;
+    	return this;
     }
 
     @Override
     public Unit<Q> prefix(Prefix prefix) {
-        return this.multiply(Math.pow(prefix.getBase(), prefix.getExponent()));
+        return this.multiply(Math.pow(prefix.getValue().doubleValue(), prefix.getExponent()));
     }
-
-    @Override
+    
     public Unit<Q> mix(Unit<Q> that) {
         return new MixedUnit<Q>(this, that);
     }
@@ -263,4 +257,19 @@ public final class MixedUnit<Q extends Quantity<Q>> implements Unit<Q> {
     public String toString() {
         return SimpleUnitFormat.getInstance().format(this);
     }
+
+	@Override
+	public Unit<Q> shift(Number offset) {
+		return this;
+	}
+
+	@Override
+	public Unit<Q> multiply(Number multiplier) {
+		return this;
+	}
+
+	@Override
+	public Unit<Q> divide(Number divisor) {
+		return this;
+	}
 }

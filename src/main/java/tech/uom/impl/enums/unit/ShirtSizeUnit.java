@@ -31,7 +31,6 @@ package tech.uom.impl.enums.unit;
 
 import tech.uom.lib.common.util.DescriptiveEnum;
 import tech.uom.impl.enums.quantity.ShirtSize;
-import tech.uom.impl.enums.quantity.SimpleDimension;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -46,7 +45,7 @@ import javax.measure.UnitConverter;
 
 /**
  * @author Werner Keil
- * @version 0.4, $Date: 2019-03-05 $
+ * @version 0.5, $Date: 2019-07-08 $
  */
 public enum ShirtSizeUnit implements Unit<ShirtSize>,
 	DescriptiveEnum<ShirtSizeUnit> {
@@ -169,11 +168,21 @@ public enum ShirtSizeUnit implements Unit<ShirtSize>,
 
 	@Override
 	public Unit<ShirtSize> prefix(Prefix prefix) {
-		return this.multiply(Math.pow(prefix.getBase(), prefix.getExponent()));
+		return this.multiply(Math.pow(prefix.getValue().doubleValue(), prefix.getExponent()));
 	}
-	
-    @Override
-    public Unit<ShirtSize> mix(Unit<ShirtSize> that) {
-        return new MixedUnit<>(this, that);
-    }
+
+	@Override
+	public Unit<ShirtSize> shift(Number offset) {
+		return this;
+	}
+
+	@Override
+	public Unit<ShirtSize> multiply(Number multiplier) {
+		return this;
+	}
+
+	@Override
+	public Unit<ShirtSize> divide(Number divisor) {
+		return this;
+	}
 }

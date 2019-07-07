@@ -30,6 +30,8 @@
 package tec.uom.impl.enums.unit;
 
 import static org.junit.Assert.*;
+import static tech.uom.impl.enums.unit.DistanceUnit.*;
+import static tech.uom.impl.enums.unit.TimeUnit.*;
 
 import javax.measure.Unit;
 import javax.measure.quantity.Length;
@@ -37,9 +39,7 @@ import javax.measure.quantity.Time;
 
 import org.junit.Test;
 
-import tech.uom.impl.enums.unit.DistanceUnit;
-import tech.uom.impl.enums.unit.TimeUnit;
-
+import tech.uom.impl.enums.unit.MixedUnit;
 
 /**
  *
@@ -49,14 +49,13 @@ public class MixedUnitTest {
 
   @Test
   public void testLength() {
-    final Unit<Length> compLen =  DistanceUnit.KILOMETRE.mix(DistanceUnit.METRE);
+    final Unit<Length> compLen = new MixedUnit<>(KILOMETRE, METRE);
     assertEquals("km:m", compLen.toString());
   }
   
   @Test
   public void testTime() {
-    final Unit<Time> compTime =  TimeUnit.HOUR.
-              mix(TimeUnit.MINUTE).mix(TimeUnit.SECOND);
+    final Unit<Time> compTime =  new MixedUnit<>(HOUR, MINUTE).mix(SECOND);
     assertEquals("h:m:s", compTime.toString());
   }
 }
