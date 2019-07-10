@@ -10,7 +10,7 @@
 		<name>Units of Measurement project</name>
 		<url>http://unitsofmeasurement.github.io/</url>
 	</organization>
-	<url>https://github.com/unitsofmeasurement/unit-impl-enum</url>
+	<url>https://github.com/unitsofmeasurement/uom-impl-enum</url>
 	<description>Small footprint approach based on Java Enums.</description>
 	<licenses>
 		<license>
