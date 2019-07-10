@@ -284,4 +284,5 @@
 			<url>https://oss.jfrog.org/artifactory/oss-snapshot-local</url>
 		</snapshotRepository>
 	</distributionManagement>
+	<version>2.0.1-SNAPSHOT</version>
 </project>
