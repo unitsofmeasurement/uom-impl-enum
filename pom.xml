@@ -21,7 +21,7 @@
 	<parent>
 		<groupId>tech.uom</groupId>
 		<artifactId>uom-parent</artifactId>
-		<version>2.0</version>
+		<version>2.0.2</version>
 	</parent>
 	<scm>
 		<url>https://github.com/unitsofmeasurement/uom-impl-enum.git</url>
