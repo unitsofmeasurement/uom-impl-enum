@@ -10,11 +10,11 @@
 		<name>Units of Measurement project</name>
 		<url>http://unitsofmeasurement.github.io/</url>
 	</organization>
-	<url>https://github.com/unitsofmeasurement/uom-impl-enum</url>
+	<url>http://unitsofmeasurement.github.io/uom-impl-enum/</url>
 	<description>Small footprint approach based on Java Enums.</description>
 	<licenses>
 		<license>
-			<name>BSD</name>
+			<name>BSD 3 Clause</name>
 			<url>LICENSE</url>
 		</license>
 	</licenses>
@@ -117,8 +117,8 @@
 							<Specification-Title>Units of Measurement API</Specification-Title>
 							<Specification-Version>${project.version}</Specification-Version>
 							<Specification-Vendor>${project.organization.name}</Specification-Vendor>
-							<Implementation-Vendor>Unit-API contributors</Implementation-Vendor>
-							<Implementation-URL>http://www.unitsofmeasurement.org</Implementation-URL>
+							<Implementation-Vendor>Units of Measurement project</Implementation-Vendor>
+							<Implementation-URL>http://unitsofmeasurement.github.io/uom-impl-enum/</Implementation-URL>
 						</manifestEntries>
 					</archive>
 				</configuration>
@@ -176,8 +176,8 @@
 				<configuration>
 					<header>src/main/config/header.txt</header>
 					<properties>
-						<owner>Jean-Marie Dautelle, Werner Keil, Otavio Santana</owner>
-						<currentYear>2018</currentYear>
+						<owner>Werner Keil and others</owner>
+						<currentYear>2020</currentYear>
 					</properties>
 					<excludes>
 						<exclude>.editorconfig</exclude>
@@ -187,6 +187,7 @@
 						<exclude>**/README</exclude>
 						<exclude>**/LICENSE</exclude>
 						<exclude>**/settings.xml</exclude>
+						<exclude>docs/**</exclude>
 						<exclude>src/test/resources/**</exclude>
 						<exclude>src/main/resources/**</exclude>
 						<exclude>src/etc/**</exclude>
