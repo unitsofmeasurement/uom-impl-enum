@@ -27,7 +27,7 @@
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE,
  * EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-package tec.uom.impl.enums.quantity;
+package tech.uom.impl.enums.quantity;
 
 import static org.junit.Assert.*;
 import static tech.uom.impl.enums.unit.TemperatureUnit.*;

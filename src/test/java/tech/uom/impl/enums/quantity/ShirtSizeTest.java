@@ -27,32 +27,43 @@
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE,
  * EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-package tec.uom.impl.enums.unit;
+package tech.uom.impl.enums.quantity;
 
 import static org.junit.Assert.*;
-import static tech.uom.impl.enums.unit.TemperatureUnit.*;
-
 import org.junit.Test;
 
-import tech.uom.impl.enums.unit.TemperatureUnit;
-
+import tech.uom.impl.enums.quantity.ShirtSizeEnum;
+import tech.uom.impl.enums.unit.ShirtSizeUnit;
 
 /**
+ * 
  * @author Werner Keil
  *
  */
-public class TemperatureUnitTest {
-
+public class ShirtSizeTest {
+	
 	@Test
 	public void testInstanciate() {
-		TemperatureUnit t =  CELSIUS; // C
-		assertEquals("°C", t.getSymbol());
+		ShirtSizeEnum s = ShirtSizeEnum.S;
+		assertEquals("Small", s.getDescription());
 	}
 	
 	@Test
 	public void testToString() {
-		TemperatureUnit t =  FAHRENHEIT; // F
-		assertEquals("FAHRENHEIT", t.toString());
+		ShirtSizeEnum s = ShirtSizeEnum.XXL;
+		assertEquals("XXL", s.toString());
 	}
 
+	@Test
+	public void testGetDescription() {
+		ShirtSizeEnum s = ShirtSizeEnum.XL;
+		assertEquals("X-Large", s.getDescription());
+	}
+	
+	@Test
+	public void testGetUnit() {
+		ShirtSizeEnum s = ShirtSizeEnum.L;
+		assertEquals(ShirtSizeUnit.SML, s.getUnit());
+		assertEquals("S-M-L", s.getUnit().getSymbol());
+	}
 }

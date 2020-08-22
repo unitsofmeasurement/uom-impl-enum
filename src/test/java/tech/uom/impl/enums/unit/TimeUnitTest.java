@@ -27,11 +27,49 @@
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE,
  * EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
+package tech.uom.impl.enums.unit;
+
+import static org.junit.Assert.*;
+import static javax.measure.MetricPrefix.MILLI;
+import static tech.uom.impl.enums.unit.TimeUnit.*;
+
+import javax.measure.Unit;
+import javax.measure.quantity.Time;
+
+import org.junit.Test;
+
+import tech.uom.impl.enums.unit.TimeUnit;
+
+
 /**
- * 
- */
-/**
- * @author Werner
+ * @author Werner Keil
  *
  */
-package tec.uom.impl.enums.unit;
+public class TimeUnitTest {
+
+	@Test
+	public void testInstanciate() {
+		TimeUnit t =  HOUR; // h
+		assertEquals("h", t.getSymbol());
+	}
+	
+	@Test
+	public void testToString() {
+		TimeUnit t =  MINUTE; // min
+		assertEquals("MINUTE", t.toString());
+	}
+	
+	@Test
+	public void testToString2() {
+		TimeUnit t =  SECOND; // sec
+		assertEquals("SECOND", t.toString());
+	}
+	
+	@Test
+	public void testPrefix() {
+		Unit<Time> t =  SECOND; // sec
+		Unit<Time> conv = MILLI(SECOND);
+		assertEquals("ms", conv.getSymbol());
+		assertEquals(MILLISECOND, conv);
+	}
+}

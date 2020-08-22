@@ -27,35 +27,11 @@
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE,
  * EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-package tec.uom.impl.enums.unit;
-
-import static org.junit.Assert.*;
-import static tech.uom.impl.enums.unit.DistanceUnit.*;
-import static tech.uom.impl.enums.unit.TimeUnit.*;
-
-import javax.measure.Unit;
-import javax.measure.quantity.Length;
-import javax.measure.quantity.Time;
-
-import org.junit.Test;
-
-import tech.uom.impl.enums.unit.MixedUnit;
-
 /**
- *
- * @author Werner Keil
+ * 
  */
-public class MixedUnitTest {
-
-  @Test
-  public void testLength() {
-    final Unit<Length> compLen = new MixedUnit<>(KILOMETRE, METRE);
-    assertEquals("km:m", compLen.toString());
-  }
-  
-  @Test
-  public void testTime() {
-    final Unit<Time> compTime =  new MixedUnit<>(HOUR, MINUTE).mix(SECOND);
-    assertEquals("h:m:s", compTime.toString());
-  }
-}
+/**
+ * @author Werner
+ *
+ */
+package tech.uom.impl.enums.unit;
