@@ -45,7 +45,7 @@ import javax.measure.UnitConverter;
 
 /**
  * @author Werner Keil
- * @version 0.5, $Date: 2019-07-08 $
+ * @version 1.0, $Date: 2020-10-03 $
  */
 public enum ShirtSizeUnit implements Unit<ShirtSize>,
 	DescriptiveEnum<ShirtSizeUnit> {
@@ -184,5 +184,10 @@ public enum ShirtSizeUnit implements Unit<ShirtSize>,
 	@Override
 	public Unit<ShirtSize> divide(Number divisor) {
 		return this;
+	}
+
+	@Override
+	public boolean isEquivalentTo(Unit<ShirtSize> that) {
+		return equals(that);
 	}
 }

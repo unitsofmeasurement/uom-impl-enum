@@ -29,17 +29,15 @@
  */
 package tech.uom.impl.enums.unit;
 
-import static org.junit.Assert.*;
+import static  org.junit.jupiter.api.Assertions.assertEquals;
+
 import static javax.measure.MetricPrefix.MILLI;
 import static tech.uom.impl.enums.unit.TimeUnit.*;
 
 import javax.measure.Unit;
 import javax.measure.quantity.Time;
 
-import org.junit.Test;
-
-import tech.uom.impl.enums.unit.TimeUnit;
-
+import org.junit.jupiter.api.Test;
 
 /**
  * @author Werner Keil

@@ -29,13 +29,11 @@
  */
 package tech.uom.impl.enums.unit;
 
-import static org.junit.Assert.*;
+import static  org.junit.jupiter.api.Assertions.assertEquals;
+
 import static tech.uom.impl.enums.unit.TemperatureUnit.*;
 
-import org.junit.Test;
-
-import tech.uom.impl.enums.unit.TemperatureUnit;
-
+import org.junit.jupiter.api.Test;
 
 /**
  * @author Werner Keil

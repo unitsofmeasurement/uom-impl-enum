@@ -29,7 +29,8 @@
  */
 package tech.uom.impl.enums.unit;
 
-import static org.junit.Assert.*;
+import static  org.junit.jupiter.api.Assertions.assertEquals;
+
 import static tech.uom.impl.enums.unit.DistanceUnit.*;
 import static tech.uom.impl.enums.unit.TimeUnit.*;
 
@@ -37,9 +38,7 @@ import javax.measure.Unit;
 import javax.measure.quantity.Length;
 import javax.measure.quantity.Time;
 
-import org.junit.Test;
-
-import tech.uom.impl.enums.unit.MixedUnit;
+import org.junit.jupiter.api.Test;
 
 /**
  *

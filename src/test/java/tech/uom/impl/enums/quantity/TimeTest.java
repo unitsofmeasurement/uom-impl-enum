@@ -29,15 +29,13 @@
  */
 package tech.uom.impl.enums.quantity;
 
-import static org.junit.Assert.*;
+import static  org.junit.jupiter.api.Assertions.assertEquals;
 import static tech.uom.impl.enums.unit.TimeUnit.*;
 
 import javax.measure.Quantity;
 import javax.measure.quantity.Time;
 
-import org.junit.Test;
-
-import tech.uom.impl.enums.quantity.TimeQuantity;
+import org.junit.jupiter.api.Test;
 
 public class TimeTest {
 	

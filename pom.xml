@@ -21,7 +21,7 @@
 	<parent>
 		<groupId>tech.uom</groupId>
 		<artifactId>uom-parent</artifactId>
-		<version>2.0.2</version>
+		<version>2.1-SNAPSHOT</version>
 	</parent>
 	<scm>
 		<url>https://github.com/unitsofmeasurement/uom-impl-enum.git</url>
@@ -31,8 +31,8 @@
 	<!-- Build Settings -->
 	<!-- ======================================================= -->
 	<properties>
-		<jsr.version>2.0</jsr.version>
-		<lib.version>2.0</lib.version>
+		<jsr.version>2.1-SNAPSHOT</jsr.version>
+		<lib.version>2.1-SNAPSHOT</lib.version>
 		<sourceEncoding>UTF-8</sourceEncoding> <!-- in Maven 3. -->
 		<project.build.sourceEncoding>${sourceEncoding}</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>${sourceEncoding}</project.reporting.outputEncoding>
@@ -71,12 +71,19 @@
 			<groupId>org.hamcrest</groupId>
 			<artifactId>hamcrest-junit</artifactId>
 			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>junit</groupId>
-			<artifactId>junit</artifactId>
-			<scope>test</scope>
-		</dependency>
+		</dependency>		  
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-api</artifactId>
+            <version>${junit.jupiter.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-engine</artifactId>
+            <version>${junit.jupiter.version}</version>
+            <scope>test</scope>
+        </dependency>
 	</dependencies>
 
 	<build>
@@ -248,7 +255,7 @@
 		<repository>
 			<id>jcenter</id>
 			<name>JCenter</name>
-			<url>http://jcenter.bintray.com</url>
+			<url>https://jcenter.bintray.com</url>
 		</repository>
 		<repository>
 			<snapshots>
@@ -256,7 +263,7 @@
 			</snapshots>
 			<id>bintray-release</id>
 			<name>libs-release</name>
-			<url>http://oss.jfrog.org/artifactory/libs-release</url>
+			<url>https://oss.jfrog.org/artifactory/libs-release</url>
 		</repository>
 		<repository>
 			<snapshots>
@@ -264,12 +271,7 @@
 			</snapshots>
 			<id>bintray-snapshot</id>
 			<name>libs-snapshot</name>
-			<url>http://oss.jfrog.org/artifactory/libs-snapshot</url>
-		</repository>
-		<repository>
-			<id>geotoolkit</id>
-			<name>Geotoolkit.org project</name>
-			<url>http://maven.geotoolkit.org</url>
+			<url>https://oss.jfrog.org/artifactory/libs-snapshot</url>
 		</repository>
 	</repositories>
 
@@ -285,5 +287,4 @@
 			<url>https://oss.jfrog.org/artifactory/oss-snapshot-local</url>
 		</snapshotRepository>
 	</distributionManagement>
-	<version>2.0.1-SNAPSHOT</version>
 </project>

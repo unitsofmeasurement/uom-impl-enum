@@ -40,7 +40,7 @@ import javax.measure.Unit;
 
 /**
  * @author Werner Keil
- * @version 1.3, $Date: 2018-11-14 $
+ * @version 2.0, $Date: 2020-10-03 $
  * @since 1.0
  */
 public abstract class AbstractQuantity<Q extends Quantity<Q>> implements 
@@ -76,6 +76,11 @@ public abstract class AbstractQuantity<Q extends Quantity<Q>> implements
             return eq((AbstractQuantity<Q>) o);
         }
         return false;
+    }
+    
+    @Override
+    public boolean isEquivalentTo(Quantity<Q> that) {
+        return this.compareTo(that) == 0;
     }
     
     /**

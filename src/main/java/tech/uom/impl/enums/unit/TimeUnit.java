@@ -45,7 +45,7 @@ import javax.measure.quantity.Time;
 
 /**
  * @author Werner Keil
- * @version 1.6, $Date: 2019-07-08 $
+ * @version 1.7, $Date: 2020-10-03 $
  */
 public enum TimeUnit implements Unit<Time>, DoubleFactorSupplier {
 
@@ -187,5 +187,10 @@ public enum TimeUnit implements Unit<Time>, DoubleFactorSupplier {
 	@Override
 	public Unit<Time> divide(Number divisor) {
 		return this;
+	}
+
+	@Override
+	public boolean isEquivalentTo(Unit<Time> that) {
+		return equals(that);
 	}
 }

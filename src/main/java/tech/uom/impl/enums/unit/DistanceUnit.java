@@ -193,4 +193,9 @@ public enum DistanceUnit implements Unit<Length>, DoubleFactorSupplier, Descript
 	public Unit<Length> divide(Number divisor) {
 		return this;
 	}
+
+	@Override
+	public boolean isEquivalentTo(Unit<Length> that) {
+		return equals(that);
+	}
 }

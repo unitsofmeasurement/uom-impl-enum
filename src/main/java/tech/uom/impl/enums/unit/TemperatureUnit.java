@@ -50,7 +50,7 @@ import javax.measure.quantity.Temperature;
 
 /**
  * @author Werner Keil
- * @version 0.9, $Date: 2019-02-05 $
+ * @version 1.0, $Date: 2020-10-03 $
  */
 public enum TemperatureUnit implements Unit<Temperature>, DoubleFactorSupplier, DescriptionSupplier {
 
@@ -247,5 +247,10 @@ public enum TemperatureUnit implements Unit<Temperature>, DoubleFactorSupplier, 
 	@Override
 	public Unit<Temperature> divide(Number divisor) {
 		return this;
+	}
+
+	@Override
+	public boolean isEquivalentTo(Unit<Temperature> that) {
+		return equals(that);
 	}
 }

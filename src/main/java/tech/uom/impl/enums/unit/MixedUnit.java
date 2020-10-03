@@ -55,7 +55,7 @@ import javax.measure.Unit;
  *
  * @author <a href="mailto:jean-marie@dautelle.com">Jean-Marie Dautelle</a>
  * @author <a href="mailto:werner@units.tech">Werner Keil</a>
- * @version 1.9, March 20, 2019
+ * @version 2.0, Oct 3, 2020
  * @since 2.0
  */
 public final class MixedUnit<Q extends Quantity<Q>> implements Unit<Q> {
@@ -271,5 +271,10 @@ public final class MixedUnit<Q extends Quantity<Q>> implements Unit<Q> {
 	@Override
 	public Unit<Q> divide(Number divisor) {
 		return this;
+	}
+
+	@Override
+	public boolean isEquivalentTo(Unit<Q> that) {
+		return equals(that);
 	}
 }

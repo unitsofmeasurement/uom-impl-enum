@@ -177,4 +177,9 @@ public enum DimensionlessUnit implements Unit<Dimensionless>, DoubleFactorSuppli
 	public Unit<Dimensionless> divide(Number divisor) {
 		return this;
 	}
+
+	@Override
+	public boolean isEquivalentTo(Unit<Dimensionless> that) {
+		return equals(that);
+	}
 }

@@ -29,17 +29,15 @@
  */
 package tech.uom.impl.enums.quantity;
 
-import static org.junit.Assert.*;
 import static tech.uom.impl.enums.unit.TemperatureUnit.*;
 import static javax.measure.Quantity.Scale.*;
+import static  org.junit.jupiter.api.Assertions.assertEquals;
 
 import javax.measure.Quantity;
 import javax.measure.quantity.Temperature;
 
-import org.junit.Ignore;
-import org.junit.Test;
-
-import tech.uom.impl.enums.quantity.TemperatureQuantity;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Test;
 
 public class TemperatureTest {
 
@@ -70,7 +68,7 @@ public class TemperatureTest {
     }
 
     @Test
-    @Ignore
+    @Disabled
     public void testTo() {
         TemperatureQuantity t = new TemperatureQuantity(Double.valueOf(30d), CELSIUS);
         Quantity<Temperature> t2 = t.to(FAHRENHEIT);

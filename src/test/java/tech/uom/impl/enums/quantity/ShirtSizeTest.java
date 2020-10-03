@@ -30,9 +30,9 @@
 package tech.uom.impl.enums.quantity;
 
 import static org.junit.Assert.*;
-import org.junit.Test;
 
-import tech.uom.impl.enums.quantity.ShirtSizeEnum;
+import org.junit.jupiter.api.Test;
+
 import tech.uom.impl.enums.unit.ShirtSizeUnit;
 
 /**
