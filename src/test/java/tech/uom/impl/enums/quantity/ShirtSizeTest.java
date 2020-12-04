@@ -29,7 +29,7 @@
  */
 package tech.uom.impl.enums.quantity;
 
-import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
