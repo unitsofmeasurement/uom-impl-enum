@@ -40,7 +40,7 @@ import javax.measure.Unit;
 
 /**
  * @author Werner Keil
- * @version 2.0, $Date: 2020-10-03 $
+ * @version 2.1, $Date: 2020-12-06 $
  * @since 1.0
  */
 public abstract class AbstractQuantity<Q extends Quantity<Q>> implements 
@@ -115,7 +115,7 @@ public abstract class AbstractQuantity<Q extends Quantity<Q>> implements
      * Casts this quantity to a parameterized quantity of specified nature or throw a
      * <code>ClassCastException</code> if the dimension of the specified
      * quantity and its unit's dimension do not match. For
-     * example:<br/><code>
+     * example:<br><code>
      *     Quantity<Length> length = BaseQuantity.of("2 km").asType(Length.class);
      * </code>
      *

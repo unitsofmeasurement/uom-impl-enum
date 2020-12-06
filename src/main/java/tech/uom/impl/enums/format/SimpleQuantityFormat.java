@@ -104,7 +104,7 @@ public class SimpleQuantityFormat extends AbstractQuantityFormat {
 		return parse(csq, new ParsePosition(0));
 	}
 
-	/**
+  /**
    * Returns the quantity format for the default locale. The default format assumes the quantity is composed of a decimal number and a {@link Unit}
    * separated by whitespace(s).
    *
