@@ -44,11 +44,11 @@ import tech.uom.impl.enums.unit.DistanceUnit;
 
 /**
  * <p>
- * This class provides a simple interface for formatting and parsing {@linkplain org.unitsofmeasurement.unit.Unit units}.
+ * This class provides a simple interface for formatting and parsing {@linkplain javax.measure.Unit units}.
  * </p>
  *
  * @author <a href="mailto:werner@units.tech">Werner Keil</a>
- * @version 1.8, $Date: 2019-03-20 $
+ * @version 2.0, $Date: 2020-12-06 $
  */
 public class SimpleUnitFormat extends AbstractUnitFormat {
     /**
@@ -142,7 +142,7 @@ public class SimpleUnitFormat extends AbstractUnitFormat {
      * @param csq
      *            the <code>CharSequence</code> to parse.
      * @return the unit parsed from the specified character sub-sequence.
-     * @throws ParseException
+     * @throws MeasurementParseException
      *             if any problem occurs while parsing the specified character sequence (e.g. illegal syntax).
      */
     public final Unit<?> parse(CharSequence csq, ParsePosition pos) throws MeasurementParseException {
