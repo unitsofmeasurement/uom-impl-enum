@@ -1,6 +1,6 @@
 /*
  * Units of Measurement Enum Implementation
- * Copyright © 2005-2020, Werner Keil and others.
+ * Copyright © 2005-2021, Werner Keil and others.
  *
  * All rights reserved.
  *

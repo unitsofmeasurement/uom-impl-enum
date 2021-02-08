@@ -184,7 +184,7 @@
 					<header>src/main/config/header.txt</header>
 					<properties>
 						<owner>Werner Keil and others</owner>
-						<currentYear>2020</currentYear>
+						<currentYear>2021</currentYear>
 					</properties>
 					<excludes>
 						<exclude>.editorconfig</exclude>
