@@ -124,7 +124,7 @@
 							<Specification-Version>${project.version}</Specification-Version>
 							<Specification-Vendor>${project.organization.name}</Specification-Vendor>
 							<Implementation-Vendor>Units of Measurement project</Implementation-Vendor>
-							<Implementation-URL>http://unitsofmeasurement.github.io/uom-impl-enum/</Implementation-URL>
+							<Implementation-URL>https://unitsofmeasurement.github.io/uom-impl-enum/</Implementation-URL>
 						</manifestEntries>
 					</archive>
 				</configuration>
