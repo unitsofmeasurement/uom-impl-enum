@@ -4,7 +4,6 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>tech.uom.impl</groupId>
 	<artifactId>uom-impl-enum</artifactId>
-    <version>2.1</version>
 	<!-- <packaging>bundle</packaging> -->
 	<name>Units of Measurement Enum Implementation</name>
 	<organization>
